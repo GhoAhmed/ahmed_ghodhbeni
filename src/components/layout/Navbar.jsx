@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
 import { useState, useEffect } from "react";
+import { HiBookOpen, HiBriefcase, HiHome, HiMail } from "react-icons/hi";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,9 +17,17 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { to: "/", label: "Accueil", icon: "🏠" },
-    { to: "/courses", label: "Cours", icon: "📚" },
-    { to: "/portfolio", label: "Portfolio", icon: "💼" },
+    { to: "/", label: "Accueil", icon: <HiHome className="w-5 h-5" /> },
+    {
+      to: "/courses",
+      label: "Cours",
+      icon: <HiBookOpen className="w-5 h-5" />,
+    },
+    {
+      to: "/portfolio",
+      label: "Portfolio",
+      icon: <HiBriefcase className="w-5 h-5" />,
+    },
   ];
 
   return (
@@ -32,10 +41,7 @@ const Navbar = () => {
       <div className="container-app">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo / Title */}
-          <NavLink
-            to="/"
-            className="flex items-center gap-3 group"
-          >
+          <NavLink to="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 center-flex text-white font-bold text-xl shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
               AG
             </div>
@@ -56,22 +62,20 @@ const Navbar = () => {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `relative px-6 py-2.5 rounded-full font-medium transition-all duration-200 ${
+                  `flex items-center gap-2 px-6 py-2.5 rounded-full font-medium transition-all duration-200 ${
                     isActive
                       ? "bg-white text-blue-600 shadow-sm"
                       : "text-gray-600 hover:text-blue-600 hover:bg-white/50"
                   }`
                 }
               >
-                {({ isActive }) => (
-                  <>
-                    <span className="hidden xl:inline mr-2">{link.icon}</span>
-                    {link.label}
-                    {isActive && (
-                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full"></span>
-                    )}
-                  </>
-                )}
+                {link.icon}
+                <span>{link.label}</span>
+                {({ isActive }) =>
+                  isActive && (
+                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full"></span>
+                  )
+                }
               </NavLink>
             ))}
           </nav>
@@ -79,10 +83,10 @@ const Navbar = () => {
           {/* CTA Button Desktop */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="mailto:ahmed.ghodhbeni@example.com"
+              href="mailto:ahmed.godhbeni@gmail.com"
               className="btn btn-primary btn-sm"
             >
-              <span>📧</span>
+              <HiMail className="w-5 h-5" />
               <span>Contact</span>
             </a>
           </div>
@@ -137,7 +141,7 @@ const Navbar = () => {
                   href="mailto:ahmed.ghodhbeni@example.com"
                   className="btn btn-primary w-full"
                 >
-                  <span>📧</span>
+                  <HiMail className="w-5 h-5" />
                   <span>Me contacter</span>
                 </a>
               </div>
