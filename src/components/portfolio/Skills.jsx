@@ -1,72 +1,22 @@
+import { FaRocket } from "react-icons/fa";
+import { skillCategories, tools } from "../../constants";
 import profile from "../../data/profile.json";
+import { TbTargetArrow } from "react-icons/tb";
 
 const Skills = ({ expanded = false }) => {
-  // Catégorisation des compétences avec niveaux
-  const skillCategories = [
-    {
-      title: "Développement Web",
-      icon: "💻",
-      color: "from-blue-500 to-cyan-500",
-      skills: [
-        { name: "React.js", level: 95 },
-        { name: "Node.js", level: 90 },
-        { name: "JavaScript/TypeScript", level: 95 },
-        { name: "HTML/CSS", level: 100 },
-      ]
-    },
-    {
-      title: "Backend & Bases de données",
-      icon: "🗄️",
-      color: "from-green-500 to-emerald-500",
-      skills: [
-        { name: "SQL (PostgreSQL, MySQL)", level: 90 },
-        { name: "MongoDB", level: 85 },
-        { name: "Express.js", level: 90 },
-        { name: "API REST", level: 95 },
-      ]
-    },
-    {
-      title: "DevOps & Cloud",
-      icon: "☁️",
-      color: "from-orange-500 to-red-500",
-      skills: [
-        { name: "Docker", level: 85 },
-        { name: "Git/GitHub", level: 95 },
-        { name: "AWS/Azure", level: 75 },
-        { name: "CI/CD", level: 80 },
-      ]
-    },
-    {
-      title: "Pédagogie & Soft Skills",
-      icon: "🎓",
-      color: "from-purple-500 to-pink-500",
-      skills: [
-        { name: "Conception pédagogique", level: 95 },
-        { name: "Évaluation & feedback", level: 90 },
-        { name: "Communication", level: 95 },
-        { name: "Gestion de projet", level: 85 },
-      ]
-    }
-  ];
-
-  const tools = [
-    { name: "VS Code", icon: "🔧", category: "Éditeur" },
-    { name: "Figma", icon: "🎨", category: "Design" },
-    { name: "Postman", icon: "📮", category: "API" },
-    { name: "Jira", icon: "📊", category: "Gestion" },
-    { name: "Slack", icon: "💬", category: "Communication" },
-    { name: "Notion", icon: "📝", category: "Documentation" },
-  ];
-
   return (
     <div className="card space-y-6">
       <div className="flex items-center gap-3">
         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 center-flex text-2xl">
-          🎯
+          <TbTargetArrow />
         </div>
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">Compétences & Outils</h2>
-          <p className="text-sm text-gray-500">Technologies et expertise technique</p>
+          <h2 className="text-2xl font-bold text-gray-900">
+            Compétences & Outils
+          </h2>
+          <p className="text-sm text-gray-500">
+            Technologies et expertise technique
+          </p>
         </div>
       </div>
 
@@ -75,7 +25,9 @@ const Skills = ({ expanded = false }) => {
         <div className="space-y-6">
           {/* Compétences sous forme de tags */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-3">Compétences principales</h3>
+            <h3 className="font-semibold text-gray-900 mb-3">
+              Compétences principales
+            </h3>
             <div className="flex flex-wrap gap-2">
               {profile.skills.map((skill, idx) => (
                 <span
@@ -110,8 +62,10 @@ const Skills = ({ expanded = false }) => {
           {skillCategories.map((category, idx) => (
             <div key={idx} className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${category.color} center-flex text-xl`}>
-                  {category.icon}
+                <div
+                  className={`w-10 h-10 rounded-xl bg-gradient-to-br ${category.color} center-flex text-xl`}
+                >
+                  <category.icon />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900">
                   {category.title}
@@ -152,9 +106,13 @@ const Skills = ({ expanded = false }) => {
                   key={idx}
                   className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
                 >
-                  <span className="text-2xl">{tool.icon}</span>
+                  <span className="text-2xl">
+                    <tool.icon />
+                  </span>
                   <div>
-                    <p className="font-medium text-gray-900 text-sm">{tool.name}</p>
+                    <p className="font-medium text-gray-900 text-sm">
+                      {tool.name}
+                    </p>
                     <p className="text-xs text-gray-500">{tool.category}</p>
                   </div>
                 </div>

@@ -1,13 +1,17 @@
+import {
+  FaCloud,
+  FaGithub,
+  FaGraduationCap,
+  FaLaptopCode,
+  FaLinkedin,
+  FaRocket,
+} from "react-icons/fa";
 import profile from "../../data/profile.json";
+import Grille from "../sections/Grille";
+import { SiQuizlet } from "react-icons/si";
+import { HiMail } from "react-icons/hi";
 
 const Profile = () => {
-  const highlights = [
-    { icon: "🎓", label: "Ingénieur Informatique", value: "Diplômé" },
-    { icon: "👨‍🏫", label: "Enseignant", value: "5+ ans d'expérience" },
-    { icon: "👨‍🎓", label: "Étudiants formés", value: "500+" },
-    { icon: "⭐", label: "Satisfaction", value: "95%" },
-  ];
-
   return (
     <div className="card space-y-6">
       <div className="flex flex-col md:flex-row gap-6 items-start">
@@ -27,42 +31,48 @@ const Profile = () => {
             <p className="text-xl text-blue-600 font-medium mb-3">
               {profile.title}
             </p>
-            <p className="text-gray-700 leading-relaxed">
-              {profile.bio}
-            </p>
+            <p className="text-gray-700 leading-relaxed">{profile.bio}</p>
           </div>
 
           {/* Tags de compétences rapides */}
           <div className="flex flex-wrap gap-2">
-            <span className="badge badge-primary">💻 Développement Web</span>
-            <span className="badge badge-info">🎓 Pédagogie</span>
-            <span className="badge badge-success">🚀 Innovation</span>
-            <span className="badge badge-warning">☁️ Cloud & DevOps</span>
+            <span className="badge badge-primary">
+              <FaLaptopCode className="h-5 w-5" /> Développement Web
+            </span>
+            <span className="badge badge-info">
+              <FaGraduationCap className="h-5 w-5" /> Pédagogie
+            </span>
+            <span className="badge badge-success">
+              <FaRocket className="h-5 w-5" /> Innovation
+            </span>
+            <span className="badge badge-warning">
+              <SiQuizlet className="h-5 w-5" /> Problem-Solving
+            </span>
           </div>
 
           {/* Liens sociaux */}
           <div className="flex gap-3 pt-2">
             <a
-              href="mailto:ahmed.ghodhbeni@example.com"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+              href="mailto:ahmed.godhbeni@gmail.com"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
             >
-              <span>📧</span>
+              <HiMail />
               <span>Email</span>
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/ahmedghodhbeni/"
               target="_blank"
               className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium"
             >
-              <span>💼</span>
+              <FaLinkedin />
               <span>LinkedIn</span>
             </a>
             <a
-              href="#"
+              href="https://github.com/GhoAhmed"
               target="_blank"
               className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium"
             >
-              <span>💻</span>
+              <FaGithub />
               <span>GitHub</span>
             </a>
           </div>
@@ -70,15 +80,7 @@ const Profile = () => {
       </div>
 
       {/* Points forts en grille */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-gray-100">
-        {highlights.map((item, idx) => (
-          <div key={idx} className="text-center space-y-2">
-            <div className="text-3xl">{item.icon}</div>
-            <div className="text-sm text-gray-500">{item.label}</div>
-            <div className="font-semibold text-gray-900">{item.value}</div>
-          </div>
-        ))}
-      </div>
+      <Grille />
     </div>
   );
 };
