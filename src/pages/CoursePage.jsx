@@ -3,6 +3,10 @@ import { useState, useEffect } from "react";
 import clientCourse from "../data/courses/client-side.json";
 import CourseDetails from "../components/courses/CourseDetails";
 import CourseContent from "../components/courses/CourseContent";
+import { BiSolidPurchaseTag } from "react-icons/bi";
+import { FaLongArrowAltLeft } from "react-icons/fa";
+import Loading from "../components/layout/Loading";
+import { RiBookShelfFill } from "react-icons/ri";
 
 const CoursePage = () => {
   const { id } = useParams();
@@ -28,28 +32,21 @@ const CoursePage = () => {
     : 0;
 
   if (!course) {
-    return (
-      <div className="container-app py-16">
-        <div className="card text-center">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-full border-4 border-blue-600 border-t-transparent animate-spin"></div>
-          <p className="text-gray-600">Chargement du cours...</p>
-        </div>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
     <div className="pb-16">
       {/* En-tête du cours */}
-      <section className="bg-gradient-to-br from-blue-600 to-indigo-600 text-white py-12 md:py-16">
+      <section className="bg-gradient-to-br from-blue-400 to-indigo-800 text-white py-12 md:py-16">
         <div className="container-app">
           <div className="flex items-start gap-4 mb-6">
             <Link
               to="/courses"
               className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
             >
-              <span>←</span>
-              <span>Retour aux cours</span>
+              <FaLongArrowAltLeft />
+              <span className="text-blue-200">Retour aux cours</span>
             </Link>
             <span className="badge bg-white/20 text-white border-white/30">
               {course.level}
@@ -58,11 +55,11 @@ const CoursePage = () => {
 
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-sm mb-4">
-              <span>🏷️</span>
+              <BiSolidPurchaseTag className="text-amber-300" />
               <span>{course.category}</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-blue-200">
               {course.title}
             </h1>
 
@@ -97,7 +94,7 @@ const CoursePage = () => {
           <div className="lg:col-span-1">
             <div className="card sticky top-24">
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <span>📚</span>
+                <RiBookShelfFill className="h-8 w-8 text-blue-400" />
                 <span>Chapitres</span>
               </h3>
 

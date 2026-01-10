@@ -1,17 +1,28 @@
 import { BiSolidPurchaseTagAlt } from "react-icons/bi";
-import { FaLongArrowAltRight } from "react-icons/fa";
+import {
+  FaBookOpen,
+  FaClock,
+  FaCloud,
+  FaCogs,
+  FaDatabase,
+  FaLaptopCode,
+  FaLongArrowAltRight,
+  FaStar,
+  FaUsers,
+} from "react-icons/fa";
+import { MdFunctions } from "react-icons/md";
 
 const CourseCard = ({ course }) => {
-  // Icônes par catégorie
   const categoryIcons = {
-    "Développement Web": "💻",
-    Programmation: "⚙️",
-    "Base de données": "🗄️",
-    Algorithmique: "🧮",
-    DevOps: "☁️",
+    "Développement Web": FaLaptopCode,
+    Programmation: FaCogs,
+    "Base de données": FaDatabase,
+    Algorithmique: MdFunctions,
+    DevOps: FaCloud,
   };
 
-  // Couleurs par niveau
+  const CategoryIcon = categoryIcons[course.category] || FaBookOpen;
+
   const levelColors = {
     Débutant: "bg-green-100 text-green-700",
     Intermédiaire: "bg-blue-100 text-blue-700",
@@ -19,20 +30,24 @@ const CourseCard = ({ course }) => {
     Technologue: "bg-orange-100 text-orange-700",
   };
 
-  const icon = categoryIcons[course.category] || "📚";
   const levelColor = levelColors[course.level] || "bg-gray-100 text-gray-700";
 
   return (
     <div className="card card-hover h-full flex flex-col group">
-      {/* En-tête avec icône */}
+      {/* Header */}
       <div className="flex items-start justify-between mb-4">
-        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 center-flex text-3xl shadow-md group-hover:scale-110 transition-transform">
-          {icon}
+        <div
+          className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500
+                        flex items-center justify-center shadow-md
+                        group-hover:scale-110 transition-transform"
+        >
+          <CategoryIcon className="w-7 h-7 text-white" />
         </div>
+
         <span className={`badge ${levelColor}`}>{course.level}</span>
       </div>
 
-      {/* Titre et description */}
+      {/* Content */}
       <div className="flex-1 space-y-3">
         <h3 className="font-bold text-xl text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2">
           {course.title}
@@ -42,35 +57,37 @@ const CourseCard = ({ course }) => {
           {course.description}
         </p>
 
-        {/* Catégorie */}
+        {/* Category */}
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-700">
-          <BiSolidPurchaseTagAlt className="text-yellow-400" />
+          <BiSolidPurchaseTagAlt className="text-yellow-500" />
           <span>{course.category}</span>
         </div>
       </div>
 
-      {/* Métriques du cours */}
+      {/* Metrics */}
       {(course.duration || course.lessonsCount || course.studentsCount) && (
         <div className="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-gray-100">
           {course.duration && (
             <div className="text-center">
-              <div className="text-lg">⏱️</div>
+              <FaClock className="mx-auto text-gray-500" />
               <div className="text-xs text-gray-600 mt-1">
                 {course.duration}
               </div>
             </div>
           )}
+
           {course.lessonsCount && (
             <div className="text-center">
-              <div className="text-lg">📖</div>
+              <FaBookOpen className="mx-auto text-gray-500" />
               <div className="text-xs text-gray-600 mt-1">
                 {course.lessonsCount} leçons
               </div>
             </div>
           )}
+
           {course.studentsCount && (
             <div className="text-center">
-              <div className="text-lg">👥</div>
+              <FaUsers className="mx-auto text-gray-500" />
               <div className="text-xs text-gray-600 mt-1">
                 {course.studentsCount}
               </div>
@@ -79,21 +96,19 @@ const CourseCard = ({ course }) => {
         </div>
       )}
 
-      {/* Note si disponible */}
+      {/* Rating */}
       {course.rating && (
         <div className="flex items-center gap-2 mt-4 pt-4 border-t border-gray-100">
           <div className="flex items-center gap-1">
             {[...Array(5)].map((_, i) => (
-              <span
+              <FaStar
                 key={i}
-                className={`text-sm ${
+                className={`w-4 h-4 ${
                   i < Math.floor(course.rating)
                     ? "text-yellow-400"
                     : "text-gray-300"
                 }`}
-              >
-                ⭐
-              </span>
+              />
             ))}
           </div>
           <span className="text-sm font-semibold text-gray-700">
@@ -102,33 +117,9 @@ const CourseCard = ({ course }) => {
         </div>
       )}
 
-      {/* Prérequis (tags compacts) */}
-      {course.prerequisites && course.prerequisites.length > 0 && (
-        <div className="mt-4 pt-4 border-t border-gray-100">
-          <p className="text-xs font-semibold text-gray-500 mb-2">
-            Prérequis :
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            {course.prerequisites.slice(0, 3).map((item, idx) => (
-              <span
-                key={idx}
-                className="px-2 py-1 bg-blue-50 text-blue-700 rounded text-xs font-medium"
-              >
-                {item}
-              </span>
-            ))}
-            {course.prerequisites.length > 3 && (
-              <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs font-medium">
-                +{course.prerequisites.length - 3}
-              </span>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* Bouton hover */}
+      {/* Button */}
       <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-        <div className="btn btn-primary w-full btn-sm">
+        <div className="btn btn-primary w-full btn-sm flex items-center justify-center gap-2">
           <span>Voir le cours</span>
           <FaLongArrowAltRight className="w-4 h-4" />
         </div>
