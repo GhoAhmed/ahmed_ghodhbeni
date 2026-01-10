@@ -1,0 +1,54 @@
+{
+    "id": "client-side",
+    "title": "Développement Côté Client",
+    "category": "Développement Web",
+    "level": "Technologue",
+    "description": "Introduction au développement web côté client (frontend) et aux technologies utilisées pour créer des interfaces interactives.",
+    "prerequisites": [
+        "Algorithmique",
+        "Bases en HTML et CSS",
+        "Notions de programmation"
+    ],
+    "objectives": [
+        "Comprendre le rôle du développement côté client",
+        "Maîtriser les bases du HTML, CSS et JavaScript",
+        "Créer des interfaces web interactives",
+        "Découvrir les frameworks frontend modernes"
+    ],
+    "chapters": [
+        {
+            "id": 1,
+            "title": "Introduction au développement côté client",
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Le développement côté client concerne la partie visible d’une application web, exécutée dans le navigateur de l’utilisateur."
+                },
+                {
+                    "type": "text",
+                    "value": "Il permet de gérer l’interface utilisateur, les interactions et l’expérience utilisateur."
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Technologies du client-side",
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Les principales technologies du développement côté client sont HTML pour la structure, CSS pour la mise en forme et JavaScript pour l’interactivité."
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Introduction aux frameworks frontend",
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                }
+            ]
+        }
+    ]
+}

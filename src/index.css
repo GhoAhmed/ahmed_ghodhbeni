@@ -1,1 +1,110 @@
 @import "tailwindcss";
+
+/* =====================================================
+   BASE STYLES (Global)
+   ===================================================== */
+
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+
+    body {
+        @apply bg-gray-50 text-gray-800 font-sans antialiased;
+    }
+
+    h1 {
+        @apply text-4xl font-bold text-gray-900;
+    }
+
+    h2 {
+        @apply text-3xl font-semibold text-gray-900;
+    }
+
+    h3 {
+        @apply text-2xl font-semibold text-gray-800;
+    }
+
+    p {
+        @apply text-gray-600 leading-relaxed;
+    }
+
+    a {
+        @apply text-blue-600 hover:text-blue-700 transition;
+    }
+}
+
+/* =====================================================
+   COMPONENTS (Reusable UI)
+   ===================================================== */
+
+@layer components {
+
+    /* Container */
+    .container-app {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    /* Card */
+    .card {
+        @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6 transition;
+    }
+
+    .card-hover {
+        @apply hover:shadow-md hover:-translate-y-1;
+    }
+
+    /* Button */
+    .btn {
+        @apply inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2;
+    }
+
+    .btn-primary {
+        @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+    }
+
+    .btn-secondary {
+        @apply bg-gray-100 text-gray-800 hover:bg-gray-200 focus:ring-gray-400;
+    }
+
+    .btn-outline {
+        @apply border border-blue-600 text-blue-600 hover:bg-blue-50;
+    }
+
+    /* Badge */
+    .badge {
+        @apply inline-block px-3 py-1 text-sm rounded-full bg-blue-100 text-blue-700;
+    }
+
+    /* Section title */
+    .section-title {
+        @apply text-2xl font-bold text-gray-900 mb-2;
+    }
+
+    .section-subtitle {
+        @apply text-gray-600 mb-6;
+    }
+
+    /* Input */
+    .input {
+        @apply w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500;
+    }
+}
+
+/* =====================================================
+   UTILITIES (Custom helpers)
+   ===================================================== */
+
+@layer utilities {
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600;
+    }
+
+    .bg-soft {
+        @apply bg-gradient-to-br from-gray-50 to-gray-100;
+    }
+
+    .center-flex {
+        @apply flex items-center justify-center;
+    }
+}

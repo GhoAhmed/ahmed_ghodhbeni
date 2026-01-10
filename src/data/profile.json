@@ -1,0 +1,26 @@
+{
+    "name": "Ahmed Ghodhbeni",
+    "title": "Technologue en Informatique",
+    "specialty": "Développement Web & Pédagogie Numérique",
+    "bio": "Technologue passionné par l’enseignement et les technologies web modernes. Je conçois des cours interactifs orientés pratique et apprentissage actif.",
+    "pedagogicalApproach": [
+        "Pédagogie active",
+        "Apprentissage par la pratique",
+        "Utilisation des outils numériques",
+        "Auto-évaluation par quiz interactifs"
+    ],
+    "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Tailwind CSS"
+    ],
+    "tools": [
+        "React",
+        "Vite",
+        "Git",
+        "Google NoteLM"
+    ],
+    "objective": "Mettre en place des supports pédagogiques numériques pour améliorer l’engagement et l’autonomie des étudiants."
+}
