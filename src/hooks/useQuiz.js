@@ -1,32 +1,27 @@
 import { useState } from "react";
 
-export function useQuiz(questions = []) {
+export const useQuiz = (questions) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
-  const [answers, setAnswers] = useState([]);
   const [isFinished, setIsFinished] = useState(false);
+  const [userAnswers, setUserAnswers] = useState([]);
 
   const currentQuestion = questions[currentIndex];
+  const totalQuestions = questions.length;
 
-  const answerQuestion = (selectedOption) => {
-    const isCorrect = selectedOption === currentQuestion.answer;
+  const answerQuestion = (selectedAnswer) => {
+    // Sauvegarder la réponse de l'utilisateur
+    const newUserAnswers = [...userAnswers, selectedAnswer];
+    setUserAnswers(newUserAnswers);
 
-    setAnswers((prev) => [
-      ...prev,
-      {
-        questionId: currentQuestion.id,
-        selectedOption,
-        isCorrect,
-      },
-    ]);
-
-    if (isCorrect) {
-      setScore((prev) => prev + 1);
+    // Vérifier si la réponse est correcte
+    if (selectedAnswer === currentQuestion.answer) {
+      setScore(score + 1);
     }
 
-    const nextIndex = currentIndex + 1;
-    if (nextIndex < questions.length) {
-      setCurrentIndex(nextIndex);
+    // Passer à la question suivante ou terminer
+    if (currentIndex < totalQuestions - 1) {
+      setCurrentIndex(currentIndex + 1);
     } else {
       setIsFinished(true);
     }
@@ -35,18 +30,18 @@ export function useQuiz(questions = []) {
   const resetQuiz = () => {
     setCurrentIndex(0);
     setScore(0);
-    setAnswers([]);
     setIsFinished(false);
+    setUserAnswers([]);
   };
 
   return {
     currentQuestion,
     currentIndex,
-    totalQuestions: questions.length,
+    totalQuestions,
     score,
-    answers,
     isFinished,
+    userAnswers,
     answerQuestion,
     resetQuiz,
   };
-}
+};

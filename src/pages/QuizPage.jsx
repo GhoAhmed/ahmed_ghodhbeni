@@ -1,61 +1,72 @@
 import { useParams, Link } from "react-router";
-import PageContainer from "../components/layout/PageContainer";
-import { useQuiz } from "../hooks/useQuiz";
+import Quiz from "../components/quizzes/Quiz";
 import quizClient from "../data/quizzes/quiz-client-side.json";
 
 const QuizPage = () => {
   const { courseId } = useParams();
-  const quiz = courseId === quizClient.courseId ? quizClient : null;
+  
+  // Pour l'instant, un seul quiz - à étendre plus tard
+  const quizData = courseId === "client-side" ? quizClient : null;
 
-  const {
-    currentQuestion,
-    currentIndex,
-    totalQuestions,
-    score,
-    isFinished,
-    answerQuestion,
-    resetQuiz
-  } = useQuiz(quiz ? quiz.questions : []);
-
-  if (!quiz) return <PageContainer>Quiz introuvable</PageContainer>;
-
-  return (
-    <PageContainer>
-      <h1 className="section-title">{quiz.title}</h1>
-
-      {!isFinished ? (
-        <div className="mt-6">
-          <h2 className="font-semibold mb-4">{currentQuestion.question}</h2>
-          <div className="flex flex-col gap-3">
-            {currentQuestion.options.map((option, idx) => (
-              <button
-                key={idx}
-                onClick={() => answerQuestion(idx)}
-                className="btn btn-outline"
-              >
-                {option}
-              </button>
-            ))}
-          </div>
-          <p className="mt-4 text-gray-500">
-            Question {currentIndex + 1} / {totalQuestions}
+  if (!quizData) {
+    return (
+      <div className="container-app py-16">
+        <div className="card text-center max-w-2xl mx-auto">
+          <div className="text-6xl mb-4">❌</div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            Quiz introuvable
+          </h2>
+          <p className="text-gray-600 mb-6">
+            Le quiz pour ce cours n'est pas encore disponible.
           </p>
-        </div>
-      ) : (
-        <div className="mt-6 text-center">
-          <p className="text-xl font-semibold mb-4">Quiz terminé !</p>
-          <p className="text-gray-600 mb-4">
-            Votre score : {score} / {totalQuestions}
-          </p>
-          <button onClick={resetQuiz} className="btn btn-primary mr-2">
-            Recommencer
-          </button>
-          <Link to={`/courses/${quiz.courseId}`} className="btn btn-secondary">
-            Retour au cours
+          <Link to="/courses" className="btn btn-primary">
+            <span>←</span>
+            <span>Retour aux cours</span>
           </Link>
         </div>
-      )}
-    </PageContainer>
+      </div>
+    );
+  }
+
+  return (
+    <div className="pb-16">
+      {/* En-tête du Quiz */}
+      <section className="bg-gradient-to-br from-purple-600 to-pink-600 text-white py-12 md:py-16">
+        <div className="container-app">
+          <div className="flex items-start gap-4 mb-6">
+            <Link 
+              to={`/courses/${courseId}`}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
+            >
+              <span>←</span>
+              <span>Retour au cours</span>
+            </Link>
+          </div>
+
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-sm mb-4">
+              <span>🎯</span>
+              <span>Quiz Interactif</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              {quizData.title}
+            </h1>
+            
+            <p className="text-lg md:text-xl text-purple-100">
+              Testez vos connaissances avec {quizData.questions.length} questions
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Composant Quiz */}
+      <div className="container-app mt-8">
+        <div className="max-w-4xl mx-auto">
+          <Quiz quizData={quizData} />
+        </div>
+      </div>
+    </div>
   );
 };
 
