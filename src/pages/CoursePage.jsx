@@ -2,7 +2,6 @@ import { useParams, Link } from "react-router";
 import { useState, useEffect } from "react";
 import clientCourse from "../data/courses/client-side.json";
 import CourseDetails from "../components/courses/CourseDetails";
-import CourseContent from "../components/courses/CourseContent";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import Loading from "../components/layout/Loading";

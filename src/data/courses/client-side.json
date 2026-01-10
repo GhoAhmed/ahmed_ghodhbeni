@@ -2,23 +2,25 @@
     "id": "client-side",
     "title": "Développement Côté Client",
     "category": "Développement Web",
-    "level": "Technologue",
+    "level": "DSI-2",
     "description": "Introduction au développement web côté client (frontend) et aux technologies utilisées pour créer des interfaces interactives.",
     "prerequisites": [
         "Algorithmique",
         "Bases en HTML et CSS",
+        "Bases en javascript",
         "Notions de programmation"
     ],
     "objectives": [
-        "Comprendre le rôle du développement côté client",
-        "Maîtriser les bases du HTML, CSS et JavaScript",
-        "Créer des interfaces web interactives",
-        "Découvrir les frameworks frontend modernes"
+        "Comprendre ce qu’est réellement le développement côté client",
+        "Structurer des interfaces web professionnelles",
+        "Utiliser des librairies et frameworks",
+        "Choisir la bonne technologie selon le contexte",
+        "Développer des applications Front-End maintenables et performantes"
     ],
     "chapters": [
         {
             "id": 1,
-            "title": "Introduction au développement côté client",
+            "title": "Introduction au Développement Côté Client",
             "content": [
                 {
                     "type": "text",
@@ -32,7 +34,7 @@
         },
         {
             "id": 2,
-            "title": "Technologies du client-side",
+            "title": "JavaScript Côté Client",
             "content": [
                 {
                     "type": "text",
@@ -42,7 +44,87 @@
         },
         {
             "id": 3,
-            "title": "Introduction aux frameworks frontend",
+            "title": "jQuery : Pourquoi, Quand et Comment",
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "title": "CSS Frameworks (Bootstrap & Alternatives)",
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Architecture Front-End & Bonnes Pratiques",
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "title": "Consommation d’API côté Client",
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "title": "Frameworks Front-End Modernes",
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "title": "Introduction à un Angular",
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "title": "Introduction à un Angular",
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "title": "UI / UX & Performance côté Client",
+            "content": [
+                {
+                    "type": "text",
+                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "title": "Projet Final",
             "content": [
                 {
                     "type": "text",
