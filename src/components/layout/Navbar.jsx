@@ -1,6 +1,7 @@
 import { NavLink } from "react-router";
 import { useState, useEffect } from "react";
-import { HiBookOpen, HiBriefcase, HiHome, HiMail } from "react-icons/hi";
+import { HiMail } from "react-icons/hi";
+import { navLinks } from "../../constants";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,20 +17,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { to: "/", label: "Accueil", icon: <HiHome className="w-5 h-5" /> },
-    {
-      to: "/courses",
-      label: "Cours",
-      icon: <HiBookOpen className="w-5 h-5" />,
-    },
-    {
-      to: "/portfolio",
-      label: "Portfolio",
-      icon: <HiBriefcase className="w-5 h-5" />,
-    },
-  ];
-
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -43,14 +30,14 @@ const Navbar = () => {
           {/* Logo / Title */}
           <NavLink to="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 center-flex text-white font-bold text-xl shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
-              AG
+              SH
             </div>
             <div className="hidden md:block">
               <span className="text-xl font-bold text-gradient block">
-                Ahmed Ghodhbeni
+                StudyHub
               </span>
               <span className="text-xs text-gray-500 -mt-1 block">
-                Ingénieur • Enseignant
+                Plateforme éducative
               </span>
             </div>
           </NavLink>
@@ -64,18 +51,13 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `flex items-center gap-2 px-6 py-2.5 rounded-full font-medium transition-all duration-200 ${
                     isActive
-                      ? "bg-white text-blue-600 shadow-sm"
+                      ? "bg-white text-blue-600 shadow-sm relative after:content-[''] after:block after:w-1 after:h-1 after:bg-blue-600 after:rounded-full after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2"
                       : "text-gray-600 hover:text-blue-600 hover:bg-white/50"
                   }`
                 }
               >
-                {link.icon}
+                <link.icon className="w-5 h-5" />
                 <span>{link.label}</span>
-                {({ isActive }) =>
-                  isActive && (
-                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full"></span>
-                  )
-                }
               </NavLink>
             ))}
           </nav>
@@ -132,7 +114,9 @@ const Navbar = () => {
                     }`
                   }
                 >
-                  <span className="text-xl">{link.icon}</span>
+                  <span className="text-xl">
+                    <link.icon className="w-5 h-5" />
+                  </span>
                   {link.label}
                 </NavLink>
               ))}

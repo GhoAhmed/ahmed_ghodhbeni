@@ -1,34 +1,10 @@
+import { FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
+import { HiMail } from "react-icons/hi";
 import { NavLink } from "react-router";
+import { quickLinks, socialLinks } from "../../constants";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    {
-      name: "LinkedIn",
-      icon: "💼",
-      url: "#",
-      color: "hover:text-blue-600",
-    },
-    {
-      name: "GitHub",
-      icon: "💻",
-      url: "#",
-      color: "hover:text-gray-900",
-    },
-    {
-      name: "Email",
-      icon: "📧",
-      url: "mailto:ahmed.ghodhbeni@example.com",
-      color: "hover:text-red-600",
-    },
-  ];
-
-  const quickLinks = [
-    { to: "/", label: "Accueil" },
-    { to: "/courses", label: "Cours" },
-    { to: "/portfolio", label: "Portfolio" },
-  ];
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white mt-auto">
@@ -39,17 +15,16 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 center-flex text-white font-bold text-xl shadow-lg">
-                AG
+                SH
               </div>
               <div>
-                <h3 className="font-bold text-lg">Ahmed Ghodhbeni</h3>
-                <p className="text-sm text-gray-400">
-                  Ingénieur • Enseignant
-                </p>
+                <h3 className="font-bold text-lg text-gray-400">StudyHub</h3>
+                <p className="text-sm text-gray-400">Plateforme éducative</p>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Plateforme pédagogique interactive pour l'apprentissage de l'informatique et du développement web.
+              Plateforme pédagogique interactive pour l'apprentissage de
+              l'informatique et du développement.
             </p>
           </div>
 
@@ -88,21 +63,21 @@ const Footer = () => {
                   aria-label={social.name}
                   title={social.name}
                 >
-                  {social.icon}
+                  <social.icon className="w-6 h-6 text-gray-500" />
                 </a>
               ))}
             </div>
             <div className="text-sm text-gray-400">
               <p className="flex items-center gap-2 mb-2">
-                <span>📍</span>
-                <span>Tunisie</span>
+                <FaMapMarkerAlt className="w-5 h-5" />
+                <span>Tunisie, Kasserine</span>
               </p>
               <a
-                href="mailto:ahmed.ghodhbeni@example.com"
+                href="mailto:ahmed.godhbeni@gmail.com"
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
-                <span>✉️</span>
-                <span>ahmed.ghodhbeni@example.com</span>
+                <HiMail className="w-5 h-5" />
+                <span>ahmed.godhbeni@gmail.com</span>
               </a>
             </div>
           </div>
@@ -113,9 +88,7 @@ const Footer = () => {
       <div className="border-t border-gray-700/50">
         <div className="container-app py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-            <p>
-              © {currentYear} Ahmed Ghodhbeni. Tous droits réservés.
-            </p>
+            <p>© {currentYear} Ahmed Ghodhbeni. Tous droits réservés.</p>
             <div className="flex items-center gap-6">
               <a href="#" className="hover:text-white transition-colors">
                 Mentions légales
