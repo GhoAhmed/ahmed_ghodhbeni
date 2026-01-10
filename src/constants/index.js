@@ -11,6 +11,9 @@ import {
 import { FaGraduationCap } from "react-icons/fa6";
 import { HiBookOpen, HiBriefcase, HiHome, HiMail } from "react-icons/hi";
 import { MdFunctions } from "react-icons/md";
+import clientCourses from "../data/courses/client-side.json";
+import { RiBookShelfFill } from "react-icons/ri";
+import { PiStudentFill } from "react-icons/pi";
 
 export const navLinks = [
   { to: "/", label: "Accueil", icon: HiHome },
@@ -135,5 +138,100 @@ export const testimonials = [
     comment:
       "Parfait pour apprendre à son rythme. Les explications sont détaillées et accessibles.",
     rating: 5,
+  },
+];
+
+export const allCourses = [
+  clientCourses,
+  {
+    id: "react-fundamentals",
+    title: "React - Les Fondamentaux",
+    category: "Développement Web",
+    level: "Intermédiaire",
+    description:
+      "Apprenez à créer des applications web modernes avec React, hooks et composants.",
+    prerequisites: ["JavaScript ES6", "HTML/CSS", "Notions de SPA"],
+    duration: "8 heures",
+    lessonsCount: 12,
+    studentsCount: 245,
+    rating: 4.8,
+  },
+  {
+    id: "javascript-advanced",
+    title: "JavaScript Avancé",
+    category: "Programmation",
+    level: "Avancé",
+    description:
+      "Maîtrisez les concepts avancés de JavaScript : closures, promises, async/await.",
+    prerequisites: ["JavaScript de base", "Algorithmique"],
+    duration: "10 heures",
+    lessonsCount: 15,
+    studentsCount: 189,
+    rating: 4.9,
+  },
+  {
+    id: "sql-database",
+    title: "Bases de Données SQL",
+    category: "Base de données",
+    level: "Débutant",
+    description:
+      "Introduction aux bases de données relationnelles et au langage SQL.",
+    prerequisites: ["Logique de base"],
+    duration: "6 heures",
+    lessonsCount: 10,
+    studentsCount: 312,
+    rating: 4.7,
+  },
+  {
+    id: "nodejs-backend",
+    title: "Node.js & Express",
+    category: "Développement Web",
+    level: "Intermédiaire",
+    description: "Créez des API REST performantes avec Node.js et Express.",
+    prerequisites: ["JavaScript", "HTTP/REST"],
+    duration: "12 heures",
+    lessonsCount: 18,
+    studentsCount: 198,
+    rating: 4.6,
+  },
+  {
+    id: "mongodb-nosql",
+    title: "MongoDB - NoSQL",
+    category: "Base de données",
+    level: "Intermédiaire",
+    description:
+      "Découvrez les bases de données NoSQL avec MongoDB et Mongoose.",
+    prerequisites: ["JavaScript", "Bases de données"],
+    duration: "7 heures",
+    lessonsCount: 11,
+    studentsCount: 167,
+    rating: 4.5,
+  },
+];
+
+export const coursesStats = [
+  {
+    icon: RiBookShelfFill,
+    iconColor: "orange-700",
+    value: allCourses.length,
+    label: "Cours disponibles",
+  },
+  {
+    icon: PiStudentFill,
+    iconColor: "green-700",
+    value: "50+",
+    label: "Étudiants actifs",
+  },
+  {
+    icon: FaStar,
+    iconColor: "amber-300",
+    value: "4.7",
+    label: "Note moyenne",
+  },
+  {
+    icon: FaGraduationCap,
+    iconColor: "purple-700",
+    value: "95%",
+    label: "Taux de réussite",
   },
 ];
