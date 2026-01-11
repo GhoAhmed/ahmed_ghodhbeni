@@ -3,11 +3,11 @@
     "title": "Développement Côté Client P2",
     "category": "Développement Web",
     "level": "DSI2",
-    "duration": "12 heures",
+    "duration": "30 heures",
     "lessonsCount": 9,
     "studentsCount": 40,
     "rating": 4.9,
-    "description": "Introduction au développement web côté client (frontend) et aux technologies utilisées pour créer des interfaces interactives.",
+    "description": "Apprendre le développement web côté client (frontend) et les technologies utilisées pour créer des interfaces interactives.",
     "prerequisites": [
         "Algorithmique",
         "Bases en HTML et CSS",
@@ -183,7 +183,7 @@
                 },
                 {
                     "type": "text",
-                    "value": "Aujourd'hui, une application web typique fonctionne selon ce schéma :"
+                    "value": "Aujourd'hui, une application web typique fonctionne selon :"
                 },
                 {
                     "type": "list",
@@ -205,10 +205,6 @@
                     "code": "// Front-End : Récupération de données\nasync function loadUserProfile() {\n  try {\n    // Requête HTTP vers l'API\n    const response = await fetch('/api/users/me');\n    const user = await response.json();\n    \n    // Mise à jour de l'interface\n    document.querySelector('#username').textContent = user.name;\n    document.querySelector('#email').textContent = user.email;\n    \n    console.log('Profil chargé:', user);\n  } catch (error) {\n    console.error('Erreur:', error);\n  }\n}\n\n// Simulation\nconsole.log('Exemple de communication Front-End / Back-End');",
                     "editable": true,
                     "showOutput": true
-                },
-                {
-                    "type": "heading",
-                    "value": "5. TD - Analyse d'une application réelle"
                 },
                 {
                     "type": "activity",
@@ -268,6 +264,35 @@
                     ],
                     "correctAnswer": 2,
                     "explanation": "Les frameworks modernes permettent de structurer le code, de gérer l'état de l'application et de créer des interfaces complexes tout en restant maintenables."
+                },
+                {
+                    "type": "activity",
+                    "title": "TP 1 - Découverte du Front-End dans le navigateur",
+                    "duration": "1h",
+                    "instructions": "Chaque étudiant (ou binôme) choisit un site web réel de son choix (site vitrine, e-commerce, plateforme éducative ou application web), l’analyse à l’aide des outils de développement du navigateur, puis rédige un rapport technique synthétique présentant les technologies Front-End utilisées, les interactions observées, les manipulations effectuées (HTML, CSS, JavaScript) ainsi qu’une réflexion personnelle sur le rôle du développement côté client et ses limites.",
+                    "expectedOutput": [
+                        "Un rapport bien structuré",
+                        "Le changement est-il permanent ?",
+                        "Où sont stockées les données ?",
+                        "Que se passe-t-il après un refresh ?"
+                    ]
+                },
+                {
+                    "type": "timeline",
+                    "items": [
+                        {
+                            "title": "Exploration du DOM",
+                            "description": "Ouvrir un site web (ex : site vitrine ou e-commerce) : cliquer sur button droit puis inspecter (ou bien f12)"
+                        },
+                        {
+                            "title": "Manipulation simple",
+                            "description": "Modifier le texte d’un élément, Changer une couleur via CSS, Désactiver temporairement un script"
+                        },
+                        {
+                            "title": "JavaScript en direct",
+                            "description": "Via la console : Modifier un texte / Interagir avec un bouton"
+                        }
+                    ]
                 },
                 {
                     "type": "heading",
@@ -553,13 +578,9 @@
                     ]
                 },
                 {
-                    "type": "heading",
-                    "value": "5. TD - Application Todo modulaire"
-                },
-                {
                     "type": "activity",
-                    "title": "TD 1 - Todo List professionnelle",
-                    "duration": "1h30",
+                    "title": "TP 2 - Todo List professionnelle",
+                    "duration": "3h",
                     "instructions": "Créer une application de gestion de tâches avec une séparation claire des responsabilités. Structure: State, DOM, Events, Controller.",
                     "expectedOutput": [
                         "Fichier HTML avec structure sémantique",
@@ -574,6 +595,27 @@
                     ]
                 },
                 {
+                    "type": "timeline",
+                    "items": [
+                        {
+                            "title": "Gestion des données (data.js)",
+                            "description": "Créer une liste de tâches, Ajouter / supprimer une tâche, Marquer une tâche comme terminée"
+                        },
+                        {
+                            "title": "Interface utilisateur (ui.js)",
+                            "description": "Afficher la liste, Mettre à jour l’affichage, Gérer les classes CSS"
+                        },
+                        {
+                            "title": "Événements (events.js)",
+                            "description": "Ajouter /Supprimer une tâche, Cocher / décocher une tâche"
+                        },
+                        {
+                            "title": "Initialisation (app.js)",
+                            "description": "Charger l’application, Lier les modules, Démarrer les événements"
+                        }
+                    ]
+                },
+                {
                     "type": "callout",
                     "variant": "tip",
                     "title": "Structure suggérée",
@@ -582,31 +624,10 @@
                 {
                     "type": "code",
                     "language": "javascript",
-                    "title": "Structure de départ pour le TD",
+                    "title": "Structure de départ pour le TP",
                     "code": "const TodoApp = {\n  // État de l'application\n  state: {\n    todos: [],\n    nextId: 1\n  },\n  \n  // Manipulation DOM\n  DOM: {\n    render() {\n      console.log('📋 Rendu de', TodoApp.state.todos.length, 'tâches');\n      // TODO: Afficher les tâches\n    },\n    \n    updateCount() {\n      const total = TodoApp.state.todos.length;\n      const completed = TodoApp.state.todos.filter(t => t.done).length;\n      console.log(`📊 ${completed}/${total} complétées`);\n    }\n  },\n  \n  // Logique métier\n  addTodo(text) {\n    const todo = {\n      id: this.state.nextId++,\n      text,\n      done: false,\n      createdAt: new Date()\n    };\n    this.state.todos.push(todo);\n    this.DOM.render();\n    this.DOM.updateCount();\n  },\n  \n  toggleTodo(id) {\n    const todo = this.state.todos.find(t => t.id === id);\n    if (todo) {\n      todo.done = !todo.done;\n      this.DOM.render();\n      this.DOM.updateCount();\n    }\n  },\n  \n  deleteTodo(id) {\n    this.state.todos = this.state.todos.filter(t => t.id !== id);\n    this.DOM.render();\n    this.DOM.updateCount();\n  },\n  \n  // Initialisation\n  init() {\n    console.log('🚀 TodoApp initialisée');\n    this.DOM.render();\n    this.DOM.updateCount();\n  }\n};\n\n// Test\nTodoApp.init();\nTodoApp.addTodo('Apprendre le JavaScript');\nTodoApp.addTodo('Faire le TD');\nTodoApp.toggleTodo(1);\nTodoApp.DOM.updateCount();",
                     "editable": true,
                     "showOutput": true
-                },
-                {
-                    "type": "heading",
-                    "value": "6. TP - Dashboard interactif"
-                },
-                {
-                    "type": "activity",
-                    "title": "TP 1 - Dashboard avec widgets",
-                    "duration": "3h",
-                    "instructions": "Créer un dashboard avec 3 widgets : compteur de visiteurs, liste de notifications et graphique en barres (CSS). Architecture professionnelle obligatoire.",
-                    "expectedOutput": [
-                        "HTML/CSS structuré et responsive",
-                        "JavaScript modulaire (fichiers séparés recommandés)",
-                        "Widget 1: Compteur animé",
-                        "Widget 2: Liste de notifications avec suppression",
-                        "Widget 3: Graphique en barres (divs + CSS)",
-                        "Gestion d'état centralisée",
-                        "Code commenté et organisé",
-                        "Pas de variables globales polluantes",
-                        "Utilisation d'événements personnalisés"
-                    ]
                 },
                 {
                     "type": "callout",
@@ -642,7 +663,7 @@
                 {
                     "type": "callout",
                     "variant": "info",
-                    "title": "🎯 Objectifs du module",
+                    "title": "Objectifs du module",
                     "content": "Comprendre le rôle historique de jQuery, savoir quand l'utiliser aujourd'hui et maîtriser ses concepts fondamentaux."
                 },
                 {
@@ -677,7 +698,7 @@
                 {
                     "type": "callout",
                     "variant": "warning",
-                    "title": "⚠️ Quand utiliser jQuery aujourd'hui ?",
+                    "title": "Quand utiliser jQuery aujourd'hui ?",
                     "content": "Maintenance de projets existants, prototypage rapide, projets simples sans build system, intégration dans des CMS (WordPress, Joomla). ÉVITEZ jQuery pour : nouvelles applications complexes, SPAs modernes, projets nécessitant un state management."
                 },
                 {
@@ -782,7 +803,7 @@
                 },
                 {
                     "type": "exercise",
-                    "title": "🛠️ Exercice - Créer un mini-jQuery",
+                    "title": "Exercice - Créer un mini-jQuery",
                     "instructions": "Implémentez une version simplifiée de jQuery avec les méthodes : addClass, removeClass, on (événements).",
                     "starterCode": "const $ = (selector) => {\n  const elements = document.querySelectorAll(selector);\n  \n  return {\n    // TODO: Implémenter addClass(className)\n    addClass(className) {\n      \n    },\n    \n    // TODO: Implémenter removeClass(className)\n    removeClass(className) {\n      \n    },\n    \n    // TODO: Implémenter on(event, handler)\n    on(event, handler) {\n      \n    }\n  };\n};\n\n// Test\n$('.box').addClass('active');\nconsole.log('Classe ajoutée');",
                     "solution": "const $ = (selector) => {\n  const elements = document.querySelectorAll(selector);\n  \n  return {\n    addClass(className) {\n      elements.forEach(el => el.classList.add(className));\n      return this;\n    },\n    \n    removeClass(className) {\n      elements.forEach(el => el.classList.remove(className));\n      return this;\n    },\n    \n    on(event, handler) {\n      elements.forEach(el => el.addEventListener(event, handler));\n      return this;\n    }\n  };\n};\n\n// Test avec simulation\nconst mockElements = [\n  { classList: { add: (c) => console.log(`✅ Classe '${c}' ajoutée`) } }\n];\n\nconst result = {\n  addClass(c) { mockElements[0].classList.add(c); return this; }\n};\n\nresult.addClass('active');\nconsole.log('✅ Mini-jQuery fonctionnel!');",
@@ -804,12 +825,12 @@
                 {
                     "type": "callout",
                     "variant": "tip",
-                    "title": "💡 Quand choisir quoi ?",
+                    "title": "Quand choisir quoi ?",
                     "content": "jQuery : Projets simples, prototypage rapide, maintenance legacy. React/Vue/Angular : Applications complexes, SPAs, state management, équipes importantes."
                 },
                 {
                     "type": "activity",
-                    "title": "📝 TD - Refactoring jQuery → Vanilla JS",
+                    "title": "TD - Refactoring jQuery → Vanilla JS",
                     "duration": "1h",
                     "instructions": "Prenez un snippet jQuery existant et refactorisez-le en JavaScript moderne (ES6+) sans bibliothèque.",
                     "expectedOutput": [
@@ -818,6 +839,23 @@
                         "Comparaison de lisibilité et performance",
                         "Analyse des avantages/inconvénients",
                         "Conclusion sur le choix technique"
+                    ]
+                },
+                {
+                    "type": "activity",
+                    "title": "TP 3 - CRUD simple avec jQuery",
+                    "duration": "3h",
+                    "instructions": "Nous allons développer une mini-application de gestion d’utilisateurs (ou produits) côté client en utilisant jQuery. Le Back-End sera simulé via un fichier JSON local.",
+                    "expectedOutput": [
+                        "HTML/CSS structuré et responsive",
+                        "JavaScript modulaire (fichiers séparés recommandés)",
+                        "Widget 1: Compteur animé",
+                        "Widget 2: Liste de notifications avec suppression",
+                        "Widget 3: Graphique en barres (divs + CSS)",
+                        "Gestion d'état centralisée",
+                        "Code commenté et organisé",
+                        "Pas de variables globales polluantes",
+                        "Utilisation d'événements personnalisés"
                     ]
                 },
                 {
