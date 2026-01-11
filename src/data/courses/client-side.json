@@ -30,8 +30,8 @@
                 {
                     "type": "callout",
                     "variant": "info",
-                    "title": "🎯 Objectifs du module",
-                    "content": "Comprendre le rôle du développement côté client, situer le Front-End dans l'écosystème Web et comprendre l'évolution des technologies Front-End."
+                    "title": "Objectifs du module",
+                    "content": "Comprendre le rôle du développement côté client, situer dans l'écosystème Web et comprendre l'évolution des technologies Front-End."
                 },
                 {
                     "type": "heading",
@@ -44,7 +44,7 @@
                 {
                     "type": "callout",
                     "variant": "info",
-                    "title": "💡 Définition",
+                    "title": "Définition",
                     "content": "Le navigateur est appelé 'client' dans l'architecture client-serveur. Il envoie des requêtes au serveur et affiche les réponses de manière visuelle."
                 },
                 {
@@ -68,7 +68,7 @@
                 {
                     "type": "callout",
                     "variant": "warning",
-                    "title": "⚠️ Idée reçue à corriger",
+                    "title": "Idée reçue à corriger",
                     "content": "Le Front-End n'est PAS juste du design ! Il inclut de la logique métier complexe, de l'optimisation de performance, de la sécurité et des décisions d'architecture."
                 },
                 {
@@ -77,7 +77,7 @@
                 },
                 {
                     "type": "text",
-                    "value": "Dans une application Web moderne, le Front-End et le Back-End collaborent mais ont des rôles bien distincts."
+                    "value": "Dans une application Web, le Front-End et le Back-End collaborent mais ont des rôles bien distincts."
                 },
                 {
                     "type": "table",
@@ -119,7 +119,7 @@
                 {
                     "type": "callout",
                     "variant": "success",
-                    "title": "🎯 Principe clé",
+                    "title": "Principe clé",
                     "content": "Le Front-End gère ce que l'utilisateur voit et comment il interagit. Le Back-End gère les données, la logique métier critique et la sécurité."
                 },
                 {
@@ -151,11 +151,11 @@
                         },
                         {
                             "title": "2000-2006 : JavaScript classique + AJAX",
-                            "description": "Introduction de l'interactivité avec JavaScript et des mises à jour partielles avec AJAX (Gmail, Google Maps)."
+                            "description": "Introduction de l'interactivité avec JavaScript et des mises à jour partielles avec AJAX (Gmail, Maps)."
                         },
                         {
                             "title": "2006-2010 : jQuery",
-                            "description": "Simplification de la manipulation du DOM et gestion des incompatibilités navigateurs. 'Write less, do more.'"
+                            "description": "Simplification de la manipulation du DOM et gestion des incompatibilités navigateurs."
                         },
                         {
                             "title": "2010-2013 : Frameworks CSS",
@@ -174,7 +174,7 @@
                 {
                     "type": "callout",
                     "variant": "tip",
-                    "title": "📚 Pourquoi cette évolution ?",
+                    "title": "Pourquoi cette évolution ?",
                     "content": "Chaque évolution répond à un besoin : performances, maintenabilité, expérience utilisateur ou productivité des développeurs."
                 },
                 {
@@ -212,9 +212,9 @@
                 },
                 {
                     "type": "activity",
-                    "title": "🎯 TD 1 - Analyse Front-End vs Back-End",
+                    "title": "TD 1 - Analyse Front-End vs Back-End",
                     "duration": "30 min",
-                    "instructions": "Choisissez une application web que vous utilisez souvent (YouTube, LinkedIn, Twitter/X, Amazon, etc.). Analysez et identifiez clairement ce qui relève du Front-End et ce qui relève du Back-End.",
+                    "instructions": "Choisissez une application web que vous utilisez souvent (YouTube, LinkedIn, X, etc.). Analysez et identifiez clairement ce qui relève du Front-End et ce qui relève du Back-End.",
                     "expectedOutput": [
                         "Nom de l'application choisie",
                         "Liste de 5 fonctionnalités Front-End avec justification",
@@ -226,14 +226,14 @@
                 {
                     "type": "callout",
                     "variant": "tip",
-                    "title": "💡 Indices pour l'analyse",
-                    "content": "Front-End : animations, interactions immédiates, mise en page, validation visuelle. Back-End : données persistantes, authentification, paiements, recommandations."
+                    "title": "Indices pour l'analyse",
+                    "content": "Front-End : animations, interactions immédiates, mise en page. Back-End : données persistantes, authentification, paiements, recommandations."
                 },
                 {
                     "type": "exercise",
-                    "title": "🛠️ Exercice - Identifier les responsabilités",
+                    "title": "Exercice - Identifier les responsabilités",
                     "instructions": "Pour chaque fonctionnalité, indiquez si elle est Front-End (F), Back-End (B) ou les deux (F+B).",
-                    "starterCode": "// Indiquez F, B ou F+B pour chaque item\nconst features = [\n  { name: 'Afficher une liste de produits', type: '?' },\n  { name: 'Valider un formulaire visuellement', type: '?' },\n  { name: 'Enregistrer un utilisateur en base', type: '?' },\n  { name: 'Animation au scroll', type: '?' },\n  { name: 'Vérifier le mot de passe côté sécurité', type: '?' },\n  { name: 'Filtrer une liste localement', type: '?' }\n];\n\n// Réponses\nfeatures[0].type = 'F+B'; // Exemple\nconsole.log(features);",
+                    "starterCode": "// Indiquez F, B ou F+B pour chaque item\nconst features = [\n  { name: 'Afficher une liste de produits', type: '?' },\n  { name: 'Valider un formulaire visuellement', type: '?' },\n  { name: 'Enregistrer un utilisateur en base', type: '?' },\n  { name: 'Animation au scroll', type: '?' },\n  { name: 'Vérifier le mot de passe côté sécurité', type: '?' },\n  { name: 'Filtrer une liste localement', type: '?' }\n];\n\n// Réponses\nfeatures[0].type = 'F+B'; // Exemple\nconsole.log(features[0].type);",
                     "solution": "const features = [\n  { name: 'Afficher une liste de produits', type: 'F+B' },\n  { name: 'Valider un formulaire visuellement', type: 'F' },\n  { name: 'Enregistrer un utilisateur en base', type: 'B' },\n  { name: 'Animation au scroll', type: 'F' },\n  { name: 'Vérifier le mot de passe côté sécurité', type: 'B' },\n  { name: 'Filtrer une liste localement', type: 'F' }\n];\n\nconsole.log(features);",
                     "hints": [
                         "Si ça touche visuellement l'utilisateur = Front-End",
@@ -293,7 +293,7 @@
                 },
                 {
                     "type": "activity",
-                    "title": "📚 Ressources complémentaires",
+                    "title": "Ressources complémentaires",
                     "duration": "Lecture libre",
                     "instructions": "Pour approfondir vos connaissances, explorez ces ressources : MDN Web Docs (developer.mozilla.org), Web.dev (Google), FreeCodeCamp, The Odin Project.",
                     "expectedOutput": [
