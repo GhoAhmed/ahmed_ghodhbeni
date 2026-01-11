@@ -1,6 +1,6 @@
 {
     "id": "client-side",
-    "title": "Développement Côté Client P1",
+    "title": "Développement Côté Client P2",
     "category": "Développement Web",
     "level": "DSI2",
     "duration": "12 heures",
@@ -312,7 +312,7 @@
                 {
                     "type": "callout",
                     "variant": "info",
-                    "title": "🎯 Objectifs du module",
+                    "title": "Objectifs du module",
                     "content": "Maîtriser le JavaScript professionnel, structurer du code maintenable, comprendre le DOM et éviter les anti-patterns courants."
                 },
                 {
@@ -405,7 +405,7 @@
                     "type": "callout",
                     "variant": "success",
                     "title": "✅ Avantages de cette approche",
-                    "content": "Code lisible, testable, réutilisable, facile à déboguer, évolutif et maintenable sur le long terme."
+                    "content": "Code lisible, testable, réutilisable, facile à déboguer, évolutif et maintenable."
                 },
                 {
                     "type": "quiz",
@@ -450,12 +450,12 @@
                 {
                     "type": "callout",
                     "variant": "warning",
-                    "title": "⚠️ Performance DOM",
+                    "title": "Performance DOM",
                     "content": "La manipulation du DOM est coûteuse en performance. Évitez les modifications répétées dans des boucles. Privilégiez la construction en mémoire puis l'insertion unique."
                 },
                 {
                     "type": "exercise",
-                    "title": "🛠️ Exercice 1 - Sélecteurs DOM",
+                    "title": "Exercice 1 - Sélecteurs DOM",
                     "instructions": "Créez une fonction qui compte le nombre d'éléments d'une classe donnée et affiche le résultat.",
                     "starterCode": "// Simulons une liste d'éléments\nconst elements = [\n  { class: 'item', text: 'A' },\n  { class: 'item', text: 'B' },\n  { class: 'special', text: 'C' },\n  { class: 'item', text: 'D' }\n];\n\nfunction countByClass(className) {\n  // TODO: Comptez les éléments de cette classe\n  \n}\n\n// Test\ncountByClass('item'); // Devrait afficher 3",
                     "solution": "const elements = [\n  { class: 'item', text: 'A' },\n  { class: 'item', text: 'B' },\n  { class: 'special', text: 'C' },\n  { class: 'item', text: 'D' }\n];\n\nfunction countByClass(className) {\n  const count = elements.filter(el => el.class === className).length;\n  console.log(`Éléments .${className}: ${count}`);\n  return count;\n}\n\n// Test\ncountByClass('item');\ncountByClass('special');",
@@ -537,7 +537,7 @@
                 },
                 {
                     "type": "exercise",
-                    "title": "🛠️ Exercice 2 - Event System",
+                    "title": "Exercice 2 - Event System",
                     "instructions": "Créez un système de compteur avec événements : incrémentation, décrémentation et reset.",
                     "starterCode": "const CounterApp = {\n  count: 0,\n  events: {},\n  \n  on(event, callback) {\n    // TODO: Implémenter\n  },\n  \n  emit(event) {\n    // TODO: Implémenter\n  },\n  \n  increment() {\n    this.count++;\n    // TODO: Émettre l'événement 'change'\n  },\n  \n  decrement() {\n    this.count--;\n    // TODO: Émettre l'événement 'change'\n  },\n  \n  reset() {\n    this.count = 0;\n    // TODO: Émettre l'événement 'reset'\n  }\n};\n\n// Test\nCounterApp.on('change', () => console.log('Count:', CounterApp.count));\nCounterApp.increment();\nCounterApp.increment();\nCounterApp.reset();",
                     "solution": "const CounterApp = {\n  count: 0,\n  events: {},\n  \n  on(event, callback) {\n    if (!this.events[event]) this.events[event] = [];\n    this.events[event].push(callback);\n  },\n  \n  emit(event) {\n    if (this.events[event]) {\n      this.events[event].forEach(cb => cb());\n    }\n  },\n  \n  increment() {\n    this.count++;\n    this.emit('change');\n  },\n  \n  decrement() {\n    this.count--;\n    this.emit('change');\n  },\n  \n  reset() {\n    this.count = 0;\n    this.emit('reset');\n    this.emit('change');\n  }\n};\n\nCounterApp.on('change', () => console.log('Count:', CounterApp.count));\nCounterApp.on('reset', () => console.log('🔄 Reset !'));\nCounterApp.increment();\nCounterApp.increment();\nCounterApp.decrement();\nCounterApp.reset();",
@@ -558,7 +558,7 @@
                 },
                 {
                     "type": "activity",
-                    "title": "📝 TD 1 - Todo List professionnelle",
+                    "title": "TD 1 - Todo List professionnelle",
                     "duration": "1h30",
                     "instructions": "Créer une application de gestion de tâches avec une séparation claire des responsabilités. Structure: State, DOM, Events, Controller.",
                     "expectedOutput": [
@@ -576,7 +576,7 @@
                 {
                     "type": "callout",
                     "variant": "tip",
-                    "title": "💡 Structure suggérée",
+                    "title": "Structure suggérée",
                     "content": "Créez un objet TodoApp contenant : state (données), DOM (rendu), events (interactions), init (initialisation)."
                 },
                 {
@@ -593,7 +593,7 @@
                 },
                 {
                     "type": "activity",
-                    "title": "🚀 TP 1 - Dashboard avec widgets",
+                    "title": "TP 1 - Dashboard avec widgets",
                     "duration": "3h",
                     "instructions": "Créer un dashboard avec 3 widgets : compteur de visiteurs, liste de notifications et graphique en barres (CSS). Architecture professionnelle obligatoire.",
                     "expectedOutput": [
@@ -611,7 +611,7 @@
                 {
                     "type": "callout",
                     "variant": "warning",
-                    "title": "⚠️ Critères d'évaluation",
+                    "title": "Critères d'évaluation",
                     "content": "Organisation (30%), Fonctionnalités (35%), Qualité du code (25%), UX/Design (10%). Le code doit être professionnel et maintenable."
                 },
                 {

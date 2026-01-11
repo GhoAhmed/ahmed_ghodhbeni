@@ -1,75 +1,76 @@
 {
     "id": "server-side",
-    "title": "Développement Côté Serveur P1",
+    "title": "Développement Côté Serveur Native",
     "category": "Développement Web",
     "level": "DSI2",
-    "duration": "12 heures",
-    "lessonsCount": 9,
+    "duration": "40 heures",
+    "lessonsCount": 13,
     "studentsCount": 40,
     "rating": 4.9,
-    "description": "Introduction au développement web côté serveur (backend) et aux technologies utilisées pour créer des APIs.",
+    "description": "Formation complète au développement web côté serveur avec PHP natif : de la syntaxe de base à la création d'applications professionnelles.",
     "prerequisites": [
-        "Algorithmique",
-        "Bases en Base de données",
-        "Bases en JavaScript",
-        "Notions de programmation"
+        "Algorithmique de base",
+        "Bases en HTML et CSS",
+        "Notions de bases de données",
+        "Compréhension de l'architecture client-serveur"
     ],
     "objectives": [
-        "Comprendre ce qu’est réellement le développement côté client",
-        "Structurer des interfaces web professionnelles",
-        "Utiliser des librairies et frameworks",
-        "Choisir la bonne technologie selon le contexte",
-        "Développer des applications Front-End maintenables et performantes"
+        "Maîtriser la syntaxe et les concepts fondamentaux de PHP",
+        "Créer des applications web dynamiques et sécurisées",
+        "Gérer les bases de données avec PDO",
+        "Implémenter des architectures MVC professionnelles",
+        "Développer des APIs RESTful",
+        "Appliquer les bonnes pratiques de sécurité serveur"
     ],
     "chapters": [
         {
             "id": 0,
-            "title": "Introduction au Développement Côté Client",
-            "duration": "2h",
+            "title": "Introduction au Développement Côté Serveur",
+            "duration": "3h",
             "content": [
                 {
                     "type": "callout",
                     "variant": "info",
-                    "title": "🎯 Objectifs du module",
-                    "content": "Comprendre le rôle du développement côté client, situer le Front-End dans l'écosystème Web et comprendre l'évolution des technologies Front-End."
+                    "title": "Objectifs du module",
+                    "content": "Comprendre le rôle du développement côté serveur, situer PHP dans l'écosystème web et installer l'environnement de développement."
                 },
                 {
                     "type": "heading",
-                    "value": "1. Qu'est-ce que le développement côté client ?"
+                    "value": "1. Qu'est-ce que le développement côté serveur ?"
                 },
                 {
                     "type": "text",
-                    "value": "Le développement côté client (Front-End) désigne l'ensemble des technologies et du code exécutés directement dans le navigateur de l'utilisateur. C'est la partie visible et interactive de votre application web."
+                    "value": "Le développement côté serveur (Back-End) désigne l'ensemble des technologies et du code exécutés sur le serveur web. C'est la partie invisible qui gère la logique métier, les données et la sécurité de votre application."
                 },
                 {
                     "type": "callout",
                     "variant": "info",
-                    "title": "💡 Définition",
-                    "content": "Le navigateur est appelé 'client' dans l'architecture client-serveur. Il envoie des requêtes au serveur et affiche les réponses de manière visuelle."
+                    "title": "Définition",
+                    "content": "Le serveur traite les requêtes HTTP envoyées par les clients (navigateurs), exécute la logique métier, interroge les bases de données et renvoie des réponses (HTML, JSON, XML...)."
                 },
                 {
                     "type": "list",
-                    "title": "Les 4 piliers du Front-End",
+                    "title": "Les 4 piliers du Back-End",
                     "items": [
-                        "HTML - Structure et contenu sémantique",
-                        "CSS - Mise en forme, design et responsive",
-                        "JavaScript - Interactivité et logique métier client",
-                        "APIs - Communication avec le serveur et services externes"
+                        "Langage serveur - PHP, Python, Node.js, Java... pour la logique métier",
+                        "Base de données - MySQL, PostgreSQL, MongoDB... pour la persistance des données",
+                        "Serveur web - Apache, Nginx... pour recevoir et traiter les requêtes HTTP",
+                        "APIs - Communication entre le serveur et les clients ou services externes"
                     ]
                 },
                 {
                     "type": "code",
-                    "language": "html",
-                    "title": "Exemple - Structure HTML de base",
-                    "code": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Ma première page</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n  <h1>Bienvenue dans le Front-End !</h1>\n  <p>Cette page est rendue par votre navigateur.</p>\n  <script src=\"app.js\"></script>\n</body>\n</html>",
-                    "editable": false,
-                    "showOutput": false
+                    "language": "php",
+                    "title": "Exemple - Premier script PHP",
+                    "code": "<?php\n// Mon premier script PHP\necho \"Bonjour depuis le serveur ! \";\n\n// Variables\n$nom = \"Alice\";\n$age = 25;\n\necho \"Je m'appelle $nom et j'ai $age ans.\";\n\n// Date et heure du serveur\necho \"<br>Date du serveur : \" . date('d/m/Y H:i:s');\n?>",
+                    "editable": true,
+                    "showOutput": true
                 },
                 {
                     "type": "callout",
                     "variant": "warning",
-                    "title": "⚠️ Idée reçue à corriger",
-                    "content": "Le Front-End n'est PAS juste du design ! Il inclut de la logique métier complexe, de l'optimisation de performance, de la sécurité et des décisions d'architecture."
+                    "title": "Idée reçue à corriger",
+                    "content": "Le Back-End n'est PAS juste une base de données ! Il inclut la logique métier, la sécurité, l'authentification, les traitements complexes et l'orchestration des services."
                 },
                 {
                     "type": "heading",
@@ -77,7 +78,7 @@
                 },
                 {
                     "type": "text",
-                    "value": "Dans une application Web moderne, le Front-End et le Back-End collaborent mais ont des rôles bien distincts."
+                    "value": "Dans une application Web, le Front-End et le Back-End collaborent mais ont des rôles bien distincts que nous avons déjà explorés."
                 },
                 {
                     "type": "table",
@@ -119,187 +120,285 @@
                 {
                     "type": "callout",
                     "variant": "success",
-                    "title": "🎯 Principe clé",
-                    "content": "Le Front-End gère ce que l'utilisateur voit et comment il interagit. Le Back-End gère les données, la logique métier critique et la sécurité."
+                    "title": "Principe clé",
+                    "content": "Le Back-End est le cerveau de l'application : il traite, calcule, valide, sécurise et persiste les données. Le Front-End affiche et interagit."
                 },
                 {
                     "type": "quiz",
-                    "question": "Quelle affirmation est correcte concernant le Front-End ?",
+                    "question": "Quelle affirmation est correcte concernant le Back-End ?",
                     "options": [
-                        "Le Front-End gère uniquement le design visuel",
-                        "Le Front-End s'exécute sur le serveur",
-                        "Le Front-End peut contenir de la logique métier côté client",
-                        "Le Front-End gère directement la base de données"
+                        "Le Back-End gère uniquement la base de données",
+                        "Le Back-End s'exécute dans le navigateur",
+                        "Le Back-End gère la sécurité, la logique métier et les données",
+                        "Le Back-End remplace complètement le Front-End"
                     ],
                     "correctAnswer": 2,
-                    "explanation": "Le Front-End contient de la logique métier côté client (validation, calculs, state management) en plus de l'interface visuelle."
+                    "explanation": "Le Back-End gère la sécurité critique, la logique métier complexe, l'accès aux bases de données et la communication avec les services externes."
                 },
                 {
                     "type": "heading",
-                    "value": "3. Évolution des technologies Front-End"
+                    "value": "3. PHP : Pourquoi et pour quoi faire ?"
                 },
                 {
                     "type": "text",
-                    "value": "Le développement Front-End a connu une évolution rapide ces 20 dernières années pour répondre à des besoins croissants de complexité et d'interactivité."
+                    "value": "PHP (Hypertext Preprocessor) est un langage de script côté serveur open-source, spécialement conçu pour le développement web. Créé en 1994, il alimente aujourd'hui plus de 75% des sites web."
                 },
                 {
                     "type": "timeline",
                     "items": [
                         {
-                            "title": "1990-2000 : HTML statique",
-                            "description": "Pages web simples, sans interaction. Le contenu est fixe et nécessite un rechargement complet pour toute mise à jour."
+                            "title": "1994 : Naissance de PHP",
+                            "description": "Rasmus Lerdorf crée PHP/FI (Personal Home Page / Forms Interpreter) pour gérer son site personnel."
                         },
                         {
-                            "title": "2000-2006 : JavaScript classique + AJAX",
-                            "description": "Introduction de l'interactivité avec JavaScript et des mises à jour partielles avec AJAX (Gmail, Google Maps)."
+                            "title": "2000 : PHP 4 - Explosion",
+                            "description": "Introduction du moteur Zend. PHP devient le langage serveur le plus populaire pour le web."
                         },
                         {
-                            "title": "2006-2010 : jQuery",
-                            "description": "Simplification de la manipulation du DOM et gestion des incompatibilités navigateurs. 'Write less, do more.'"
+                            "title": "2004 : PHP 5 - POO moderne",
+                            "description": "Programmation Orientée Objet complète. Adoption massive par WordPress, Drupal, Joomla."
                         },
                         {
-                            "title": "2010-2013 : Frameworks CSS",
-                            "description": "Bootstrap, Foundation - accélération du développement UI avec des composants prêts à l'emploi."
+                            "title": "2015 : PHP 7 - Performances x2",
+                            "description": "Refonte du moteur Zend. Performances doublées, typage strict optionnel."
                         },
                         {
-                            "title": "2013-2020 : Frameworks JavaScript modernes",
-                            "description": "React (2013), Angular (2016), Vue (2014) - Applications SPA complexes et maintenables."
-                        },
-                        {
-                            "title": "2020+ : Meta-frameworks et optimisation",
-                            "description": "Next.js, Nuxt, Remix - SSR, SSG, performances optimales et SEO amélioré."
+                            "title": "2020 : PHP 8 - JIT Compiler",
+                            "description": "Compilation Just-In-Time, Attributs, Union Types, Match Expression. PHP moderne et performant."
                         }
+                    ]
+                },
+                {
+                    "type": "list",
+                    "title": "Pourquoi choisir PHP ?",
+                    "items": [
+                        "Facile à apprendre - Syntaxe claire et permissive pour les débutants",
+                        "Écosystème riche - Composer, frameworks (Laravel, Symfony), CMS (WordPress)",
+                        "Hébergement universel - Supporté par 99% des hébergeurs web",
+                        "Open Source - Gratuit, communauté active mondiale",
+                        "Performance - PHP 8+ rivalise avec Node.js et Python",
+                        "Emploi - Forte demande sur le marché, nombreuses opportunités"
                     ]
                 },
                 {
                     "type": "callout",
                     "variant": "tip",
-                    "title": "📚 Pourquoi cette évolution ?",
-                    "content": "Chaque évolution répond à un besoin : performances, maintenabilité, expérience utilisateur ou productivité des développeurs."
+                    "title": "PHP dans le monde réel",
+                    "content": "WordPress (43% des sites web), Facebook (HHVM/Hack), Wikipedia, Slack, Etsy, Mailchimp utilisent PHP en production."
                 },
                 {
                     "type": "heading",
-                    "value": "4. Architecture Client-Serveur moderne"
+                    "value": "4. Architecture Client-Serveur avec PHP"
                 },
                 {
                     "type": "text",
-                    "value": "Aujourd'hui, une application web typique fonctionne selon ce schéma :"
+                    "value": "Voici comment fonctionne une requête web typique avec PHP :"
                 },
                 {
                     "type": "list",
                     "title": "Flux de communication",
                     "items": [
-                        "1. Le navigateur (client) charge le HTML, CSS et JavaScript",
-                        "2. Le JavaScript s'exécute et crée l'interface interactive",
-                        "3. L'utilisateur interagit (clics, saisies, scroll...)",
-                        "4. Le Front-End envoie des requêtes HTTP à l'API",
-                        "5. Le Back-End traite, interroge la base de données",
-                        "6. Le Back-End renvoie des données (JSON)",
-                        "7. Le Front-End met à jour l'interface dynamiquement"
+                        "1. L'utilisateur entre une URL dans son navigateur (ex: www.monsite.com/profil.php)",
+                        "2. Le navigateur envoie une requête HTTP au serveur web (Apache/Nginx)",
+                        "3. Le serveur web identifie le fichier PHP et le transmet au moteur PHP",
+                        "4. PHP exécute le code : traite la logique, interroge la base de données",
+                        "5. PHP génère du HTML dynamique",
+                        "6. Le serveur renvoie le HTML au navigateur",
+                        "7. Le navigateur affiche la page à l'utilisateur"
                     ]
                 },
                 {
                     "type": "code",
-                    "language": "javascript",
-                    "title": "Exemple - Communication Client-Serveur",
-                    "code": "// Front-End : Récupération de données\nasync function loadUserProfile() {\n  try {\n    // Requête HTTP vers l'API\n    const response = await fetch('/api/users/me');\n    const user = await response.json();\n    \n    // Mise à jour de l'interface\n    document.querySelector('#username').textContent = user.name;\n    document.querySelector('#email').textContent = user.email;\n    \n    console.log('Profil chargé:', user);\n  } catch (error) {\n    console.error('Erreur:', error);\n  }\n}\n\n// Simulation\nconsole.log('Exemple de communication Front-End / Back-End');",
+                    "language": "php",
+                    "title": "Exemple - Page PHP dynamique",
+                    "code": "<?php\n// profil.php - Page de profil utilisateur\n\n// Simulation de données (normalement depuis BDD)\n$utilisateur = [\n    'nom' => 'Dupont',\n    'prenom' => 'Marie',\n    'email' => 'marie.dupont@example.com',\n    'inscrit_le' => '2024-01-15'\n];\n\n// Génération dynamique du HTML\necho \"<!DOCTYPE html>\";\necho \"<html lang='fr'>\";\necho \"<head>\";\necho \"  <meta charset='UTF-8'>\";\necho \"  <title>Profil de {$utilisateur['prenom']}</title>\";\necho \"</head>\";\necho \"<body>\";\necho \"  <h1>Bienvenue {$utilisateur['prenom']} {$utilisateur['nom']}</h1>\";\necho \"  <p>Email : {$utilisateur['email']}</p>\";\necho \"  <p>Membre depuis : {$utilisateur['inscrit_le']}</p>\";\necho \"</body>\";\necho \"</html>\";\n?>",
                     "editable": true,
-                    "showOutput": true
+                    "showOutput": false
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "💡 Important",
+                    "content": "PHP est exécuté AVANT que le HTML n'arrive au navigateur. Le client ne voit jamais le code PHP, seulement le résultat HTML généré."
                 },
                 {
                     "type": "heading",
-                    "value": "5. TD - Analyse d'une application réelle"
+                    "value": "5. Installation de l'environnement de développement"
                 },
                 {
-                    "type": "activity",
-                    "title": "🎯 TD 1 - Analyse Front-End vs Back-End",
-                    "duration": "30 min",
-                    "instructions": "Choisissez une application web que vous utilisez souvent (YouTube, LinkedIn, Twitter/X, Amazon, etc.). Analysez et identifiez clairement ce qui relève du Front-End et ce qui relève du Back-End.",
-                    "expectedOutput": [
-                        "Nom de l'application choisie",
-                        "Liste de 5 fonctionnalités Front-End avec justification",
-                        "Liste de 5 fonctionnalités Back-End avec justification",
-                        "Schéma simple de l'architecture (optionnel)",
-                        "Conclusion personnelle sur la répartition des responsabilités"
+                    "type": "text",
+                    "value": "Pour développer en PHP, vous avez besoin d'un serveur web local. Les solutions WAMP/XAMPP/MAMP installent Apache, PHP et MySQL en un clic."
+                },
+                {
+                    "type": "table",
+                    "headers": [
+                        "Outil",
+                        "Système",
+                        "Composants",
+                        "Usage"
+                    ],
+                    "rows": [
+                        [
+                            "XAMPP",
+                            "Windows, Mac, Linux",
+                            "Apache, MySQL, PHP, Perl",
+                            "Le plus universel"
+                        ],
+                        [
+                            "WAMP",
+                            "Windows",
+                            "Apache, MySQL, PHP",
+                            "Simple et léger pour Windows"
+                        ],
+                        [
+                            "MAMP",
+                            "Mac, Windows",
+                            "Apache, MySQL, PHP",
+                            "Interface conviviale pour Mac"
+                        ],
+                        [
+                            "Laragon",
+                            "Windows",
+                            "Apache/Nginx, MySQL, PHP",
+                            "Moderne, rapide, portable"
+                        ]
+                    ]
+                },
+                {
+                    "type": "list",
+                    "title": "Étapes d'installation (XAMPP)",
+                    "items": [
+                        "1. Télécharger XAMPP depuis apachefriends.org",
+                        "2. Installer avec les options par défaut",
+                        "3. Lancer le Control Panel XAMPP",
+                        "4. Démarrer Apache et MySQL",
+                        "5. Créer vos fichiers PHP dans le dossier 'htdocs'",
+                        "6. Accéder via http://localhost/votre-fichier.php"
                     ]
                 },
                 {
                     "type": "callout",
+                    "variant": "warning",
+                    "title": "⚠️ Ports occupés",
+                    "content": "Si Apache ne démarre pas, c'est souvent que le port 80 est occupé (Skype, IIS...). Changez le port dans la configuration Apache ou fermez l'application conflictuelle."
+                },
+                {
+                    "type": "code",
+                    "language": "php",
+                    "title": "Tester votre installation",
+                    "code": "<?php\n// Créez ce fichier : htdocs/test.php\n\necho \"<h1>Installation PHP réussie ! ✅</h1>\";\n\necho \"<h2>Informations système :</h2>\";\necho \"<ul>\";\necho \"<li>Version PHP : \" . phpversion() . \"</li>\";\necho \"<li>Système : \" . PHP_OS . \"</li>\";\necho \"<li>Serveur : \" . $_SERVER['SERVER_SOFTWARE'] . \"</li>\";\necho \"</ul>\";\n\n// Tester la connexion MySQL\nif (extension_loaded('mysqli')) {\n    echo \"<p style='color: green;'>✅ Extension MySQL chargée</p>\";\n} else {\n    echo \"<p style='color: red;'>❌ Extension MySQL non disponible</p>\";\n}\n\necho \"<hr>\";\necho \"<p>Accès : <code>http://localhost/test.php</code></p>\";\n?>",
+                    "editable": false,
+                    "showOutput": false
+                },
+                {
+                    "type": "heading",
+                    "value": "6. Structure d'un projet PHP"
+                },
+                {
+                    "type": "code",
+                    "language": "text",
+                    "title": "Organisation recommandée",
+                    "code": "mon-projet/\n├── public/              # Racine web accessible\n│   ├── index.php       # Point d'entrée\n│   ├── css/\n│   ├── js/\n│   └── images/\n├── src/                # Code source PHP\n│   ├── controllers/    # Contrôleurs\n│   ├── models/         # Modèles (accès BDD)\n│   ├── views/          # Vues (templates)\n│   └── config/         # Configuration\n├── vendor/             # Dépendances Composer\n├── tests/              # Tests unitaires\n├── .env                # Variables d'environnement\n├── composer.json       # Gestionnaire de dépendances\n└── README.md",
+                    "editable": false,
+                    "showOutput": false
+                },
+                {
+                    "type": "callout",
                     "variant": "tip",
-                    "title": "💡 Indices pour l'analyse",
-                    "content": "Front-End : animations, interactions immédiates, mise en page, validation visuelle. Back-End : données persistantes, authentification, paiements, recommandations."
+                    "title": "💡 Bonne pratique",
+                    "content": "Seul le dossier 'public' doit être accessible via le web. Tout le reste du code source reste en dehors de la racine web pour plus de sécurité."
+                },
+                {
+                    "type": "heading",
+                    "value": "7. TD - Configuration de votre environnement"
+                },
+                {
+                    "type": "activity",
+                    "title": "TD 1 - Installer et tester votre environnement",
+                    "duration": "45 min",
+                    "instructions": "Installez XAMPP/WAMP/MAMP sur votre machine et créez votre première page PHP fonctionnelle.",
+                    "expectedOutput": [
+                        "XAMPP/WAMP/MAMP installé et fonctionnel",
+                        "Apache et MySQL démarrés",
+                        "Fichier test.php créé dans htdocs",
+                        "Page accessible via http://localhost/test.php",
+                        "Affichage des informations PHP (version, système)",
+                        "Screenshot de la page fonctionnelle"
+                    ]
                 },
                 {
                     "type": "exercise",
-                    "title": "🛠️ Exercice - Identifier les responsabilités",
-                    "instructions": "Pour chaque fonctionnalité, indiquez si elle est Front-End (F), Back-End (B) ou les deux (F+B).",
-                    "starterCode": "// Indiquez F, B ou F+B pour chaque item\nconst features = [\n  { name: 'Afficher une liste de produits', type: '?' },\n  { name: 'Valider un formulaire visuellement', type: '?' },\n  { name: 'Enregistrer un utilisateur en base', type: '?' },\n  { name: 'Animation au scroll', type: '?' },\n  { name: 'Vérifier le mot de passe côté sécurité', type: '?' },\n  { name: 'Filtrer une liste localement', type: '?' }\n];\n\n// Réponses\nfeatures[0].type = 'F+B'; // Exemple\nconsole.log(features);",
-                    "solution": "const features = [\n  { name: 'Afficher une liste de produits', type: 'F+B' },\n  { name: 'Valider un formulaire visuellement', type: 'F' },\n  { name: 'Enregistrer un utilisateur en base', type: 'B' },\n  { name: 'Animation au scroll', type: 'F' },\n  { name: 'Vérifier le mot de passe côté sécurité', type: 'B' },\n  { name: 'Filtrer une liste localement', type: 'F' }\n];\n\nconsole.log(features);",
+                    "title": "Exercice - Ma première page dynamique",
+                    "instructions": "Créez une page PHP qui affiche un message personnalisé avec la date et l'heure du serveur.",
+                    "starterCode": "<?php\n// index.php\n// TODO: Créer des variables\n$prenom = 'VotrePrenom';\n$ville = 'VotreVille';\n\n// TODO: Afficher un message de bienvenue\n\n// TODO: Afficher la date et l'heure actuelle du serveur\n\n?>",
+                    "solution": "<?php\n// index.php\n$prenom = 'Alice';\n$ville = 'Paris';\n\necho \"<h1>Bienvenue $prenom !</h1>\";\necho \"<p>Vous êtes connecté depuis $ville</p>\";\n\n// Date et heure\n$date = date('d/m/Y');\n$heure = date('H:i:s');\n\necho \"<p>Date du serveur : $date</p>\";\necho \"<p>Heure du serveur : $heure</p>\";\n\n// Bonus : jour de la semaine\n$jours = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];\n$jour = $jours[date('w')];\necho \"<p>Nous sommes $jour</p>\";\n?>",
                     "hints": [
-                        "Si ça touche visuellement l'utilisateur = Front-End",
-                        "Si ça touche les données ou la sécurité = Back-End",
-                        "Beaucoup de fonctionnalités nécessitent les deux !"
+                        "Utilisez date('d/m/Y') pour la date",
+                        "Utilisez date('H:i:s') pour l'heure",
+                        "Les variables s'affichent avec echo"
                     ],
                     "criteria": [
-                        "Toutes les réponses sont correctes",
-                        "Justification claire pour chaque choix"
+                        "Affichage du prénom et de la ville",
+                        "Date et heure du serveur affichées",
+                        "Code propre et indenté"
                     ]
                 },
                 {
                     "type": "quiz",
-                    "question": "Quel est le rôle principal du développement côté client ?",
+                    "question": "Où s'exécute le code PHP ?",
                     "options": [
-                        "Gérer la base de données",
-                        "Afficher l'interface et gérer les interactions utilisateur",
-                        "Sécuriser le serveur",
-                        "Gérer les paiements en ligne"
+                        "Dans le navigateur de l'utilisateur",
+                        "Sur le serveur web avant d'envoyer la réponse",
+                        "Dans la base de données",
+                        "Sur le serveur DNS"
                     ],
                     "correctAnswer": 1,
-                    "explanation": "Le Front-End s'occupe de l'affichage de l'interface utilisateur et de la gestion des interactions, tandis que le Back-End gère la logique métier, les données et la sécurité."
+                    "explanation": "PHP s'exécute côté serveur. Le navigateur reçoit uniquement le résultat HTML généré par PHP, jamais le code PHP lui-même."
                 },
                 {
                     "type": "quiz",
-                    "question": "Pourquoi les frameworks Front-End modernes (React, Angular, Vue) sont-ils apparus ?",
+                    "question": "Quel composant n'est PAS nécessaire pour développer en PHP ?",
                     "options": [
-                        "Pour remplacer complètement le Back-End",
-                        "Pour rendre le code plus complexe sans raison",
-                        "Pour gérer des interfaces complexes de manière maintenable",
-                        "Uniquement pour améliorer le design visuel"
+                        "Un serveur web (Apache/Nginx)",
+                        "Le moteur PHP",
+                        "Un navigateur web",
+                        "Node.js"
                     ],
-                    "correctAnswer": 2,
-                    "explanation": "Les frameworks modernes permettent de structurer le code, de gérer l'état de l'application et de créer des interfaces complexes tout en restant maintenables."
+                    "correctAnswer": 3,
+                    "explanation": "Node.js est un environnement JavaScript côté serveur, il n'est pas nécessaire pour PHP. Apache/Nginx + PHP + un navigateur suffisent."
                 },
                 {
                     "type": "heading",
-                    "value": "6. Concepts clés à retenir"
+                    "value": "8. Concepts clés à retenir"
                 },
                 {
                     "type": "list",
                     "title": "Points essentiels du module",
                     "items": [
-                        "Le Front-End s'exécute dans le navigateur de l'utilisateur",
-                        "HTML, CSS et JavaScript sont les 3 piliers fondamentaux",
-                        "Le Front-End contient de la logique métier côté client",
-                        "Front-End et Back-End collaborent via des APIs (HTTP)",
-                        "L'évolution des frameworks répond à des besoins de complexité croissante",
-                        "Une bonne architecture sépare clairement les responsabilités"
+                        "Le Back-End s'exécute sur le serveur, pas dans le navigateur",
+                        "PHP est un langage serveur open-source, mature et performant",
+                        "PHP génère du HTML dynamiquement avant de l'envoyer au client",
+                        "L'environnement de développement nécessite Apache, PHP et MySQL",
+                        "Le client ne voit jamais le code PHP, seulement le résultat HTML",
+                        "Une bonne architecture sépare le code accessible (public) du code source (src)"
                     ]
                 },
                 {
                     "type": "callout",
                     "variant": "success",
-                    "title": "✅ Fin du module 1",
-                    "content": "Vous avez maintenant une vision claire du rôle du Front-End dans l'écosystème web moderne. Le prochain module vous plongera dans le JavaScript professionnel."
+                    "title": "✅ Fin du module 0",
+                    "content": "Vous avez maintenant une vision claire du rôle du Back-End et votre environnement PHP est opérationnel. Le prochain module vous plongera dans la syntaxe fondamentale de PHP."
                 },
                 {
                     "type": "activity",
-                    "title": "📚 Ressources complémentaires",
+                    "title": "Ressources complémentaires",
                     "duration": "Lecture libre",
-                    "instructions": "Pour approfondir vos connaissances, explorez ces ressources : MDN Web Docs (developer.mozilla.org), Web.dev (Google), FreeCodeCamp, The Odin Project.",
+                    "instructions": "Explorez la documentation officielle PHP et familiarisez-vous avec phpMyAdmin pour la gestion de bases de données.",
                     "expectedOutput": [
-                        "Lecture d'au moins 2 articles sur l'architecture web",
-                        "Prise de notes personnelles",
-                        "Questions à poser au prochain cours"
+                        "Lecture de la documentation PHP.net",
+                        "Test de phpMyAdmin (http://localhost/phpmyadmin)",
+                        "Création d'une première base de données test",
+                        "Prise de notes personnelles"
                     ]
                 }
             ]
