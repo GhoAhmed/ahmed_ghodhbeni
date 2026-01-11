@@ -24,7 +24,7 @@ const Hero = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-blue-200 shadow-sm">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
             <span className="text-sm font-medium text-gray-700">
-              Bienvenu sur StudyHub
+              Bienvenue sur StudyHub
             </span>
           </div>
 

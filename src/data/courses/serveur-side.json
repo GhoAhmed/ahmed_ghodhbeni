@@ -1,16 +1,16 @@
 {
-    "id": "client-side",
-    "title": "Développement Côté Client P1",
+    "id": "serveur-side",
+    "title": "Développement Côté Serveur P1",
     "category": "Développement Web",
     "level": "DSI2",
     "duration": "12 heures",
     "lessonsCount": 9,
     "studentsCount": 40,
     "rating": 4.9,
-    "description": "Introduction au développement web côté client (frontend) et aux technologies utilisées pour créer des interfaces interactives.",
+    "description": "Introduction au développement web côté serveur (backend) et aux technologies utilisées pour créer des APIs.",
     "prerequisites": [
         "Algorithmique",
-        "Bases en HTML et CSS",
+        "Bases en Base de données",
         "Bases en JavaScript",
         "Notions de programmation"
     ],

@@ -10,24 +10,24 @@ import {
   FaStar,
   FaUsers,
 } from "react-icons/fa";
+import { IoLogoAndroid } from "react-icons/io";
 import { MdFunctions } from "react-icons/md";
 
 const CourseCard = ({ course }) => {
   const categoryIcons = {
     "Développement Web": FaLaptopCode,
-    Programmation: FaCogs,
     "Base de données": FaDatabase,
-    Algorithmique: MdFunctions,
-    DevOps: FaCloud,
+    Programmation: MdFunctions,
+    "Développement Mobile": IoLogoAndroid,
   };
 
   const CategoryIcon = categoryIcons[course.category] || FaBookOpen;
 
   const levelColors = {
-    Débutant: "bg-green-100 text-green-700",
-    Intermédiaire: "bg-blue-100 text-blue-700",
-    Avancé: "bg-purple-100 text-purple-700",
-    Technologue: "bg-orange-100 text-orange-700",
+    DSI2: "bg-green-100 text-green-700",
+    DSI3: "bg-blue-100 text-blue-700",
+    TI: "bg-purple-100 text-purple-700",
+    SEM: "bg-orange-100 text-orange-700",
   };
 
   const levelColor = levelColors[course.level] || "bg-gray-100 text-gray-700";

@@ -22,7 +22,7 @@ const CTAFinal = () => {
             <span>Commencer maintenant</span>
           </Link>
           <a
-            href="mailto:ahmed.ghodhbeni@example.com"
+            href="mailto:ahmed.godhbeni@gmail.com"
             className="btn btn-outline border-white text-white hover:bg-white/10 btn-lg"
           >
             <HiMail className="w-5 h-5 mr-2" />

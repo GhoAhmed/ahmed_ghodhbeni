@@ -22,7 +22,11 @@ import {
 } from "react-icons/fa";
 import { FaMedal } from "react-icons/fa";
 import { FcIdea } from "react-icons/fc";
-import { IoLogoGameControllerB, IoMdAnalytics } from "react-icons/io";
+import {
+  IoLogoAndroid,
+  IoLogoGameControllerB,
+  IoMdAnalytics,
+} from "react-icons/io";
 import { RiBookShelfFill } from "react-icons/ri";
 import { TiShoppingCart } from "react-icons/ti";
 import { FaFilePen, FaGraduationCap } from "react-icons/fa6";
@@ -33,6 +37,8 @@ import { PiStudentFill } from "react-icons/pi";
 import { GiTeacher, GiThink } from "react-icons/gi";
 import { SiJira, SiPostman } from "react-icons/si";
 import { GrAchievement } from "react-icons/gr";
+
+export const CONTACT_EMAIL = "ahmed.godhbeni@gmail.com";
 
 export const navLinks = [
   { to: "/", label: "Accueil", icon: HiHome },
@@ -90,7 +96,7 @@ export const stats = [
     iconColor: "green-700",
   },
   {
-    value: "5+",
+    value: "3+",
     label: "Cours interactifs",
     icon: FaBook,
     iconColor: "purple-700",
@@ -107,15 +113,15 @@ export const stats = [
 export const expertiseAreas = [
   {
     title: "Développement Web",
-    description: "React, Node.js, JavaScript moderne",
+    description: "React, Angular, Node.js",
     icon: FaLaptopCode,
     iconColor: "blue-700",
     color: "from-blue-500 to-cyan-500",
   },
   {
-    title: "Bases de données",
-    description: "SQL, MongoDB, Architecture de données",
-    icon: FaDatabase,
+    title: "Développement Mobile",
+    description: "Android, Kotlin, Cross-Platform",
+    icon: IoLogoAndroid,
     iconColor: "green-700",
     color: "from-green-500 to-emerald-500",
   },
@@ -138,22 +144,22 @@ export const expertiseAreas = [
 // Témoignages
 export const testimonials = [
   {
-    name: "Sarah M.",
+    name: "Yassine Ch.",
     role: "Étudiante en Licence",
     comment:
       "Les cours sont clairs, interactifs et vraiment motivants. J'ai beaucoup progressé grâce à cette plateforme !",
     rating: 5,
   },
   {
-    name: "Karim B.",
-    role: "Étudiant en Master",
+    name: "Amen Ba.",
+    role: "Étudiant en Licence",
     comment:
       "Les quiz et exercices pratiques m'ont aidé à bien préparer mes examens. Excellente pédagogie !",
     rating: 5,
   },
   {
     name: "Amira K.",
-    role: "Reconversion professionnelle",
+    role: "Étudiante en Licence",
     comment:
       "Parfait pour apprendre à son rythme. Les explications sont détaillées et accessibles.",
     rating: 5,
@@ -163,68 +169,69 @@ export const testimonials = [
 export const allCourses = [
   clientCourses,
   {
-    id: "react-fundamentals",
-    title: "React - Les Fondamentaux",
-    category: "Développement Web",
-    level: "Intermédiaire",
-    description:
-      "Apprenez à créer des applications web modernes avec React, hooks et composants.",
-    prerequisites: ["JavaScript ES6", "HTML/CSS", "Notions de SPA"],
-    duration: "8 heures",
-    lessonsCount: 12,
-    studentsCount: 245,
-    rating: 4.8,
-  },
-  {
-    id: "javascript-advanced",
-    title: "JavaScript Avancé",
+    id: "algorithmique-structures-donnees",
+    title: "Algorithmique & Structures de Données",
     category: "Programmation",
-    level: "Avancé",
+    level: "TI",
     description:
-      "Maîtrisez les concepts avancés de JavaScript : closures, promises, async/await.",
-    prerequisites: ["JavaScript de base", "Algorithmique"],
-    duration: "10 heures",
-    lessonsCount: 15,
-    studentsCount: 189,
+      "Comprendre les bases de l’algorithmique et maîtriser les structures de données essentielles : tableaux, listes, piles, files, arbres.",
+    prerequisites: ["Logique de base"],
+    duration: "12 heures",
+    lessonsCount: 20,
+    studentsCount: 320,
     rating: 4.9,
   },
   {
-    id: "sql-database",
-    title: "Bases de Données SQL",
-    category: "Base de données",
-    level: "Débutant",
+    id: "developpement-mobile-natif",
+    title: "Développement Mobile Natif",
+    category: "Développement Mobile",
+    level: "SEM",
     description:
-      "Introduction aux bases de données relationnelles et au langage SQL.",
-    prerequisites: ["Logique de base"],
-    duration: "6 heures",
-    lessonsCount: 10,
-    studentsCount: 312,
+      "Créer des applications mobiles natives performantes pour Android avec une architecture propre et moderne.",
+    prerequisites: ["POO", "Algorithmique"],
+    duration: "14 heures",
+    lessonsCount: 22,
+    studentsCount: 210,
     rating: 4.7,
   },
   {
-    id: "nodejs-backend",
-    title: "Node.js & Express",
-    category: "Développement Web",
-    level: "Intermédiaire",
-    description: "Créez des API REST performantes avec Node.js et Express.",
-    prerequisites: ["JavaScript", "HTTP/REST"],
+    id: "developpement-mobile-cross-platform",
+    title: "Développement Mobile Cross-Platform",
+    category: "Développement Mobile",
+    level: "DSI3",
+    description:
+      "Développer des applications mobiles multiplateformes avec Flutter ou React Native à partir d’un seul code source.",
+    prerequisites: ["POO", "Notions Mobile"],
     duration: "12 heures",
     lessonsCount: 18,
-    studentsCount: 198,
-    rating: 4.6,
+    studentsCount: 195,
+    rating: 4.8,
   },
   {
-    id: "mongodb-nosql",
-    title: "MongoDB - NoSQL",
-    category: "Base de données",
-    level: "Intermédiaire",
+    id: "developpement-cote-serveur",
+    title: "Développement Côté Serveur",
+    category: "Développement Web",
+    level: "DSI2",
     description:
-      "Découvrez les bases de données NoSQL avec MongoDB et Mongoose.",
-    prerequisites: ["JavaScript", "Bases de données"],
-    duration: "7 heures",
-    lessonsCount: 11,
-    studentsCount: 167,
-    rating: 4.5,
+      "Concevoir et développer des applications backend sécurisées avec gestion des utilisateurs, API REST et bases de données.",
+    prerequisites: ["POO", "Bases de données", "HTTP"],
+    duration: "16 heures",
+    lessonsCount: 24,
+    studentsCount: 230,
+    rating: 4.9,
+  },
+  {
+    id: "bases-de-donnees",
+    title: "Bases de Données & SQL",
+    category: "Base de données",
+    level: "TI",
+    description:
+      "Apprendre la modélisation des données et le langage SQL pour concevoir et interroger des bases de données relationnelles.",
+    prerequisites: ["Logique de base"],
+    duration: "8 heures",
+    lessonsCount: 14,
+    studentsCount: 340,
+    rating: 4.8,
   },
 ];
 

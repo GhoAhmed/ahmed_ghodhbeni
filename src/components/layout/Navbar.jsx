@@ -122,7 +122,7 @@ const Navbar = () => {
               ))}
               <div className="mt-4 px-4">
                 <a
-                  href="mailto:ahmed.ghodhbeni@example.com"
+                  href="mailto:ahmed.godhbeni@gmail.com"
                   className="btn btn-primary w-full"
                 >
                   <HiMail className="w-5 h-5" />
