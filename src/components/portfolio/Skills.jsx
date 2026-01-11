@@ -1,4 +1,3 @@
-import { FaRocket } from "react-icons/fa";
 import { skillCategories, tools } from "../../constants";
 import profile from "../../data/profile.json";
 import { TbTargetArrow } from "react-icons/tb";

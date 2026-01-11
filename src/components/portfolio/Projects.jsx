@@ -1,5 +1,5 @@
 import { CiLink } from "react-icons/ci";
-import { FaBriefcase, FaLaptop, FaRobot, FaRocket } from "react-icons/fa";
+import { FaLaptop, FaRocket } from "react-icons/fa";
 import { projects } from "../../constants";
 
 const Projects = () => {

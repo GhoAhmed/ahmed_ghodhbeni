@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import CourseCard from "../components/courses/CourseCard";
 import { allCourses } from "../constants";
 import HeroCourse from "../components/sections/HeroCourse";

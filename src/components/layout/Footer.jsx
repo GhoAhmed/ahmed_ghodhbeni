@@ -1,6 +1,6 @@
-import { FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 import { quickLinks, socialLinks } from "../../constants";
 
 const Footer = () => {

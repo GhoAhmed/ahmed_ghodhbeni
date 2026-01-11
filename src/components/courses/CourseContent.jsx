@@ -12,7 +12,6 @@ import {
   FaBookOpen,
 } from "react-icons/fa";
 import { MdQuiz, MdTimeline } from "react-icons/md";
-import { BiCodeBlock } from "react-icons/bi";
 
 // ============================================================================
 // 1. COMPOSANT CODE INTERACTIF

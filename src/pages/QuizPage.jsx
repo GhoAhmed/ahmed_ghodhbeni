@@ -1,10 +1,10 @@
-import { useParams, Link } from "react-router";
+import { useParams, Link } from "react-router-dom";
 import Quiz from "../components/quizzes/Quiz";
 import quizClient from "../data/quizzes/quiz-client-side.json";
 
 const QuizPage = () => {
   const { courseId } = useParams();
-  
+
   // Pour l'instant, un seul quiz - à étendre plus tard
   const quizData = courseId === "client-side" ? quizClient : null;
 
@@ -34,7 +34,7 @@ const QuizPage = () => {
       <section className="bg-gradient-to-br from-purple-600 to-pink-600 text-white py-12 md:py-16">
         <div className="container-app">
           <div className="flex items-start gap-4 mb-6">
-            <Link 
+            <Link
               to={`/courses/${courseId}`}
               className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors"
             >
@@ -48,13 +48,14 @@ const QuizPage = () => {
               <span>🎯</span>
               <span>Quiz Interactif</span>
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               {quizData.title}
             </h1>
-            
+
             <p className="text-lg md:text-xl text-purple-100">
-              Testez vos connaissances avec {quizData.questions.length} questions
+              Testez vos connaissances avec {quizData.questions.length}{" "}
+              questions
             </p>
           </div>
         </div>

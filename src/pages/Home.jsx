@@ -1,13 +1,4 @@
-import { Link } from "react-router";
 import { testimonials } from "../constants";
-import {
-  FaBook,
-  FaBriefcase,
-  FaBullseye,
-  FaCheckCircle,
-  FaRocket,
-} from "react-icons/fa";
-import { HiMail } from "react-icons/hi";
 import Hero from "../components/sections/Hero";
 import Stats from "../components/sections/Stats";
 import Expertise from "../components/sections/Expertise";

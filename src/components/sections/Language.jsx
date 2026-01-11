@@ -1,4 +1,3 @@
-import React from "react";
 import { languages } from "../../constants";
 import { FaEarthAfrica } from "react-icons/fa6";
 

@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import clientCourse from "../data/courses/client-side.json";
 import CourseDetails from "../components/courses/CourseDetails";

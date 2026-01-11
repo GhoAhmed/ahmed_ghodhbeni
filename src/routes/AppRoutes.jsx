@@ -1,11 +1,10 @@
-
 import Home from "../pages/Home";
 import Courses from "../pages/Courses";
 import CoursePage from "../pages/CoursePage";
 import QuizPage from "../pages/QuizPage";
 import Portfolio from "../pages/Portfolio";
 import NotFound from "../pages/NotFound";
-import { Route, Routes } from "react-router";
+import { Route, Routes } from "react-router-dom";
 
 const AppRoutes = () => {
   return (

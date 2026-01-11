@@ -1,5 +1,4 @@
 import {
-  FaCloud,
   FaGithub,
   FaGraduationCap,
   FaLaptopCode,

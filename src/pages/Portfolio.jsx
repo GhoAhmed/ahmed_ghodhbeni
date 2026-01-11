@@ -7,9 +7,6 @@ import Projects from "../components/portfolio/Projects";
 import Certifications from "../components/portfolio/Certifications";
 import { tabs } from "../constants";
 import HeroPortfolio from "../components/sections/HeroPortfolio";
-import { HiMail } from "react-icons/hi";
-import { FaBriefcase } from "react-icons/fa6";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Contact from "../components/sections/Contact";
 
 const Portfolio = () => {

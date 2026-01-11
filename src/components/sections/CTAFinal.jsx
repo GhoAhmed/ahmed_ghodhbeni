@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { FaRocket } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
 
