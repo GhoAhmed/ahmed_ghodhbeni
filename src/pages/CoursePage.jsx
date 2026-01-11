@@ -6,6 +6,7 @@ import { BiSolidPurchaseTag } from "react-icons/bi";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import Loading from "../components/layout/Loading";
 import { RiBookShelfFill } from "react-icons/ri";
+import CourseContent from "../components/courses/CourseContent";
 
 const CoursePage = () => {
   const { id } = useParams();
@@ -159,12 +160,14 @@ const CoursePage = () => {
             <CourseDetails course={course} />
 
             {/* Chapitre actif */}
+            {/* Chapitre actif */}
             <div className="card">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-gray-900">
                   Chapitre {activeChapter + 1} :{" "}
                   {course.chapters[activeChapter].title}
                 </h2>
+
                 {completedChapters.includes(
                   course.chapters[activeChapter].id
                 ) && (
@@ -175,13 +178,8 @@ const CoursePage = () => {
                 )}
               </div>
 
-              <div className="prose prose-blue max-w-none space-y-4">
-                {course.chapters[activeChapter].content.map((block, idx) => (
-                  <p key={idx} className="text-gray-700 leading-relaxed">
-                    {block.value}
-                  </p>
-                ))}
-              </div>
+              {/* ✅ CONTENU DU CHAPITRE */}
+              <CourseContent content={course.chapters[activeChapter].content} />
 
               {/* Navigation entre chapitres */}
               <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-200">
@@ -190,10 +188,9 @@ const CoursePage = () => {
                     setActiveChapter(Math.max(0, activeChapter - 1))
                   }
                   disabled={activeChapter === 0}
-                  className="btn btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn btn-secondary disabled:opacity-50"
                 >
-                  <span>←</span>
-                  <span>Précédent</span>
+                  ← Précédent
                 </button>
 
                 <button
@@ -203,21 +200,11 @@ const CoursePage = () => {
                   disabled={completedChapters.includes(
                     course.chapters[activeChapter].id
                   )}
-                  className="btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn btn-primary disabled:opacity-50"
                 >
-                  {completedChapters.includes(
-                    course.chapters[activeChapter].id
-                  ) ? (
-                    <>
-                      <span>✓</span>
-                      <span>Complété</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Marquer comme lu</span>
-                      <span>✓</span>
-                    </>
-                  )}
+                  {completedChapters.includes(course.chapters[activeChapter].id)
+                    ? "✓ Complété"
+                    : "Marquer comme lu"}
                 </button>
 
                 <button
@@ -227,10 +214,9 @@ const CoursePage = () => {
                     )
                   }
                   disabled={activeChapter === course.chapters.length - 1}
-                  className="btn btn-secondary disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn btn-secondary disabled:opacity-50"
                 >
-                  <span>Suivant</span>
-                  <span>→</span>
+                  Suivant →
                 </button>
               </div>
             </div>

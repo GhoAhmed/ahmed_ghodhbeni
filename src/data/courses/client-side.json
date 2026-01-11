@@ -1,13 +1,13 @@
 {
     "id": "client-side",
-    "title": "Développement Côté Client",
+    "title": "Développement Côté Client P1",
     "category": "Développement Web",
     "level": "DSI-2",
     "description": "Introduction au développement web côté client (frontend) et aux technologies utilisées pour créer des interfaces interactives.",
     "prerequisites": [
         "Algorithmique",
         "Bases en HTML et CSS",
-        "Bases en javascript",
+        "Bases en JavaScript",
         "Notions de programmation"
     ],
     "objectives": [
@@ -19,116 +19,1930 @@
     ],
     "chapters": [
         {
-            "id": 1,
+            "id": 0,
             "title": "Introduction au Développement Côté Client",
+            "duration": "2h",
             "content": [
                 {
-                    "type": "text",
-                    "value": "Le développement côté client concerne la partie visible d’une application web, exécutée dans le navigateur de l’utilisateur."
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎯 Objectifs du module",
+                    "content": "Comprendre le rôle du développement côté client, situer le Front-End dans l'écosystème Web et comprendre l'évolution des technologies Front-End."
+                },
+                {
+                    "type": "heading",
+                    "value": "1. Qu'est-ce que le développement côté client ?"
                 },
                 {
                     "type": "text",
-                    "value": "Il permet de gérer l’interface utilisateur, les interactions et l’expérience utilisateur."
+                    "value": "Le développement côté client (Front-End) désigne l'ensemble des technologies et du code exécutés directement dans le navigateur de l'utilisateur. C'est la partie visible et interactive de votre application web."
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "💡 Définition",
+                    "content": "Le navigateur est appelé 'client' dans l'architecture client-serveur. Il envoie des requêtes au serveur et affiche les réponses de manière visuelle."
+                },
+                {
+                    "type": "list",
+                    "title": "Les 4 piliers du Front-End",
+                    "items": [
+                        "HTML - Structure et contenu sémantique",
+                        "CSS - Mise en forme, design et responsive",
+                        "JavaScript - Interactivité et logique métier client",
+                        "APIs - Communication avec le serveur et services externes"
+                    ]
+                },
+                {
+                    "type": "code",
+                    "language": "html",
+                    "title": "Exemple - Structure HTML de base",
+                    "code": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Ma première page</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>\n<body>\n  <h1>Bienvenue dans le Front-End !</h1>\n  <p>Cette page est rendue par votre navigateur.</p>\n  <script src=\"app.js\"></script>\n</body>\n</html>",
+                    "editable": false,
+                    "showOutput": false
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "⚠️ Idée reçue à corriger",
+                    "content": "Le Front-End n'est PAS juste du design ! Il inclut de la logique métier complexe, de l'optimisation de performance, de la sécurité et des décisions d'architecture."
+                },
+                {
+                    "type": "heading",
+                    "value": "2. Front-End vs Back-End : Responsabilités"
+                },
+                {
+                    "type": "text",
+                    "value": "Dans une application Web moderne, le Front-End et le Back-End collaborent mais ont des rôles bien distincts."
+                },
+                {
+                    "type": "table",
+                    "headers": [
+                        "Front-End (Client)",
+                        "Back-End (Serveur)"
+                    ],
+                    "rows": [
+                        [
+                            "Interface utilisateur",
+                            "Logique métier serveur"
+                        ],
+                        [
+                            "Expérience utilisateur (UX)",
+                            "Sécurité et authentification"
+                        ],
+                        [
+                            "Interactions et animations",
+                            "Accès aux bases de données"
+                        ],
+                        [
+                            "Performance perçue",
+                            "Performance serveur"
+                        ],
+                        [
+                            "Validation des données (UX)",
+                            "Validation des données (Sécurité)"
+                        ],
+                        [
+                            "Routing côté client",
+                            "Routing côté serveur"
+                        ],
+                        [
+                            "State management",
+                            "Session management"
+                        ]
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "🎯 Principe clé",
+                    "content": "Le Front-End gère ce que l'utilisateur voit et comment il interagit. Le Back-End gère les données, la logique métier critique et la sécurité."
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quelle affirmation est correcte concernant le Front-End ?",
+                    "options": [
+                        "Le Front-End gère uniquement le design visuel",
+                        "Le Front-End s'exécute sur le serveur",
+                        "Le Front-End peut contenir de la logique métier côté client",
+                        "Le Front-End gère directement la base de données"
+                    ],
+                    "correctAnswer": 2,
+                    "explanation": "Le Front-End contient de la logique métier côté client (validation, calculs, state management) en plus de l'interface visuelle."
+                },
+                {
+                    "type": "heading",
+                    "value": "3. Évolution des technologies Front-End"
+                },
+                {
+                    "type": "text",
+                    "value": "Le développement Front-End a connu une évolution rapide ces 20 dernières années pour répondre à des besoins croissants de complexité et d'interactivité."
+                },
+                {
+                    "type": "timeline",
+                    "items": [
+                        {
+                            "title": "1990-2000 : HTML statique",
+                            "description": "Pages web simples, sans interaction. Le contenu est fixe et nécessite un rechargement complet pour toute mise à jour."
+                        },
+                        {
+                            "title": "2000-2006 : JavaScript classique + AJAX",
+                            "description": "Introduction de l'interactivité avec JavaScript et des mises à jour partielles avec AJAX (Gmail, Google Maps)."
+                        },
+                        {
+                            "title": "2006-2010 : jQuery",
+                            "description": "Simplification de la manipulation du DOM et gestion des incompatibilités navigateurs. 'Write less, do more.'"
+                        },
+                        {
+                            "title": "2010-2013 : Frameworks CSS",
+                            "description": "Bootstrap, Foundation - accélération du développement UI avec des composants prêts à l'emploi."
+                        },
+                        {
+                            "title": "2013-2020 : Frameworks JavaScript modernes",
+                            "description": "React (2013), Angular (2016), Vue (2014) - Applications SPA complexes et maintenables."
+                        },
+                        {
+                            "title": "2020+ : Meta-frameworks et optimisation",
+                            "description": "Next.js, Nuxt, Remix - SSR, SSG, performances optimales et SEO amélioré."
+                        }
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "tip",
+                    "title": "📚 Pourquoi cette évolution ?",
+                    "content": "Chaque évolution répond à un besoin : performances, maintenabilité, expérience utilisateur ou productivité des développeurs."
+                },
+                {
+                    "type": "heading",
+                    "value": "4. Architecture Client-Serveur moderne"
+                },
+                {
+                    "type": "text",
+                    "value": "Aujourd'hui, une application web typique fonctionne selon ce schéma :"
+                },
+                {
+                    "type": "list",
+                    "title": "Flux de communication",
+                    "items": [
+                        "1. Le navigateur (client) charge le HTML, CSS et JavaScript",
+                        "2. Le JavaScript s'exécute et crée l'interface interactive",
+                        "3. L'utilisateur interagit (clics, saisies, scroll...)",
+                        "4. Le Front-End envoie des requêtes HTTP à l'API",
+                        "5. Le Back-End traite, interroge la base de données",
+                        "6. Le Back-End renvoie des données (JSON)",
+                        "7. Le Front-End met à jour l'interface dynamiquement"
+                    ]
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Exemple - Communication Client-Serveur",
+                    "code": "// Front-End : Récupération de données\nasync function loadUserProfile() {\n  try {\n    // Requête HTTP vers l'API\n    const response = await fetch('/api/users/me');\n    const user = await response.json();\n    \n    // Mise à jour de l'interface\n    document.querySelector('#username').textContent = user.name;\n    document.querySelector('#email').textContent = user.email;\n    \n    console.log('Profil chargé:', user);\n  } catch (error) {\n    console.error('Erreur:', error);\n  }\n}\n\n// Simulation\nconsole.log('Exemple de communication Front-End / Back-End');",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "heading",
+                    "value": "5. TD - Analyse d'une application réelle"
+                },
+                {
+                    "type": "activity",
+                    "title": "🎯 TD 1 - Analyse Front-End vs Back-End",
+                    "duration": "30 min",
+                    "instructions": "Choisissez une application web que vous utilisez souvent (YouTube, LinkedIn, Twitter/X, Amazon, etc.). Analysez et identifiez clairement ce qui relève du Front-End et ce qui relève du Back-End.",
+                    "expectedOutput": [
+                        "Nom de l'application choisie",
+                        "Liste de 5 fonctionnalités Front-End avec justification",
+                        "Liste de 5 fonctionnalités Back-End avec justification",
+                        "Schéma simple de l'architecture (optionnel)",
+                        "Conclusion personnelle sur la répartition des responsabilités"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "tip",
+                    "title": "💡 Indices pour l'analyse",
+                    "content": "Front-End : animations, interactions immédiates, mise en page, validation visuelle. Back-End : données persistantes, authentification, paiements, recommandations."
+                },
+                {
+                    "type": "exercise",
+                    "title": "🛠️ Exercice - Identifier les responsabilités",
+                    "instructions": "Pour chaque fonctionnalité, indiquez si elle est Front-End (F), Back-End (B) ou les deux (F+B).",
+                    "starterCode": "// Indiquez F, B ou F+B pour chaque item\nconst features = [\n  { name: 'Afficher une liste de produits', type: '?' },\n  { name: 'Valider un formulaire visuellement', type: '?' },\n  { name: 'Enregistrer un utilisateur en base', type: '?' },\n  { name: 'Animation au scroll', type: '?' },\n  { name: 'Vérifier le mot de passe côté sécurité', type: '?' },\n  { name: 'Filtrer une liste localement', type: '?' }\n];\n\n// Réponses\nfeatures[0].type = 'F+B'; // Exemple\nconsole.log(features);",
+                    "solution": "const features = [\n  { name: 'Afficher une liste de produits', type: 'F+B' },\n  { name: 'Valider un formulaire visuellement', type: 'F' },\n  { name: 'Enregistrer un utilisateur en base', type: 'B' },\n  { name: 'Animation au scroll', type: 'F' },\n  { name: 'Vérifier le mot de passe côté sécurité', type: 'B' },\n  { name: 'Filtrer une liste localement', type: 'F' }\n];\n\nconsole.log(features);",
+                    "hints": [
+                        "Si ça touche visuellement l'utilisateur = Front-End",
+                        "Si ça touche les données ou la sécurité = Back-End",
+                        "Beaucoup de fonctionnalités nécessitent les deux !"
+                    ],
+                    "criteria": [
+                        "Toutes les réponses sont correctes",
+                        "Justification claire pour chaque choix"
+                    ]
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quel est le rôle principal du développement côté client ?",
+                    "options": [
+                        "Gérer la base de données",
+                        "Afficher l'interface et gérer les interactions utilisateur",
+                        "Sécuriser le serveur",
+                        "Gérer les paiements en ligne"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "Le Front-End s'occupe de l'affichage de l'interface utilisateur et de la gestion des interactions, tandis que le Back-End gère la logique métier, les données et la sécurité."
+                },
+                {
+                    "type": "quiz",
+                    "question": "Pourquoi les frameworks Front-End modernes (React, Angular, Vue) sont-ils apparus ?",
+                    "options": [
+                        "Pour remplacer complètement le Back-End",
+                        "Pour rendre le code plus complexe sans raison",
+                        "Pour gérer des interfaces complexes de manière maintenable",
+                        "Uniquement pour améliorer le design visuel"
+                    ],
+                    "correctAnswer": 2,
+                    "explanation": "Les frameworks modernes permettent de structurer le code, de gérer l'état de l'application et de créer des interfaces complexes tout en restant maintenables."
+                },
+                {
+                    "type": "heading",
+                    "value": "6. Concepts clés à retenir"
+                },
+                {
+                    "type": "list",
+                    "title": "Points essentiels du module",
+                    "items": [
+                        "Le Front-End s'exécute dans le navigateur de l'utilisateur",
+                        "HTML, CSS et JavaScript sont les 3 piliers fondamentaux",
+                        "Le Front-End contient de la logique métier côté client",
+                        "Front-End et Back-End collaborent via des APIs (HTTP)",
+                        "L'évolution des frameworks répond à des besoins de complexité croissante",
+                        "Une bonne architecture sépare clairement les responsabilités"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✅ Fin du module 0",
+                    "content": "Vous avez maintenant une vision claire du rôle du Front-End dans l'écosystème web moderne. Le prochain module vous plongera dans le JavaScript professionnel."
+                },
+                {
+                    "type": "activity",
+                    "title": "📚 Ressources complémentaires",
+                    "duration": "Lecture libre",
+                    "instructions": "Pour approfondir vos connaissances, explorez ces ressources : MDN Web Docs (developer.mozilla.org), Web.dev (Google), FreeCodeCamp, The Odin Project.",
+                    "expectedOutput": [
+                        "Lecture d'au moins 2 articles sur l'architecture web",
+                        "Prise de notes personnelles",
+                        "Questions à poser au prochain cours"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "title": "JavaScript Côté Client – Approche Professionnelle",
+            "duration": "5h",
+            "content": [
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎯 Objectifs du module",
+                    "content": "Maîtriser le JavaScript professionnel, structurer du code maintenable, comprendre le DOM et éviter les anti-patterns courants."
+                },
+                {
+                    "type": "heading",
+                    "value": "1. Le problème du JavaScript spaghetti"
+                },
+                {
+                    "type": "text",
+                    "value": "Dans le monde professionnel, le JavaScript mal structuré est la première cause de dette technique. Un code désorganisé devient rapidement impossible à maintenir, déboguer ou faire évoluer."
+                },
+                {
+                    "type": "callout",
+                    "variant": "danger",
+                    "title": "❌ Symptômes du code spaghetti",
+                    "content": "Fichiers de 2000+ lignes, variables globales partout, logique mélangée avec le DOM, aucune séparation de responsabilités, bugs en cascade."
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "❌ Anti-pattern - Code désorganisé",
+                    "code": "// Tout dans un seul fichier... mauvaise pratique !\nvar users = [];\nvar currentUser = null;\nvar isLoggedIn = false;\n\nfunction doEverything() {\n  // Récupération DOM\n  var btn = document.querySelector('#submit-btn');\n  var input = document.querySelector('#user-input');\n  \n  // Logique métier\n  btn.onclick = function() {\n    var value = input.value;\n    if (value) {\n      // Appel API\n      fetch('/api/users')\n        .then(r => r.json())\n        .then(data => {\n          users = data;\n          // Mise à jour DOM\n          document.querySelector('#list').innerHTML = '';\n          users.forEach(u => {\n            document.querySelector('#list').innerHTML += '<li>' + u.name + '</li>';\n          });\n        });\n    }\n  };\n}\n\nconsole.log('⚠️ Ce code est difficile à maintenir !');",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "list",
+                    "title": "🚫 Problèmes de ce code",
+                    "items": [
+                        "Tout est dans une seule fonction",
+                        "Variables globales (var users, currentUser...)",
+                        "Logique métier mélangée avec la manipulation DOM",
+                        "Impossible à tester unitairement",
+                        "innerHTML += crée des bugs de performance",
+                        "Aucune gestion d'erreur",
+                        "Code non réutilisable"
+                    ]
+                },
+                {
+                    "type": "heading",
+                    "value": "2. Séparation des responsabilités (SoC)"
+                },
+                {
+                    "type": "text",
+                    "value": "Le principe fondamental du code maintenable est la Separation of Concerns (SoC). Chaque partie du code doit avoir une responsabilité unique et clairement définie."
+                },
+                {
+                    "type": "table",
+                    "headers": [
+                        "Responsabilité",
+                        "Description",
+                        "Exemples de fonctions"
+                    ],
+                    "rows": [
+                        [
+                            "Données (State)",
+                            "Gestion de l'état et du modèle",
+                            "getUserData(), updateCart(), state = {}"
+                        ],
+                        [
+                            "Logique métier",
+                            "Règles de calcul et validation",
+                            "calculateTotal(), validateEmail(), filterProducts()"
+                        ],
+                        [
+                            "Manipulation DOM",
+                            "Affichage et mise à jour UI",
+                            "renderList(), updateCounter(), showModal()"
+                        ],
+                        [
+                            "Événements",
+                            "Gestion des interactions",
+                            "handleClick(), onSubmit(), onScroll()"
+                        ],
+                        [
+                            "Services API",
+                            "Communication serveur",
+                            "fetchUsers(), createProduct(), login()"
+                        ]
+                    ]
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "✅ Bonne pratique - Code structuré",
+                    "code": "// === DATA LAYER (État de l'application) ===\nconst state = {\n  users: [],\n  currentUser: null,\n  isLoading: false\n};\n\n// === SERVICE LAYER (Communication API) ===\nconst UserService = {\n  async fetchAll() {\n    const response = await fetch('/api/users');\n    return response.json();\n  }\n};\n\n// === DOM LAYER (Manipulation interface) ===\nconst DOM = {\n  renderUsers(users) {\n    const container = document.querySelector('#user-list');\n    container.innerHTML = users\n      .map(u => `<li class=\"user-item\">${u.name}</li>`)\n      .join('');\n  },\n  \n  showLoader() {\n    document.querySelector('#loader').classList.remove('hidden');\n  },\n  \n  hideLoader() {\n    document.querySelector('#loader').classList.add('hidden');\n  }\n};\n\n// === CONTROLLER (Orchestration) ===\nasync function loadUsers() {\n  try {\n    DOM.showLoader();\n    state.users = await UserService.fetchAll();\n    DOM.renderUsers(state.users);\n    console.log('✅ Utilisateurs chargés:', state.users.length);\n  } catch (error) {\n    console.error('❌ Erreur:', error);\n  } finally {\n    DOM.hideLoader();\n  }\n}\n\n// Simulation\nstate.users = [{name: 'Alice'}, {name: 'Bob'}];\nDOM.renderUsers(state.users);",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✅ Avantages de cette approche",
+                    "content": "Code lisible, testable, réutilisable, facile à déboguer, évolutif et maintenable sur le long terme."
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quel est le principal objectif de la séparation des responsabilités ?",
+                    "options": [
+                        "Écrire plus de code pour justifier son salaire",
+                        "Améliorer uniquement la performance d'exécution",
+                        "Rendre le code maintenable, lisible et évolutif",
+                        "Éviter d'utiliser du CSS"
+                    ],
+                    "correctAnswer": 2,
+                    "explanation": "La séparation des responsabilités (SoC) permet d'avoir un code clair où chaque partie a un rôle précis, ce qui facilite la maintenance et les évolutions futures."
+                },
+                {
+                    "type": "heading",
+                    "value": "3. Manipulation avancée du DOM"
+                },
+                {
+                    "type": "text",
+                    "value": "Le DOM (Document Object Model) est l'interface de programmation qui représente la page HTML comme un arbre d'objets que JavaScript peut manipuler."
+                },
+                {
+                    "type": "list",
+                    "title": "🎯 Méthodes de sélection modernes",
+                    "items": [
+                        "querySelector() - Sélection CSS moderne (retourne le premier élément)",
+                        "querySelectorAll() - Sélection multiple (retourne NodeList)",
+                        "getElementById() - Sélection par ID (plus rapide mais limitée)",
+                        "getElementsByClassName() - Sélection par classe (collection live)",
+                        "closest() - Trouve l'ancêtre le plus proche",
+                        "matches() - Vérifie si un élément correspond à un sélecteur"
+                    ]
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Sélection et manipulation DOM",
+                    "code": "// Simulation d'éléments DOM\nconst mockDOM = {\n  elements: [\n    { id: 'title', tag: 'h1', text: 'Mon Titre' },\n    { class: 'item', tag: 'li', text: 'Item 1' },\n    { class: 'item', tag: 'li', text: 'Item 2' }\n  ]\n};\n\n// Fonctions de sélection simulées\nfunction querySelector(selector) {\n  const el = mockDOM.elements.find(e => \n    selector === `#${e.id}` || selector === `.${e.class}`\n  );\n  return el ? { ...el, textContent: el.text } : null;\n}\n\nfunction querySelectorAll(selector) {\n  return mockDOM.elements\n    .filter(e => selector === `.${e.class}`)\n    .map(e => ({ ...e, textContent: e.text }));\n}\n\n// Utilisation\nconst title = querySelector('#title');\nconsole.log('Titre:', title?.textContent);\n\nconst items = querySelectorAll('.item');\nconsole.log('Items trouvés:', items.length);\nitems.forEach((item, i) => {\n  console.log(`  ${i + 1}. ${item.textContent}`);\n});",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "⚠️ Performance DOM",
+                    "content": "La manipulation du DOM est coûteuse en performance. Évitez les modifications répétées dans des boucles. Privilégiez la construction en mémoire puis l'insertion unique."
+                },
+                {
+                    "type": "exercise",
+                    "title": "🛠️ Exercice 1 - Sélecteurs DOM",
+                    "instructions": "Créez une fonction qui compte le nombre d'éléments d'une classe donnée et affiche le résultat.",
+                    "starterCode": "// Simulons une liste d'éléments\nconst elements = [\n  { class: 'item', text: 'A' },\n  { class: 'item', text: 'B' },\n  { class: 'special', text: 'C' },\n  { class: 'item', text: 'D' }\n];\n\nfunction countByClass(className) {\n  // TODO: Comptez les éléments de cette classe\n  \n}\n\n// Test\ncountByClass('item'); // Devrait afficher 3",
+                    "solution": "const elements = [\n  { class: 'item', text: 'A' },\n  { class: 'item', text: 'B' },\n  { class: 'special', text: 'C' },\n  { class: 'item', text: 'D' }\n];\n\nfunction countByClass(className) {\n  const count = elements.filter(el => el.class === className).length;\n  console.log(`Éléments .${className}: ${count}`);\n  return count;\n}\n\n// Test\ncountByClass('item');\ncountByClass('special');",
+                    "hints": [
+                        "Utilisez .filter() pour filtrer par classe",
+                        "Utilisez .length pour compter",
+                        "Affichez avec console.log()"
+                    ],
+                    "criteria": [
+                        "La fonction retourne le bon nombre",
+                        "Le résultat est affiché clairement",
+                        "Code lisible et concis"
+                    ]
+                },
+                {
+                    "type": "heading",
+                    "value": "4. Gestion des événements"
+                },
+                {
+                    "type": "text",
+                    "value": "Les événements permettent de réagir aux actions de l'utilisateur. Une bonne gestion des événements est essentielle pour une interface réactive."
+                },
+                {
+                    "type": "timeline",
+                    "items": [
+                        {
+                            "title": "1. Événement déclenché",
+                            "description": "L'utilisateur clique sur un bouton, tape du texte, scroll..."
+                        },
+                        {
+                            "title": "2. Propagation (Bubbling/Capturing)",
+                            "description": "L'événement remonte (bubble) ou descend (capture) dans l'arbre DOM"
+                        },
+                        {
+                            "title": "3. Event Listener activé",
+                            "description": "JavaScript détecte l'événement via addEventListener"
+                        },
+                        {
+                            "title": "4. Callback exécuté",
+                            "description": "La fonction gestionnaire s'exécute avec l'objet Event"
+                        },
+                        {
+                            "title": "5. DOM mis à jour",
+                            "description": "L'interface reflète le changement si nécessaire"
+                        }
+                    ]
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Gestion professionnelle des événements",
+                    "code": "// Système d'événements personnalisé\nconst EventBus = {\n  listeners: {},\n  \n  on(event, callback) {\n    if (!this.listeners[event]) {\n      this.listeners[event] = [];\n    }\n    this.listeners[event].push(callback);\n    console.log(`📡 Listener ajouté pour: ${event}`);\n  },\n  \n  emit(event, data) {\n    if (this.listeners[event]) {\n      this.listeners[event].forEach(callback => callback(data));\n      console.log(`🔔 Événement émis: ${event}`);\n    }\n  },\n  \n  off(event, callback) {\n    if (this.listeners[event]) {\n      this.listeners[event] = this.listeners[event]\n        .filter(cb => cb !== callback);\n      console.log(`🔇 Listener retiré pour: ${event}`);\n    }\n  }\n};\n\n// Utilisation\nEventBus.on('userLogin', (user) => {\n  console.log(`✅ Bienvenue ${user.name} !`);\n});\n\nEventBus.on('userLogin', (user) => {\n  console.log(`📊 Chargement du profil...`);\n});\n\nEventBus.emit('userLogin', { name: 'Alice', id: 123 });\nEventBus.emit('userLogout', {});",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "list",
+                    "title": "🎯 Bonnes pratiques - Événements",
+                    "items": [
+                        "Utilisez addEventListener au lieu de onclick",
+                        "Supprimez les listeners avec removeEventListener quand ils ne sont plus nécessaires",
+                        "Utilisez la délégation d'événements pour les listes dynamiques",
+                        "Débounce/Throttle pour les événements fréquents (scroll, resize)",
+                        "Prévenez la propagation uniquement si nécessaire (stopPropagation)",
+                        "Utilisez event.preventDefault() pour annuler l'action par défaut"
+                    ]
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quelle est la meilleure pratique pour gérer les événements sur une liste dynamique d'éléments ?",
+                    "options": [
+                        "Ajouter un listener sur chaque élément individuellement",
+                        "Utiliser la délégation d'événements sur l'élément parent",
+                        "Utiliser setInterval pour vérifier les clics toutes les 100ms",
+                        "Ne pas gérer les événements du tout"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "La délégation d'événements consiste à placer un seul listener sur le parent. Cela améliore les performances et fonctionne automatiquement pour les éléments ajoutés dynamiquement."
+                },
+                {
+                    "type": "exercise",
+                    "title": "🛠️ Exercice 2 - Event System",
+                    "instructions": "Créez un système de compteur avec événements : incrémentation, décrémentation et reset.",
+                    "starterCode": "const CounterApp = {\n  count: 0,\n  events: {},\n  \n  on(event, callback) {\n    // TODO: Implémenter\n  },\n  \n  emit(event) {\n    // TODO: Implémenter\n  },\n  \n  increment() {\n    this.count++;\n    // TODO: Émettre l'événement 'change'\n  },\n  \n  decrement() {\n    this.count--;\n    // TODO: Émettre l'événement 'change'\n  },\n  \n  reset() {\n    this.count = 0;\n    // TODO: Émettre l'événement 'reset'\n  }\n};\n\n// Test\nCounterApp.on('change', () => console.log('Count:', CounterApp.count));\nCounterApp.increment();\nCounterApp.increment();\nCounterApp.reset();",
+                    "solution": "const CounterApp = {\n  count: 0,\n  events: {},\n  \n  on(event, callback) {\n    if (!this.events[event]) this.events[event] = [];\n    this.events[event].push(callback);\n  },\n  \n  emit(event) {\n    if (this.events[event]) {\n      this.events[event].forEach(cb => cb());\n    }\n  },\n  \n  increment() {\n    this.count++;\n    this.emit('change');\n  },\n  \n  decrement() {\n    this.count--;\n    this.emit('change');\n  },\n  \n  reset() {\n    this.count = 0;\n    this.emit('reset');\n    this.emit('change');\n  }\n};\n\nCounterApp.on('change', () => console.log('Count:', CounterApp.count));\nCounterApp.on('reset', () => console.log('🔄 Reset !'));\nCounterApp.increment();\nCounterApp.increment();\nCounterApp.decrement();\nCounterApp.reset();",
+                    "hints": [
+                        "Stockez les callbacks dans un objet",
+                        "emit() doit appeler tous les callbacks enregistrés",
+                        "N'oubliez pas d'émettre 'change' après chaque modification"
+                    ],
+                    "criteria": [
+                        "Les événements sont correctement émis",
+                        "Le compteur fonctionne",
+                        "Code propre et fonctionnel"
+                    ]
+                },
+                {
+                    "type": "heading",
+                    "value": "5. TD - Application Todo modulaire"
+                },
+                {
+                    "type": "activity",
+                    "title": "📝 TD 1 - Todo List professionnelle",
+                    "duration": "1h30",
+                    "instructions": "Créer une application de gestion de tâches avec une séparation claire des responsabilités. Structure: State, DOM, Events, Controller.",
+                    "expectedOutput": [
+                        "Fichier HTML avec structure sémantique",
+                        "JavaScript structuré (State, DOM, Events, App)",
+                        "Ajout de tâches fonctionnel",
+                        "Suppression de tâches",
+                        "Marquage complété/non complété",
+                        "Compteur de tâches",
+                        "Code commenté et lisible",
+                        "Aucune variable globale (sauf l'objet App)",
+                        "Gestion basique des erreurs"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "tip",
+                    "title": "💡 Structure suggérée",
+                    "content": "Créez un objet TodoApp contenant : state (données), DOM (rendu), events (interactions), init (initialisation)."
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Structure de départ pour le TD",
+                    "code": "const TodoApp = {\n  // État de l'application\n  state: {\n    todos: [],\n    nextId: 1\n  },\n  \n  // Manipulation DOM\n  DOM: {\n    render() {\n      console.log('📋 Rendu de', TodoApp.state.todos.length, 'tâches');\n      // TODO: Afficher les tâches\n    },\n    \n    updateCount() {\n      const total = TodoApp.state.todos.length;\n      const completed = TodoApp.state.todos.filter(t => t.done).length;\n      console.log(`📊 ${completed}/${total} complétées`);\n    }\n  },\n  \n  // Logique métier\n  addTodo(text) {\n    const todo = {\n      id: this.state.nextId++,\n      text,\n      done: false,\n      createdAt: new Date()\n    };\n    this.state.todos.push(todo);\n    this.DOM.render();\n    this.DOM.updateCount();\n  },\n  \n  toggleTodo(id) {\n    const todo = this.state.todos.find(t => t.id === id);\n    if (todo) {\n      todo.done = !todo.done;\n      this.DOM.render();\n      this.DOM.updateCount();\n    }\n  },\n  \n  deleteTodo(id) {\n    this.state.todos = this.state.todos.filter(t => t.id !== id);\n    this.DOM.render();\n    this.DOM.updateCount();\n  },\n  \n  // Initialisation\n  init() {\n    console.log('🚀 TodoApp initialisée');\n    this.DOM.render();\n    this.DOM.updateCount();\n  }\n};\n\n// Test\nTodoApp.init();\nTodoApp.addTodo('Apprendre le JavaScript');\nTodoApp.addTodo('Faire le TD');\nTodoApp.toggleTodo(1);\nTodoApp.DOM.updateCount();",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "heading",
+                    "value": "6. TP - Dashboard interactif"
+                },
+                {
+                    "type": "activity",
+                    "title": "🚀 TP 1 - Dashboard avec widgets",
+                    "duration": "3h",
+                    "instructions": "Créer un dashboard avec 3 widgets : compteur de visiteurs, liste de notifications et graphique en barres (CSS). Architecture professionnelle obligatoire.",
+                    "expectedOutput": [
+                        "HTML/CSS structuré et responsive",
+                        "JavaScript modulaire (fichiers séparés recommandés)",
+                        "Widget 1: Compteur animé",
+                        "Widget 2: Liste de notifications avec suppression",
+                        "Widget 3: Graphique en barres (divs + CSS)",
+                        "Gestion d'état centralisée",
+                        "Code commenté et organisé",
+                        "Pas de variables globales polluantes",
+                        "Utilisation d'événements personnalisés"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "⚠️ Critères d'évaluation",
+                    "content": "Organisation (30%), Fonctionnalités (35%), Qualité du code (25%), UX/Design (10%). Le code doit être professionnel et maintenable."
+                },
+                {
+                    "type": "quiz",
+                    "question": "Pourquoi éviter les variables globales en JavaScript ?",
+                    "options": [
+                        "Elles sont plus lentes à l'exécution",
+                        "Elles compliquent la maintenance et causent des conflits",
+                        "Elles ne fonctionnent pas dans les navigateurs modernes",
+                        "Elles empêchent l'utilisation du DOM"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "Les variables globales créent des risques de conflits de noms, rendent le code difficile à tester et à maintenir, et peuvent causer des bugs subtils."
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✅ Fin du module 1",
+                    "content": "Vous maîtrisez maintenant les fondamentaux du JavaScript professionnel. Le prochain module abordera jQuery et son rôle historique dans le développement Front-End."
                 }
             ]
         },
         {
             "id": 2,
-            "title": "JavaScript Côté Client",
+            "title": "jQuery : Pourquoi, Quand et Comment",
+            "duration": "1h30",
             "content": [
                 {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎯 Objectifs du module",
+                    "content": "Comprendre l’intérêt de jQuery, savoir l’utiliser dans un contexte professionnel et maintenir des projets existants."
+                },
+                {
                     "type": "text",
-                    "value": "Les principales technologies du développement côté client sont HTML pour la structure, CSS pour la mise en forme et JavaScript pour l’interactivité."
+                    "value": "Avant l’arrivée des frameworks modernes, le développement Front-End était complexe à cause des différences entre navigateurs."
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "📜 Pourquoi jQuery a existé",
+                    "content": "jQuery a simplifié la manipulation du DOM, la gestion des événements et les requêtes AJAX, tout en masquant les incompatibilités navigateurs."
+                },
+                {
+                    "type": "list",
+                    "title": "Problèmes avant jQuery",
+                    "items": [
+                        "Différences entre navigateurs",
+                        "Code JavaScript long et répétitif",
+                        "AJAX complexe",
+                        "Animations difficiles"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "value": "jQuery repose sur un principe simple : écrire moins de code pour faire plus."
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✨ Philosophie jQuery",
+                    "content": "Write less, do more."
+                },
+                {
+                    "type": "text",
+                    "value": "Les sélecteurs jQuery permettent de cibler rapidement des éléments du DOM."
+                },
+                {
+                    "type": "list",
+                    "title": "🎯 Sélecteurs jQuery",
+                    "items": [
+                        "$('#id')",
+                        "$('.class')",
+                        "$('div')",
+                        "$('[data-role]')"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "value": "La gestion des événements avec jQuery est simple et lisible."
+                },
+                {
+                    "type": "list",
+                    "title": "🖱️ Gestion des événements",
+                    "items": [
+                        ".on('click', handler)",
+                        ".off()",
+                        "Délégation d’événements",
+                        "Gestion des formulaires"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "⚠️ Attention",
+                    "content": "Une mauvaise utilisation de jQuery peut aussi produire du code spaghetti."
+                },
+                {
+                    "type": "text",
+                    "value": "jQuery a popularisé les appels AJAX côté client."
+                },
+                {
+                    "type": "list",
+                    "title": "🌐 AJAX avec jQuery",
+                    "items": [
+                        "$.ajax()",
+                        "$.get() / $.post()",
+                        "Gestion du succès et des erreurs",
+                        "Chargement dynamique des données"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🔌 Plugins jQuery",
+                    "content": "jQuery dispose d’un large écosystème de plugins pour accélérer le développement."
+                },
+                {
+                    "type": "list",
+                    "title": "Exemples de plugins",
+                    "items": [
+                        "Sliders",
+                        "Modals",
+                        "Validation de formulaires",
+                        "DataTables"
+                    ]
+                },
+                {
+                    "type": "activity",
+                    "title": "🧪 Activité – Analyse de projet legacy",
+                    "instructions": "Analyser un projet existant utilisant jQuery et identifier les points forts et les faiblesses.",
+                    "expectedOutput": [
+                        "Ce qui est bien structuré",
+                        "Ce qui pose problème",
+                        "Propositions d’amélioration"
+                    ]
+                },
+                {
+                    "type": "exercise",
+                    "title": "🛠️ Pratique – CRUD simple avec jQuery",
+                    "instructions": "Créer une interface CRUD simple (liste, ajout, suppression) en utilisant jQuery et AJAX.",
+                    "criteria": [
+                        "Code lisible",
+                        "Sélecteurs clairs",
+                        "Gestion correcte des événements",
+                        "AJAX fonctionnel"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "⚠️ Focus professionnel",
+                    "content": "jQuery est encore présent dans de nombreux projets legacy et CMS comme WordPress."
+                },
+                {
+                    "type": "list",
+                    "title": "Quand utiliser jQuery aujourd’hui",
+                    "items": [
+                        "Maintenance de projets existants",
+                        "WordPress et thèmes legacy",
+                        "Petits scripts simples"
+                    ]
+                },
+                {
+                    "type": "list",
+                    "title": "Quand NE PAS utiliser jQuery",
+                    "items": [
+                        "Nouveaux projets SPA",
+                        "Applications complexes",
+                        "Quand un framework moderne est requis"
+                    ]
+                },
+                {
+                    "type": "quiz",
+                    "question": "Pourquoi jQuery a-t-il été créé ?",
+                    "options": [
+                        "Remplacer HTML",
+                        "Simplifier JavaScript et gérer les incompatibilités navigateurs",
+                        "Améliorer le CSS",
+                        "Créer des SPA"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "jQuery simplifie la manipulation du DOM et masque les différences entre navigateurs."
+                },
+                {
+                    "type": "quiz",
+                    "question": "Dans quel cas jQuery est-il encore pertinent aujourd’hui ?",
+                    "options": [
+                        "Créer un nouveau framework",
+                        "Développer une SPA moderne",
+                        "Maintenir un projet legacy",
+                        "Remplacer React"
+                    ],
+                    "correctAnswer": 2,
+                    "explanation": "jQuery est surtout utilisé pour maintenir ou améliorer des projets existants."
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✅ Fin du module 2",
+                    "content": "Vous comprenez maintenant le rôle de jQuery et êtes capable de travailler sur des projets legacy."
                 }
             ]
         },
         {
             "id": 3,
-            "title": "jQuery : Pourquoi, Quand et Comment",
+            "title": "CSS Frameworks : Bootstrap & Alternatives",
+            "duration": "2h",
             "content": [
                 {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎯 Objectifs du module",
+                    "content": "Comprendre l’intérêt des frameworks CSS, utiliser Bootstrap efficacement et découvrir les alternatives modernes."
+                },
+                {
                     "type": "text",
-                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                    "value": "Créer une interface utilisateur professionnelle uniquement avec du CSS natif peut être long, complexe et difficile à maintenir."
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "❓ Qu’est-ce qu’un framework CSS ?",
+                    "content": "Un framework CSS est une bibliothèque de styles prêts à l’emploi permettant de construire rapidement des interfaces cohérentes et responsives."
+                },
+                {
+                    "type": "list",
+                    "title": "Avantages des frameworks CSS",
+                    "items": [
+                        "Gain de temps",
+                        "Design cohérent",
+                        "Responsive par défaut",
+                        "Bonnes pratiques intégrées",
+                        "Maintenance facilitée"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "⚠️ Attention",
+                    "content": "Un framework CSS mal utilisé peut produire une interface rigide et non personnalisée."
+                },
+                {
+                    "type": "text",
+                    "value": "Bootstrap est le framework CSS le plus populaire et le plus utilisé dans les projets professionnels."
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "🅱️ Bootstrap – Vue d’ensemble",
+                    "content": "Bootstrap fournit un système de grille, des composants UI et des utilitaires prêts à l’emploi."
+                },
+                {
+                    "type": "list",
+                    "title": "📐 Système de grille Bootstrap",
+                    "items": [
+                        "Rows & Columns",
+                        "Breakpoints (sm, md, lg, xl)",
+                        "Layout responsive"
+                    ]
+                },
+                {
+                    "type": "list",
+                    "title": "🧩 Composants Bootstrap",
+                    "items": [
+                        "Navbar",
+                        "Buttons",
+                        "Cards",
+                        "Modals",
+                        "Forms",
+                        "Alerts"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "value": "Bootstrap permet aussi de gérer facilement le responsive design sans écrire de media queries."
+                },
+                {
+                    "type": "list",
+                    "title": "📱 Responsive Design avec Bootstrap",
+                    "items": [
+                        "Classes responsive",
+                        "Affichage conditionnel",
+                        "Mobile-first"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎨 Personnalisation Bootstrap",
+                    "content": "Bootstrap peut être personnalisé via variables CSS, overrides ou compilation SCSS."
+                },
+                {
+                    "type": "list",
+                    "title": "Techniques de personnalisation",
+                    "items": [
+                        "Override de classes",
+                        "Variables CSS",
+                        "Thèmes personnalisés",
+                        "SCSS Bootstrap"
+                    ]
+                },
+                {
+                    "type": "activity",
+                    "title": "🧪 Pratique – Interface responsive",
+                    "instructions": "Créer une page responsive complète (navbar, cards, formulaire) avec Bootstrap.",
+                    "expectedOutput": [
+                        "Layout responsive",
+                        "Composants Bootstrap",
+                        "Bonne lisibilité",
+                        "Structure propre"
+                    ]
+                },
+                {
+                    "type": "exercise",
+                    "title": "🛠️ Pratique – Refonte UI",
+                    "instructions": "Refactoriser une page HTML/CSS existante en utilisant Bootstrap.",
+                    "criteria": [
+                        "Code plus court",
+                        "Meilleure structure",
+                        "Responsive"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🌱 Alternatives modernes",
+                    "content": "Bootstrap n’est pas la seule solution aujourd’hui."
+                },
+                {
+                    "type": "list",
+                    "title": "Alternatives populaires",
+                    "items": [
+                        "Tailwind CSS",
+                        "Material UI",
+                        "Bulma",
+                        "Ant Design"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "⚖️ Choisir le bon outil",
+                    "content": "Le choix du framework CSS dépend du projet, de l’équipe et du framework JS utilisé."
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quel est le principal avantage d’un framework CSS ?",
+                    "options": [
+                        "Remplacer JavaScript",
+                        "Créer des API",
+                        "Accélérer le développement UI",
+                        "Améliorer le SEO"
+                    ],
+                    "correctAnswer": 2,
+                    "explanation": "Un framework CSS permet de créer des interfaces rapidement et proprement."
+                },
+                {
+                    "type": "quiz",
+                    "question": "Dans quel cas Tailwind CSS est souvent préféré ?",
+                    "options": [
+                        "Projets legacy",
+                        "Quand on veut éviter toute classe CSS",
+                        "Projets modernes avec forte personnalisation",
+                        "Applications backend"
+                    ],
+                    "correctAnswer": 2,
+                    "explanation": "Tailwind est très utilisé dans les projets modernes nécessitant un design sur mesure."
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✅ Fin du module 3",
+                    "content": "Vous savez maintenant utiliser un framework CSS professionnel et choisir la bonne solution."
                 }
             ]
         },
         {
             "id": 4,
-            "title": "CSS Frameworks (Bootstrap & Alternatives)",
+            "title": "Architecture Front-End & Bonnes Pratiques",
+            "duration": "2h30",
             "content": [
                 {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎯 Objectifs du module",
+                    "content": "Structurer un projet Front-End professionnel, maintenable et performant."
+                },
+                {
                     "type": "text",
-                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                    "value": "Un projet Front-End mal structuré devient rapidement difficile à maintenir, à tester et à faire évoluer."
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "⚠️ Problème fréquent",
+                    "content": "Des fichiers partout, du code dupliqué, des noms incohérents et aucune règle claire."
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "📁 Organisation d’un projet Front-End",
+                    "content": "Une bonne architecture permet de comprendre un projet sans lire tout le code."
+                },
+                {
+                    "type": "list",
+                    "title": "Structure classique d’un projet Front-End",
+                    "items": [
+                        "assets/ (images, fonts)",
+                        "css/ ou styles/",
+                        "js/",
+                        "components/",
+                        "pages/",
+                        "services/",
+                        "utils/"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "💡 Règle d’or",
+                    "content": "Un fichier = une responsabilité"
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "✏️ Nommage & conventions",
+                    "content": "Un bon nom vaut mieux qu’un commentaire."
+                },
+                {
+                    "type": "list",
+                    "title": "Bonnes pratiques de nommage",
+                    "items": [
+                        "Noms explicites",
+                        "CamelCase pour JS",
+                        "kebab-case pour CSS",
+                        "Pas d’abréviations floues"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🧹 Clean Code côté client",
+                    "content": "Le Clean Code améliore la lisibilité et réduit les bugs."
+                },
+                {
+                    "type": "list",
+                    "title": "Principes de Clean Code",
+                    "items": [
+                        "Fonctions courtes",
+                        "Une responsabilité par fonction",
+                        "Pas de code mort",
+                        "Éviter la duplication",
+                        "Commentaires utiles uniquement"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "🚫 À éviter absolument",
+                    "content": "Copier-coller massif, fonctions géantes, logique métier dans l’UI."
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "⚡ Performance Front-End",
+                    "content": "Une interface lente est une interface abandonnée."
+                },
+                {
+                    "type": "list",
+                    "title": "Optimisation des performances",
+                    "items": [
+                        "Minification CSS / JS",
+                        "Lazy loading",
+                        "Images optimisées",
+                        "Éviter le DOM inutile",
+                        "Réduction des requêtes"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "♿ Accessibilité (a11y)",
+                    "content": "Un site accessible est utilisable par tous."
+                },
+                {
+                    "type": "list",
+                    "title": "Bonnes pratiques d’accessibilité",
+                    "items": [
+                        "Balises sémantiques",
+                        "Contraste suffisant",
+                        "Navigation clavier",
+                        "Labels pour formulaires",
+                        "ARIA si nécessaire"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🔐 Sécurité côté client (bases)",
+                    "content": "Le Front-End n’est pas sécurisé par défaut."
+                },
+                {
+                    "type": "list",
+                    "title": "Règles de sécurité",
+                    "items": [
+                        "Validation côté client ≠ sécurité",
+                        "Ne jamais exposer des secrets",
+                        "Échapper les entrées utilisateur",
+                        "Attention au XSS"
+                    ]
+                },
+                {
+                    "type": "activity",
+                    "title": "🧪 Pratique – Audit Front-End",
+                    "instructions": "Analyser un projet existant et identifier les problèmes d’architecture, de performance et de lisibilité.",
+                    "expectedOutput": [
+                        "Liste des problèmes",
+                        "Propositions d’amélioration",
+                        "Structure corrigée"
+                    ]
+                },
+                {
+                    "type": "exercise",
+                    "title": "🛠️ Refactorisation",
+                    "instructions": "Refactoriser un projet Front-End mal structuré en appliquant les bonnes pratiques.",
+                    "criteria": [
+                        "Structure claire",
+                        "Code lisible",
+                        "Pas de duplication"
+                    ]
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quel est le principal objectif d’une bonne architecture Front-End ?",
+                    "options": [
+                        "Écrire plus de code",
+                        "Améliorer la maintenabilité",
+                        "Ajouter plus de librairies",
+                        "Éviter le JavaScript"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "Une bonne architecture rend le projet lisible, maintenable et évolutif."
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quel principe fait partie du Clean Code ?",
+                    "options": [
+                        "Fonctions longues",
+                        "Nommage flou",
+                        "Une fonction = une responsabilité",
+                        "Beaucoup de commentaires"
+                    ],
+                    "correctAnswer": 2,
+                    "explanation": "Chaque fonction doit avoir une seule responsabilité claire."
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✅ Fin du module 4",
+                    "content": "Vous savez maintenant structurer un projet Front-End professionnel."
                 }
             ]
         },
         {
             "id": 5,
-            "title": "Architecture Front-End & Bonnes Pratiques",
+            "title": "Consommation d’API côté Client",
+            "duration": "3h",
             "content": [
                 {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎯 Objectifs du module",
+                    "content": "Apprendre à connecter une application Front-End à une API Back-End."
+                },
+                {
                     "type": "text",
-                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                    "value": "Une application Front-End moderne repose sur des API pour récupérer et envoyer des données."
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🌐 Qu’est-ce qu’une API ?",
+                    "content": "Une API permet à deux applications de communiquer via HTTP."
+                },
+                {
+                    "type": "list",
+                    "title": "Méthodes HTTP courantes",
+                    "items": [
+                        "GET – récupérer des données",
+                        "POST – envoyer des données",
+                        "PUT / PATCH – modifier",
+                        "DELETE – supprimer"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "📡 Appels HTTP avec fetch",
+                    "content": "fetch est l’API native de JavaScript pour les requêtes HTTP."
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "value": "fetch('https://api.example.com/products')\n  .then(res => res.json())\n  .then(data => console.log(data))\n  .catch(error => console.error(error));"
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "⏳ Async / Await",
+                    "content": "Async/Await rend le code asynchrone plus lisible."
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "value": "async function getProducts() {\n  try {\n    const response = await fetch('https://api.example.com/products');\n    const data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error(error);\n  }\n}"
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "📦 Axios",
+                    "content": "Axios est une librairie populaire pour les requêtes HTTP."
+                },
+                {
+                    "type": "list",
+                    "title": "Avantages d’Axios",
+                    "items": [
+                        "Syntaxe simple",
+                        "Gestion automatique du JSON",
+                        "Intercepteurs",
+                        "Gestion globale des erreurs"
+                    ]
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "value": "axios.get('/products')\n  .then(res => console.log(res.data))\n  .catch(err => console.error(err));"
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🗂️ Organisation des appels API",
+                    "content": "Les appels API ne doivent jamais être dans les composants UI."
+                },
+                {
+                    "type": "list",
+                    "title": "Bonne structure",
+                    "items": [
+                        "services/api.js",
+                        "services/product.service.js",
+                        "services/auth.service.js"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "🚫 Mauvaise pratique",
+                    "content": "Écrire fetch directement dans les événements UI."
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🔄 Gestion des états",
+                    "content": "Toute requête API a 3 états : loading, success, error."
+                },
+                {
+                    "type": "list",
+                    "title": "États d’une requête",
+                    "items": [
+                        "Loading – requête en cours",
+                        "Success – données reçues",
+                        "Error – problème serveur ou réseau"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🧯 Gestion des erreurs",
+                    "content": "Un bon Front-End anticipe les erreurs."
+                },
+                {
+                    "type": "list",
+                    "title": "Types d’erreurs",
+                    "items": [
+                        "404 – ressource introuvable",
+                        "401 – non autorisé",
+                        "500 – erreur serveur",
+                        "Erreur réseau"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🔐 Sécurité & bonnes pratiques",
+                    "content": "Le Front-End doit respecter certaines règles de sécurité."
+                },
+                {
+                    "type": "list",
+                    "title": "Bonnes pratiques sécurité",
+                    "items": [
+                        "Ne jamais exposer des clés API",
+                        "Utiliser HTTPS",
+                        "Envoyer les tokens dans les headers",
+                        "Gérer l’expiration des tokens"
+                    ]
+                },
+                {
+                    "type": "activity",
+                    "title": "🧪 TP – Consommer une API réelle",
+                    "instructions": "Créer une page Front-End qui affiche des produits depuis une API publique.",
+                    "expectedOutput": [
+                        "Liste des produits",
+                        "Loader visible",
+                        "Gestion des erreurs"
+                    ]
+                },
+                {
+                    "type": "exercise",
+                    "title": "🛠️ Mini-projet",
+                    "instructions": "Créer un service API et l’utiliser dans une interface utilisateur proprement structurée.",
+                    "criteria": [
+                        "Service séparé",
+                        "Gestion loading / error",
+                        "Code lisible"
+                    ]
+                },
+                {
+                    "type": "quiz",
+                    "question": "Pourquoi séparer les appels API de l’UI ?",
+                    "options": [
+                        "Pour écrire plus de fichiers",
+                        "Pour améliorer la maintenabilité",
+                        "Pour éviter JavaScript",
+                        "Pour rendre le projet plus lent"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "La séparation rend le code plus clair, testable et maintenable."
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quel est le bon endroit pour envoyer un token JWT ?",
+                    "options": [
+                        "Dans l’URL",
+                        "Dans le body",
+                        "Dans le header Authorization",
+                        "Dans le localStorage uniquement"
+                    ],
+                    "correctAnswer": 2,
+                    "explanation": "Les tokens doivent être envoyés dans le header Authorization."
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✅ Fin du module 5",
+                    "content": "Vous savez maintenant consommer une API comme un Front-End developer professionnel."
                 }
             ]
         },
         {
             "id": 6,
-            "title": "Consommation d’API côté Client",
+            "title": "Authentification & Sécurité côté Client",
+            "duration": "3h30",
             "content": [
                 {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎯 Objectifs du module",
+                    "content": "Comprendre et implémenter une authentification sécurisée côté client."
+                },
+                {
                     "type": "text",
-                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                    "value": "L’authentification est indispensable pour sécuriser une application moderne."
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🔐 Authentification vs Autorisation",
+                    "content": "Authentification : Qui êtes-vous ? | Autorisation : Que pouvez-vous faire ?"
+                },
+                {
+                    "type": "list",
+                    "title": "Types d’authentification",
+                    "items": [
+                        "Session / Cookies",
+                        "Token-based authentication",
+                        "JWT (JSON Web Token)",
+                        "OAuth (aperçu)"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🧾 Qu’est-ce qu’un JWT ?",
+                    "content": "Un JWT est un token sécurisé contenant des informations sur l’utilisateur."
+                },
+                {
+                    "type": "list",
+                    "title": "Structure d’un JWT",
+                    "items": [
+                        "Header – type & algorithme",
+                        "Payload – données utilisateur",
+                        "Signature – sécurité"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "⚠️ Attention",
+                    "content": "Le Front-End ne vérifie jamais la signature d’un JWT."
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🔑 Flux d’authentification JWT",
+                    "content": "Login → Token → Stockage → Requêtes protégées"
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "value": "async function login(credentials) {\n  const response = await fetch('/auth/login', {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify(credentials)\n  });\n  const data = await response.json();\n  localStorage.setItem('token', data.token);\n}"
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "📦 Stockage du token",
+                    "content": "Le stockage du token est un choix critique."
+                },
+                {
+                    "type": "list",
+                    "title": "Options de stockage",
+                    "items": [
+                        "LocalStorage (simple, XSS sensible)",
+                        "SessionStorage",
+                        "Cookies HttpOnly (recommandé côté sécurité)"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "danger",
+                    "title": "🚨 Risques Front-End",
+                    "content": "XSS, CSRF, Token theft"
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "📡 Ajouter le token aux requêtes",
+                    "content": "Le token doit être envoyé dans le header Authorization."
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "value": "fetch('/products', {\n  headers: {\n    Authorization: `Bearer ${localStorage.getItem('token')}`\n  }\n});"
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🧠 Rôles & Permissions",
+                    "content": "Les rôles contrôlent l’accès aux fonctionnalités."
+                },
+                {
+                    "type": "list",
+                    "title": "Exemples de rôles",
+                    "items": [
+                        "USER",
+                        "ADMIN",
+                        "MANAGER"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🛡️ Guards / Route protection",
+                    "content": "Les guards empêchent l’accès aux routes non autorisées."
+                },
+                {
+                    "type": "list",
+                    "title": "Exemples de protections",
+                    "items": [
+                        "Route privée",
+                        "Route admin",
+                        "Redirection si non connecté"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🔄 Gestion de la déconnexion",
+                    "content": "Logout = supprimer le token + nettoyer l’état."
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "value": "function logout() {\n  localStorage.removeItem('token');\n}"
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🔐 Bonnes pratiques de sécurité",
+                    "content": "Le Front-End n’est jamais totalement sécurisé."
+                },
+                {
+                    "type": "list",
+                    "title": "Bonnes pratiques",
+                    "items": [
+                        "Ne jamais faire confiance au Front-End",
+                        "Limiter les données dans le JWT",
+                        "Expiration courte des tokens",
+                        "Refresh tokens (aperçu)",
+                        "HTTPS obligatoire"
+                    ]
+                },
+                {
+                    "type": "activity",
+                    "title": "🧪 TP – Authentification complète",
+                    "instructions": "Créer un système de login/logout avec protection des routes.",
+                    "expectedOutput": [
+                        "Page Login",
+                        "Token stocké",
+                        "Routes protégées",
+                        "Gestion des rôles"
+                    ]
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quel est le rôle principal d’un JWT ?",
+                    "options": [
+                        "Stocker des mots de passe",
+                        "Identifier un utilisateur",
+                        "Crypter l’application",
+                        "Protéger le serveur"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "Le JWT sert à identifier l’utilisateur auprès du serveur."
+                },
+                {
+                    "type": "quiz",
+                    "question": "Pourquoi le Front-End ne doit pas vérifier un JWT ?",
+                    "options": [
+                        "Parce que c’est lent",
+                        "Parce que ce n’est pas sécurisé",
+                        "Parce que seule l’API doit le faire",
+                        "Parce que JWT est public"
+                    ],
+                    "correctAnswer": 2,
+                    "explanation": "La validation d’un token est une responsabilité serveur."
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✅ Fin du module 6",
+                    "content": "Vous savez maintenant sécuriser une application Front-End moderne."
                 }
             ]
         },
         {
             "id": 7,
-            "title": "Frameworks Front-End Modernes",
+            "title": "SPA & Framework Moderne – Angular",
+            "duration": "6h",
             "content": [
                 {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎯 Objectifs du module",
+                    "content": "Construire une application Angular moderne et professionnelle."
+                },
+                {
                     "type": "text",
-                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                    "value": "Angular est un framework complet permettant de créer des applications SPA scalables."
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🧠 Qu’est-ce qu’une SPA ?",
+                    "content": "Une Single Page Application charge une seule page HTML et met à jour le contenu dynamiquement."
+                },
+                {
+                    "type": "list",
+                    "title": "Problèmes des applications classiques (MPA)",
+                    "items": [
+                        "Rechargement complet des pages",
+                        "Performance limitée",
+                        "Expérience utilisateur pauvre"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✅ Solution SPA",
+                    "content": "Navigation fluide, meilleures performances et UX améliorée."
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🧱 Architecture Angular",
+                    "content": "Angular repose sur des modules, components, services et un système de routing."
+                },
+                {
+                    "type": "list",
+                    "title": "Éléments clés Angular",
+                    "items": [
+                        "Modules",
+                        "Components",
+                        "Templates",
+                        "Services",
+                        "Dependency Injection"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "⚙️ Installation & Setup",
+                    "content": "Angular CLI facilite la création et la gestion des projets."
+                },
+                {
+                    "type": "code",
+                    "language": "bash",
+                    "value": "npm install -g @angular/cli\nng new my-angular-app\ncd my-angular-app\nng serve"
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🧩 Components Angular",
+                    "content": "Les components sont les briques de base de l’interface."
+                },
+                {
+                    "type": "code",
+                    "language": "typescript",
+                    "value": "@Component({\n  selector: 'app-home',\n  templateUrl: './home.component.html'\n})\nexport class HomeComponent {}"
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🔁 Data Binding",
+                    "content": "Angular propose plusieurs types de liaison de données."
+                },
+                {
+                    "type": "list",
+                    "title": "Types de Data Binding",
+                    "items": [
+                        "Interpolation {{ }}",
+                        "Property Binding",
+                        "Event Binding",
+                        "Two-way Binding"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🧭 Routing Angular",
+                    "content": "Le routing permet de naviguer entre les vues sans rechargement."
+                },
+                {
+                    "type": "code",
+                    "language": "typescript",
+                    "value": "const routes: Routes = [\n  { path: '', component: HomeComponent },\n  { path: 'login', component: LoginComponent }\n];"
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🛡️ Guards Angular",
+                    "content": "Les guards protègent les routes selon l’état de l’utilisateur."
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "📡 Services & API",
+                    "content": "Les services permettent de centraliser la logique métier."
+                },
+                {
+                    "type": "code",
+                    "language": "typescript",
+                    "value": "@Injectable({ providedIn: 'root' })\nexport class ProductService {\n  constructor(private http: HttpClient) {}\n\n  getProducts() {\n    return this.http.get('/api/products');\n  }\n}"
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🔐 Interceptors HTTP",
+                    "content": "Les interceptors ajoutent automatiquement le token JWT aux requêtes."
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "⚠️ Bonnes pratiques Angular",
+                    "content": "Une mauvaise structure rend le projet difficile à maintenir."
+                },
+                {
+                    "type": "list",
+                    "title": "Bonnes pratiques",
+                    "items": [
+                        "Un component = une responsabilité",
+                        "Utiliser des services",
+                        "Lazy Loading",
+                        "Modules partagés",
+                        "Nommage clair"
+                    ]
+                },
+                {
+                    "type": "activity",
+                    "title": "🧪 TP – Mini SPA Angular",
+                    "instructions": "Créer une application Angular avec login, routes protégées et consommation d’API.",
+                    "expectedOutput": [
+                        "Login",
+                        "Dashboard",
+                        "Service API",
+                        "Guard JWT"
+                    ]
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quel élément Angular gère la navigation ?",
+                    "options": [
+                        "Service",
+                        "Component",
+                        "Router",
+                        "Module"
+                    ],
+                    "correctAnswer": 2,
+                    "explanation": "Le Router permet la navigation SPA."
+                },
+                {
+                    "type": "quiz",
+                    "question": "Pourquoi utiliser un service Angular ?",
+                    "options": [
+                        "Pour le design",
+                        "Pour la logique métier",
+                        "Pour le routing",
+                        "Pour le CSS"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "Les services centralisent la logique métier."
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✅ Fin du module 7",
+                    "content": "Vous savez maintenant développer une SPA Angular professionnelle."
                 }
             ]
         },
         {
             "id": 8,
-            "title": "Introduction à un Angular",
+            "title": "UI / UX & Performance côté Client",
+            "duration": "4h",
             "content": [
                 {
-                    "type": "text",
-                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎯 Objectifs du module",
+                    "content": "Créer des interfaces professionnelles, performantes et accessibles."
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🧠 UI vs UX",
+                    "content": "UI concerne l’apparence, UX concerne l’expérience utilisateur."
+                },
+                {
+                    "type": "list",
+                    "title": "Principes UX fondamentaux",
+                    "items": [
+                        "Clarté",
+                        "Simplicité",
+                        "Cohérence",
+                        "Feedback utilisateur",
+                        "Réduction des frictions"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎨 Design System",
+                    "content": "Un design system garantit cohérence et réutilisabilité."
+                },
+                {
+                    "type": "list",
+                    "title": "Éléments d’un design system",
+                    "items": [
+                        "Couleurs",
+                        "Typographie",
+                        "Boutons",
+                        "Formulaires",
+                        "Cards",
+                        "Icons"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🅰️ Accessibilité (a11y)",
+                    "content": "Une application accessible est utilisable par tous."
+                },
+                {
+                    "type": "list",
+                    "title": "Bonnes pratiques a11y",
+                    "items": [
+                        "Contrastes suffisants",
+                        "Labels explicites",
+                        "Navigation clavier",
+                        "Aria attributes"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "⚠️ Performance Front-End",
+                    "content": "Une application lente fait fuir les utilisateurs."
+                },
+                {
+                    "type": "list",
+                    "title": "Optimisations côté client",
+                    "items": [
+                        "Lazy Loading",
+                        "Code Splitting",
+                        "OnPush Change Detection",
+                        "TrackBy",
+                        "Optimisation des images"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "⚡ Performance Angular",
+                    "content": "Angular propose des outils puissants pour améliorer les performances."
+                },
+                {
+                    "type": "list",
+                    "title": "Techniques Angular",
+                    "items": [
+                        "Lazy Loaded Modules",
+                        "Standalone Components",
+                        "ChangeDetectionStrategy.OnPush",
+                        "Async Pipe"
+                    ]
+                },
+                {
+                    "type": "activity",
+                    "title": "🧪 TP – Audit UI / UX",
+                    "instructions": "Analyser une application Angular existante et proposer des améliorations UI, UX et performance.",
+                    "expectedOutput": [
+                        "Amélioration visuelle",
+                        "Navigation optimisée",
+                        "Chargement plus rapide"
+                    ]
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quel mécanisme Angular améliore les performances en limitant les re-renders ?",
+                    "options": [
+                        "ngIf",
+                        "OnPush",
+                        "Two-way binding",
+                        "Service"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "OnPush réduit le nombre de détections de changements."
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✅ Fin du module 8",
+                    "content": "Votre application est maintenant belle, rapide et accessible."
                 }
             ]
         },
         {
             "id": 9,
-            "title": "Introduction à un Angular",
+            "title": "Projet Final – Simulation Industrielle Angular",
+            "duration": "10h+",
             "content": [
                 {
-                    "type": "text",
-                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
-                }
-            ]
-        },
-        {
-            "id": 10,
-            "title": "UI / UX & Performance côté Client",
-            "content": [
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎯 Objectifs du projet",
+                    "content": "Réaliser une application Angular complète et professionnelle."
+                },
                 {
-                    "type": "text",
-                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
-                }
-            ]
-        },
-        {
-            "id": 11,
-            "title": "Projet Final",
-            "content": [
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "📌 Contexte du projet",
+                    "content": "Vous êtes une équipe Front-End chargée de développer une application métier."
+                },
                 {
-                    "type": "text",
-                    "value": "Les frameworks frontend comme React facilitent la création d’interfaces complexes et maintenables."
+                    "type": "list",
+                    "title": "Fonctionnalités obligatoires",
+                    "items": [
+                        "Authentification JWT",
+                        "Gestion des rôles",
+                        "Routes protégées",
+                        "Consommation d’API",
+                        "Interface responsive",
+                        "Bonnes pratiques Angular"
+                    ]
+                },
+                {
+                    "type": "list",
+                    "title": "Contraintes professionnelles",
+                    "items": [
+                        "Architecture claire",
+                        "Code maintenable",
+                        "Nommage cohérent",
+                        "Gestion des erreurs",
+                        "Performance optimisée"
+                    ]
+                },
+                {
+                    "type": "activity",
+                    "title": "🧪 Réalisation du projet",
+                    "instructions": "Développer l’application Angular en respectant toutes les contraintes.",
+                    "expectedOutput": [
+                        "Application fonctionnelle",
+                        "Code propre",
+                        "UX fluide"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "📦 Livrables",
+                    "content": "Les livrables doivent refléter un travail professionnel."
+                },
+                {
+                    "type": "list",
+                    "title": "Livrables attendus",
+                    "items": [
+                        "Code source GitHub",
+                        "README professionnel",
+                        "Démo de l’application",
+                        "Présentation orale"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "🏁 Fin de la formation",
+                    "content": "Vous êtes désormais prêt pour un poste Front-End Angular."
                 }
             ]
         }
