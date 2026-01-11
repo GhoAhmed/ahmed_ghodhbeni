@@ -1,12 +1,12 @@
 import { useParams, Link } from "react-router-dom";
 import Quiz from "../components/quizzes/Quiz";
-import quizClient from "../data/quizzes/quiz-client-side.json";
+import { getQuizByCourseId } from "../hooks/quizLoader";
 
 const QuizPage = () => {
   const { courseId } = useParams();
 
-  // Pour l'instant, un seul quiz - à étendre plus tard
-  const quizData = courseId === "client-side" ? quizClient : null;
+  // Charger le quiz correspondant au courseId
+  const quizData = getQuizByCourseId(courseId);
 
   if (!quizData) {
     return (
@@ -19,10 +19,16 @@ const QuizPage = () => {
           <p className="text-gray-600 mb-6">
             Le quiz pour ce cours n'est pas encore disponible.
           </p>
-          <Link to="/courses" className="btn btn-primary">
-            <span>←</span>
-            <span>Retour aux cours</span>
-          </Link>
+          <div className="flex gap-4 justify-center">
+            <Link to={`/courses/${courseId}`} className="btn btn-secondary">
+              <span>←</span>
+              <span>Retour au cours</span>
+            </Link>
+            <Link to="/courses" className="btn btn-primary">
+              <span>📚</span>
+              <span>Voir tous les cours</span>
+            </Link>
+          </div>
         </div>
       </div>
     );

@@ -1,12 +1,19 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import clientCourse from "../data/courses/client-side.json";
+import serverCourse from "../data/courses/server-side.json";
 import CourseDetails from "../components/courses/CourseDetails";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import Loading from "../components/layout/Loading";
 import { RiBookShelfFill } from "react-icons/ri";
 import CourseContent from "../components/courses/CourseContent";
+
+// Map des cours disponibles
+const coursesData = {
+  "client-side": clientCourse,
+  "server-side": serverCourse,
+};
 
 const CoursePage = () => {
   const { id } = useParams();
@@ -15,9 +22,13 @@ const CoursePage = () => {
   const [completedChapters, setCompletedChapters] = useState([]);
 
   useEffect(() => {
-    if (id === clientCourse.id) {
+    // Charger le cours correspondant à l'ID
+    const selectedCourse = coursesData[id];
+    if (selectedCourse) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
-      setCourse(clientCourse);
+      setCourse(selectedCourse);
+    } else {
+      setCourse(null);
     }
   }, [id]);
 
@@ -159,7 +170,6 @@ const CoursePage = () => {
             {/* Détails du cours */}
             <CourseDetails course={course} />
 
-            {/* Chapitre actif */}
             {/* Chapitre actif */}
             <div className="card">
               <div className="flex items-center justify-between mb-6">

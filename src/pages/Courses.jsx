@@ -22,7 +22,7 @@ const Courses = () => {
 
   // Extraire les catégories uniques
   const categories = ["all", ...new Set(allCourses.map((c) => c.category))];
-  const levels = ["all", "Débutant", "Intermédiaire", "Avancé", "Technologue"];
+  const levels = ["all", "TI", "DSI2", "DSI3", "SEM"];
 
   // Filtrage des cours
   useEffect(() => {

@@ -32,7 +32,8 @@ import { TiShoppingCart } from "react-icons/ti";
 import { FaFilePen, FaGraduationCap } from "react-icons/fa6";
 import { HiBookOpen, HiBriefcase, HiHome, HiMail } from "react-icons/hi";
 import { MdFunctions } from "react-icons/md";
-import clientCourses from "../data/courses/client-side.json";
+import clientCourse from "../data/courses/client-side.json";
+import serverCourse from "../data/courses/server-side.json";
 import { PiStudentFill } from "react-icons/pi";
 import { GiTeacher, GiThink } from "react-icons/gi";
 import { SiJira, SiPostman } from "react-icons/si";
@@ -167,7 +168,8 @@ export const testimonials = [
 ];
 
 export const allCourses = [
-  clientCourses,
+  clientCourse,
+  serverCourse,
   {
     id: "algorithmique-structures-donnees",
     title: "Algorithmique & Structures de Données",
@@ -206,19 +208,6 @@ export const allCourses = [
     lessonsCount: 18,
     studentsCount: 195,
     rating: 4.8,
-  },
-  {
-    id: "developpement-cote-serveur",
-    title: "Développement Côté Serveur",
-    category: "Développement Web",
-    level: "DSI2",
-    description:
-      "Concevoir et développer des applications backend sécurisées avec gestion des utilisateurs, API REST et bases de données.",
-    prerequisites: ["POO", "Bases de données", "HTTP"],
-    duration: "16 heures",
-    lessonsCount: 24,
-    studentsCount: 230,
-    rating: 4.9,
   },
   {
     id: "bases-de-donnees",

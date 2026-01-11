@@ -1,0 +1,39 @@
+{
+    "courseId": "server-side",
+    "title": "Quiz – Développement Côté Serveur",
+    "questions": [
+        {
+            "id": 1,
+            "question": "Qu’est-ce que le développement côté serveur ?",
+            "options": [
+                "La gestion de la base de données",
+                "La partie visible et interactive d’une application web",
+                "La gestion du serveur"
+            ],
+            "answer": 1,
+            "explanation": "Le développement côté client concerne l’interface utilisateur et les interactions exécutées dans le navigateur."
+        },
+        {
+            "id": 2,
+            "question": "Quelle technologie est utilisée pour structurer une page web ?",
+            "options": [
+                "CSS",
+                "JavaScript",
+                "HTML"
+            ],
+            "answer": 2,
+            "explanation": "HTML permet de définir la structure d’une page web."
+        },
+        {
+            "id": 3,
+            "question": "Quel est le rôle principal de JavaScript côté client ?",
+            "options": [
+                "Styliser la page",
+                "Gérer les interactions et la logique",
+                "Créer la base de données"
+            ],
+            "answer": 1,
+            "explanation": "JavaScript permet de rendre la page interactive et dynamique."
+        }
+    ]
+}
