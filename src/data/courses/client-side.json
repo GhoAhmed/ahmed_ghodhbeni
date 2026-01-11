@@ -284,7 +284,7 @@
                 {
                     "type": "callout",
                     "variant": "success",
-                    "title": "✅ Fin du module 0",
+                    "title": "✅ Fin du module 1",
                     "content": "Vous avez maintenant une vision claire du rôle du Front-End dans l'écosystème web moderne. Le prochain module vous plongera dans le JavaScript professionnel."
                 },
                 {
@@ -625,7 +625,7 @@
                 {
                     "type": "callout",
                     "variant": "success",
-                    "title": "✅ Fin du module 1",
+                    "title": "✅ Fin du module 2",
                     "content": "Vous maîtrisez maintenant les fondamentaux du JavaScript professionnel. Le prochain module abordera jQuery et son rôle historique dans le développement Front-End."
                 }
             ]
@@ -633,1117 +633,1352 @@
         {
             "id": 2,
             "title": "jQuery : Pourquoi, Quand et Comment",
-            "duration": "1h30",
+            "duration": "4h",
             "content": [
                 {
                     "type": "callout",
                     "variant": "info",
                     "title": "🎯 Objectifs du module",
-                    "content": "Comprendre l’intérêt de jQuery, savoir l’utiliser dans un contexte professionnel et maintenir des projets existants."
+                    "content": "Comprendre le rôle historique de jQuery, savoir quand l'utiliser aujourd'hui et maîtriser ses concepts fondamentaux."
+                },
+                {
+                    "type": "heading",
+                    "value": "1. jQuery : Contexte historique et pertinence actuelle"
                 },
                 {
                     "type": "text",
-                    "value": "Avant l’arrivée des frameworks modernes, le développement Front-End était complexe à cause des différences entre navigateurs."
+                    "value": "jQuery a révolutionné le développement web en 2006 en simplifiant la manipulation du DOM et en gérant les incompatibilités entre navigateurs. Aujourd'hui, avec la modernisation des navigateurs et l'émergence des frameworks, son rôle a évolué."
                 },
                 {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "📜 Pourquoi jQuery a existé",
-                    "content": "jQuery a simplifié la manipulation du DOM, la gestion des événements et les requêtes AJAX, tout en masquant les incompatibilités navigateurs."
-                },
-                {
-                    "type": "list",
-                    "title": "Problèmes avant jQuery",
+                    "type": "timeline",
                     "items": [
-                        "Différences entre navigateurs",
-                        "Code JavaScript long et répétitif",
-                        "AJAX complexe",
-                        "Animations difficiles"
-                    ]
-                },
-                {
-                    "type": "text",
-                    "value": "jQuery repose sur un principe simple : écrire moins de code pour faire plus."
-                },
-                {
-                    "type": "callout",
-                    "variant": "success",
-                    "title": "✨ Philosophie jQuery",
-                    "content": "Write less, do more."
-                },
-                {
-                    "type": "text",
-                    "value": "Les sélecteurs jQuery permettent de cibler rapidement des éléments du DOM."
-                },
-                {
-                    "type": "list",
-                    "title": "🎯 Sélecteurs jQuery",
-                    "items": [
-                        "$('#id')",
-                        "$('.class')",
-                        "$('div')",
-                        "$('[data-role]')"
-                    ]
-                },
-                {
-                    "type": "text",
-                    "value": "La gestion des événements avec jQuery est simple et lisible."
-                },
-                {
-                    "type": "list",
-                    "title": "🖱️ Gestion des événements",
-                    "items": [
-                        ".on('click', handler)",
-                        ".off()",
-                        "Délégation d’événements",
-                        "Gestion des formulaires"
+                        {
+                            "title": "2006 - Naissance de jQuery",
+                            "description": "John Resig crée jQuery pour simplifier JavaScript. Slogan : 'Write less, do more.'"
+                        },
+                        {
+                            "title": "2008-2015 - Âge d'or",
+                            "description": "jQuery devient la bibliothèque la plus utilisée. 70%+ des sites web l'intègrent."
+                        },
+                        {
+                            "title": "2013-2020 - Déclin progressif",
+                            "description": "React, Vue, Angular émergent. Les navigateurs modernes rendent jQuery moins nécessaire."
+                        },
+                        {
+                            "title": "2020+ - Usage ciblé",
+                            "description": "jQuery reste pertinent pour la maintenance de legacy code et des projets simples."
+                        }
                     ]
                 },
                 {
                     "type": "callout",
                     "variant": "warning",
-                    "title": "⚠️ Attention",
-                    "content": "Une mauvaise utilisation de jQuery peut aussi produire du code spaghetti."
+                    "title": "⚠️ Quand utiliser jQuery aujourd'hui ?",
+                    "content": "Maintenance de projets existants, prototypage rapide, projets simples sans build system, intégration dans des CMS (WordPress, Joomla). ÉVITEZ jQuery pour : nouvelles applications complexes, SPAs modernes, projets nécessitant un state management."
                 },
                 {
-                    "type": "text",
-                    "value": "jQuery a popularisé les appels AJAX côté client."
+                    "type": "heading",
+                    "value": "2. Syntaxe fondamentale et sélection"
                 },
                 {
-                    "type": "list",
-                    "title": "🌐 AJAX avec jQuery",
-                    "items": [
-                        "$.ajax()",
-                        "$.get() / $.post()",
-                        "Gestion du succès et des erreurs",
-                        "Chargement dynamique des données"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🔌 Plugins jQuery",
-                    "content": "jQuery dispose d’un large écosystème de plugins pour accélérer le développement."
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Comparaison Vanilla JS vs jQuery",
+                    "code": "// ========== VANILLA JAVASCRIPT ==========\nconst element = document.querySelector('.my-class');\nelement.style.color = 'red';\nelement.addEventListener('click', function() {\n  console.log('Clicked!');\n});\n\n// ========== JQUERY ==========\n$('.my-class')\n  .css('color', 'red')\n  .on('click', function() {\n    console.log('Clicked!');\n  });\n\n// Simulation de jQuery\nconst $ = (selector) => {\n  const els = document.querySelectorAll(selector);\n  return {\n    css(prop, val) {\n      els.forEach(el => el.style[prop] = val);\n      return this;\n    },\n    on(event, handler) {\n      els.forEach(el => el.addEventListener(event, handler));\n      return this;\n    },\n    text(val) {\n      if (val) els.forEach(el => el.textContent = val);\n      return els[0]?.textContent;\n    }\n  };\n};\n\n// Test\nconsole.log('✅ jQuery simplifie le chaînage de méthodes');\nconsole.log('💡 Chaque méthode retourne l\\'objet jQuery pour permettre le chaînage');",
+                    "editable": true,
+                    "showOutput": true
                 },
                 {
                     "type": "list",
-                    "title": "Exemples de plugins",
+                    "title": "Avantages de jQuery",
                     "items": [
-                        "Sliders",
-                        "Modals",
-                        "Validation de formulaires",
-                        "DataTables"
+                        "Syntaxe concise et lisible",
+                        "Chaînage de méthodes (method chaining)",
+                        "Gestion automatique des boucles sur plusieurs éléments",
+                        "API cohérente et bien documentée",
+                        "Grande bibliothèque de plugins",
+                        "Compatibilité navigateurs (historique)"
                     ]
                 },
                 {
-                    "type": "activity",
-                    "title": "🧪 Activité – Analyse de projet legacy",
-                    "instructions": "Analyser un projet existant utilisant jQuery et identifier les points forts et les faiblesses.",
-                    "expectedOutput": [
-                        "Ce qui est bien structuré",
-                        "Ce qui pose problème",
-                        "Propositions d’amélioration"
+                    "type": "heading",
+                    "value": "3. Manipulation DOM avec jQuery"
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Opérations DOM courantes",
+                    "code": "// Simulation jQuery simplifiée\nconst $ = (selector) => {\n  const els = typeof selector === 'string' \n    ? Array.from(document.querySelectorAll(selector))\n    : [selector];\n  \n  return {\n    elements: els,\n    \n    addClass(className) {\n      els.forEach(el => el.classList?.add(className));\n      return this;\n    },\n    \n    removeClass(className) {\n      els.forEach(el => el.classList?.remove(className));\n      return this;\n    },\n    \n    toggleClass(className) {\n      els.forEach(el => el.classList?.toggle(className));\n      return this;\n    },\n    \n    text(val) {\n      if (val !== undefined) {\n        els.forEach(el => el.textContent = val);\n        return this;\n      }\n      return els[0]?.textContent;\n    },\n    \n    hide() {\n      els.forEach(el => el.style.display = 'none');\n      return this;\n    },\n    \n    show() {\n      els.forEach(el => el.style.display = '');\n      return this;\n    },\n    \n    append(content) {\n      els.forEach(el => {\n        if (typeof content === 'string') {\n          el.insertAdjacentHTML('beforeend', content);\n        }\n      });\n      return this;\n    }\n  };\n};\n\n// Démonstration\nconsole.log('=== Manipulation DOM jQuery ===');\nconst box = $('<div>');\nbox.addClass('active').text('Hello jQuery!');\nconsole.log('✅ Classe ajoutée et texte défini');\n\n// Chaînage complexe\nconsole.log('💡 Le chaînage permet des opérations fluides');",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quel est l'avantage principal du chaînage de méthodes en jQuery ?",
+                    "options": [
+                        "Améliorer les performances d'exécution",
+                        "Réduire le nombre de lignes et améliorer la lisibilité",
+                        "Éviter complètement l'utilisation du DOM",
+                        "Rendre le code compatible avec tous les navigateurs"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "Le chaînage permet d'écrire du code plus concis et lisible en appliquant plusieurs opérations sur le même ensemble d'éléments sans répéter la sélection."
+                },
+                {
+                    "type": "heading",
+                    "value": "4. Événements et AJAX"
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Gestion d'événements et requêtes AJAX",
+                    "code": "// Système d'événements jQuery-like\nconst EventSystem = {\n  listeners: {},\n  \n  on(event, selector, handler) {\n    if (!this.listeners[event]) {\n      this.listeners[event] = [];\n    }\n    this.listeners[event].push({ selector, handler });\n    console.log(`📡 Event listener ajouté: ${event}`);\n  },\n  \n  trigger(event, data) {\n    if (this.listeners[event]) {\n      this.listeners[event].forEach(({ handler }) => handler(data));\n      console.log(`🔔 Event déclenché: ${event}`);\n    }\n  }\n};\n\n// Simulation AJAX jQuery\nconst ajax = {\n  get(url, success, error) {\n    console.log(`🌐 GET ${url}`);\n    setTimeout(() => {\n      const mockData = { users: ['Alice', 'Bob', 'Charlie'] };\n      success(mockData);\n    }, 500);\n  },\n  \n  post(url, data, success, error) {\n    console.log(`🌐 POST ${url}`, data);\n    setTimeout(() => {\n      success({ status: 'ok', id: 123 });\n    }, 500);\n  }\n};\n\n// Utilisation\nEventSystem.on('click', '.btn', (e) => {\n  console.log('✅ Bouton cliqué!');\n});\n\najax.get('/api/users', (data) => {\n  console.log('📦 Données reçues:', data);\n});\n\najax.post('/api/users', { name: 'Dave' }, (response) => {\n  console.log('✅ Utilisateur créé:', response);\n});\n\nEventSystem.trigger('click', {});",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "table",
+                    "headers": [
+                        "Méthode jQuery",
+                        "Équivalent Vanilla JS",
+                        "Usage"
+                    ],
+                    "rows": [
+                        [
+                            "$(selector)",
+                            "document.querySelectorAll()",
+                            "Sélection"
+                        ],
+                        [
+                            ".on('click', fn)",
+                            "addEventListener('click', fn)",
+                            "Événements"
+                        ],
+                        [
+                            ".text()",
+                            "textContent",
+                            "Contenu texte"
+                        ],
+                        [
+                            ".html()",
+                            "innerHTML",
+                            "Contenu HTML"
+                        ],
+                        [
+                            ".css(prop, val)",
+                            "style[prop] = val",
+                            "Styles"
+                        ],
+                        [
+                            "$.ajax()",
+                            "fetch()",
+                            "Requêtes HTTP"
+                        ]
                     ]
                 },
                 {
                     "type": "exercise",
-                    "title": "🛠️ Pratique – CRUD simple avec jQuery",
-                    "instructions": "Créer une interface CRUD simple (liste, ajout, suppression) en utilisant jQuery et AJAX.",
+                    "title": "🛠️ Exercice - Créer un mini-jQuery",
+                    "instructions": "Implémentez une version simplifiée de jQuery avec les méthodes : addClass, removeClass, on (événements).",
+                    "starterCode": "const $ = (selector) => {\n  const elements = document.querySelectorAll(selector);\n  \n  return {\n    // TODO: Implémenter addClass(className)\n    addClass(className) {\n      \n    },\n    \n    // TODO: Implémenter removeClass(className)\n    removeClass(className) {\n      \n    },\n    \n    // TODO: Implémenter on(event, handler)\n    on(event, handler) {\n      \n    }\n  };\n};\n\n// Test\n$('.box').addClass('active');\nconsole.log('Classe ajoutée');",
+                    "solution": "const $ = (selector) => {\n  const elements = document.querySelectorAll(selector);\n  \n  return {\n    addClass(className) {\n      elements.forEach(el => el.classList.add(className));\n      return this;\n    },\n    \n    removeClass(className) {\n      elements.forEach(el => el.classList.remove(className));\n      return this;\n    },\n    \n    on(event, handler) {\n      elements.forEach(el => el.addEventListener(event, handler));\n      return this;\n    }\n  };\n};\n\n// Test avec simulation\nconst mockElements = [\n  { classList: { add: (c) => console.log(`✅ Classe '${c}' ajoutée`) } }\n];\n\nconst result = {\n  addClass(c) { mockElements[0].classList.add(c); return this; }\n};\n\nresult.addClass('active');\nconsole.log('✅ Mini-jQuery fonctionnel!');",
+                    "hints": [
+                        "Utilisez forEach pour parcourir les éléments",
+                        "N'oubliez pas de retourner 'this' pour le chaînage",
+                        "classList.add/remove pour les classes"
+                    ],
                     "criteria": [
-                        "Code lisible",
-                        "Sélecteurs clairs",
-                        "Gestion correcte des événements",
-                        "AJAX fonctionnel"
+                        "Le chaînage fonctionne",
+                        "Toutes les méthodes sont implémentées",
+                        "Code propre et commenté"
                     ]
+                },
+                {
+                    "type": "heading",
+                    "value": "5. jQuery vs Frameworks modernes"
                 },
                 {
                     "type": "callout",
-                    "variant": "warning",
-                    "title": "⚠️ Focus professionnel",
-                    "content": "jQuery est encore présent dans de nombreux projets legacy et CMS comme WordPress."
+                    "variant": "tip",
+                    "title": "💡 Quand choisir quoi ?",
+                    "content": "jQuery : Projets simples, prototypage rapide, maintenance legacy. React/Vue/Angular : Applications complexes, SPAs, state management, équipes importantes."
                 },
                 {
-                    "type": "list",
-                    "title": "Quand utiliser jQuery aujourd’hui",
-                    "items": [
-                        "Maintenance de projets existants",
-                        "WordPress et thèmes legacy",
-                        "Petits scripts simples"
+                    "type": "activity",
+                    "title": "📝 TD - Refactoring jQuery → Vanilla JS",
+                    "duration": "1h",
+                    "instructions": "Prenez un snippet jQuery existant et refactorisez-le en JavaScript moderne (ES6+) sans bibliothèque.",
+                    "expectedOutput": [
+                        "Code jQuery original documenté",
+                        "Version Vanilla JS équivalente",
+                        "Comparaison de lisibilité et performance",
+                        "Analyse des avantages/inconvénients",
+                        "Conclusion sur le choix technique"
                     ]
-                },
-                {
-                    "type": "list",
-                    "title": "Quand NE PAS utiliser jQuery",
-                    "items": [
-                        "Nouveaux projets SPA",
-                        "Applications complexes",
-                        "Quand un framework moderne est requis"
-                    ]
-                },
-                {
-                    "type": "quiz",
-                    "question": "Pourquoi jQuery a-t-il été créé ?",
-                    "options": [
-                        "Remplacer HTML",
-                        "Simplifier JavaScript et gérer les incompatibilités navigateurs",
-                        "Améliorer le CSS",
-                        "Créer des SPA"
-                    ],
-                    "correctAnswer": 1,
-                    "explanation": "jQuery simplifie la manipulation du DOM et masque les différences entre navigateurs."
-                },
-                {
-                    "type": "quiz",
-                    "question": "Dans quel cas jQuery est-il encore pertinent aujourd’hui ?",
-                    "options": [
-                        "Créer un nouveau framework",
-                        "Développer une SPA moderne",
-                        "Maintenir un projet legacy",
-                        "Remplacer React"
-                    ],
-                    "correctAnswer": 2,
-                    "explanation": "jQuery est surtout utilisé pour maintenir ou améliorer des projets existants."
                 },
                 {
                     "type": "callout",
                     "variant": "success",
-                    "title": "✅ Fin du module 2",
-                    "content": "Vous comprenez maintenant le rôle de jQuery et êtes capable de travailler sur des projets legacy."
+                    "title": "✅ Fin du module 3",
+                    "content": "Vous comprenez maintenant le rôle de jQuery dans l'histoire du web et savez quand l'utiliser. Le prochain module explorera les frameworks CSS comme Bootstrap."
                 }
             ]
         },
         {
             "id": 3,
             "title": "CSS Frameworks : Bootstrap & Alternatives",
-            "duration": "2h",
+            "duration": "5h",
             "content": [
                 {
                     "type": "callout",
                     "variant": "info",
                     "title": "🎯 Objectifs du module",
-                    "content": "Comprendre l’intérêt des frameworks CSS, utiliser Bootstrap efficacement et découvrir les alternatives modernes."
+                    "content": "Maîtriser Bootstrap, comprendre les frameworks CSS modernes, savoir choisir le bon outil selon le contexte projet."
+                },
+                {
+                    "type": "heading",
+                    "value": "1. Pourquoi utiliser un framework CSS ?"
                 },
                 {
                     "type": "text",
-                    "value": "Créer une interface utilisateur professionnelle uniquement avec du CSS natif peut être long, complexe et difficile à maintenir."
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "❓ Qu’est-ce qu’un framework CSS ?",
-                    "content": "Un framework CSS est une bibliothèque de styles prêts à l’emploi permettant de construire rapidement des interfaces cohérentes et responsives."
+                    "value": "Les frameworks CSS accélèrent le développement en fournissant des composants prêts à l'emploi, un système de grille responsive et des utilitaires de mise en page. Ils garantissent aussi la cohérence visuelle."
                 },
                 {
                     "type": "list",
                     "title": "Avantages des frameworks CSS",
                     "items": [
-                        "Gain de temps",
-                        "Design cohérent",
-                        "Responsive par défaut",
-                        "Bonnes pratiques intégrées",
-                        "Maintenance facilitée"
+                        "Développement rapide avec composants pré-stylisés",
+                        "Responsive design intégré (mobile-first)",
+                        "Cohérence visuelle garantie",
+                        "Cross-browser compatibility",
+                        "Documentation exhaustive",
+                        "Communauté active et plugins",
+                        "Accessibilité (ARIA) intégrée"
                     ]
                 },
                 {
-                    "type": "callout",
-                    "variant": "warning",
-                    "title": "⚠️ Attention",
-                    "content": "Un framework CSS mal utilisé peut produire une interface rigide et non personnalisée."
+                    "type": "table",
+                    "headers": [
+                        "Framework",
+                        "Philosophie",
+                        "Taille",
+                        "Cas d'usage"
+                    ],
+                    "rows": [
+                        [
+                            "Bootstrap",
+                            "Composants riches",
+                            "~200KB",
+                            "Sites web, dashboards, MVP"
+                        ],
+                        [
+                            "Tailwind CSS",
+                            "Utility-first",
+                            "~50KB (purged)",
+                            "Apps modernes, design custom"
+                        ],
+                        [
+                            "Bulma",
+                            "Flexbox pur",
+                            "~200KB",
+                            "Projets simples, sites vitrines"
+                        ],
+                        [
+                            "Foundation",
+                            "Enterprise",
+                            "~250KB",
+                            "Grands projets corporate"
+                        ],
+                        [
+                            "Material UI",
+                            "Material Design",
+                            "~300KB",
+                            "Apps React, design Google"
+                        ]
+                    ]
+                },
+                {
+                    "type": "heading",
+                    "value": "2. Bootstrap - Les fondamentaux"
+                },
+                {
+                    "type": "code",
+                    "language": "html",
+                    "title": "Structure Bootstrap de base",
+                    "code": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Bootstrap Demo</title>\n  <!-- Bootstrap CSS -->\n  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n</head>\n<body>\n  \n  <!-- Navbar -->\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n    <div class=\"container\">\n      <a class=\"navbar-brand\" href=\"#\">MonApp</a>\n      <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNav\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n      <div class=\"collapse navbar-collapse\" id=\"navbarNav\">\n        <ul class=\"navbar-nav ms-auto\">\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Accueil</a></li>\n          <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">À propos</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n  <!-- Container avec grille -->\n  <div class=\"container mt-5\">\n    <div class=\"row\">\n      <div class=\"col-md-8\">\n        <h1 class=\"display-4\">Bienvenue</h1>\n        <p class=\"lead\">Ceci est une démo Bootstrap professionnelle.</p>\n        <button class=\"btn btn-primary btn-lg\">Action</button>\n      </div>\n      <div class=\"col-md-4\">\n        <div class=\"card\">\n          <div class=\"card-body\">\n            <h5 class=\"card-title\">Info</h5>\n            <p class=\"card-text\">Contenu de la carte.</p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  \n  <!-- Bootstrap JS -->\n  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n</body>\n</html>",
+                    "editable": false,
+                    "showOutput": false
+                },
+                {
+                    "type": "heading",
+                    "value": "3. Système de grille responsive"
                 },
                 {
                     "type": "text",
-                    "value": "Bootstrap est le framework CSS le plus populaire et le plus utilisé dans les projets professionnels."
+                    "value": "Bootstrap utilise un système de grille à 12 colonnes avec des breakpoints pour adapter la mise en page selon la taille d'écran."
                 },
                 {
-                    "type": "callout",
-                    "variant": "success",
-                    "title": "🅱️ Bootstrap – Vue d’ensemble",
-                    "content": "Bootstrap fournit un système de grille, des composants UI et des utilitaires prêts à l’emploi."
-                },
-                {
-                    "type": "list",
-                    "title": "📐 Système de grille Bootstrap",
-                    "items": [
-                        "Rows & Columns",
-                        "Breakpoints (sm, md, lg, xl)",
-                        "Layout responsive"
+                    "type": "table",
+                    "headers": [
+                        "Breakpoint",
+                        "Classe",
+                        "Largeur d'écran",
+                        "Usage"
+                    ],
+                    "rows": [
+                        [
+                            "Extra Small",
+                            ".col-",
+                            "< 576px",
+                            "Mobiles"
+                        ],
+                        [
+                            "Small",
+                            ".col-sm-",
+                            "≥ 576px",
+                            "Mobiles paysage"
+                        ],
+                        [
+                            "Medium",
+                            ".col-md-",
+                            "≥ 768px",
+                            "Tablettes"
+                        ],
+                        [
+                            "Large",
+                            ".col-lg-",
+                            "≥ 992px",
+                            "Laptops"
+                        ],
+                        [
+                            "Extra Large",
+                            ".col-xl-",
+                            "≥ 1200px",
+                            "Desktops"
+                        ],
+                        [
+                            "XXL",
+                            ".col-xxl-",
+                            "≥ 1400px",
+                            "Grands écrans"
+                        ]
                     ]
                 },
                 {
-                    "type": "list",
-                    "title": "🧩 Composants Bootstrap",
-                    "items": [
-                        "Navbar",
-                        "Buttons",
-                        "Cards",
-                        "Modals",
-                        "Forms",
-                        "Alerts"
-                    ]
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Simulation - Système de grille",
+                    "code": "// Simulation du système de grille Bootstrap\nconst Grid = {\n  breakpoints: {\n    xs: 0,\n    sm: 576,\n    md: 768,\n    lg: 992,\n    xl: 1200,\n    xxl: 1400\n  },\n  \n  getCurrentBreakpoint(width) {\n    if (width >= this.breakpoints.xxl) return 'xxl';\n    if (width >= this.breakpoints.xl) return 'xl';\n    if (width >= this.breakpoints.lg) return 'lg';\n    if (width >= this.breakpoints.md) return 'md';\n    if (width >= this.breakpoints.sm) return 'sm';\n    return 'xs';\n  },\n  \n  calculateColumns(className, screenWidth) {\n    // Exemple: 'col-md-6 col-lg-4'\n    const classes = className.split(' ');\n    const breakpoint = this.getCurrentBreakpoint(screenWidth);\n    \n    // Trouver la classe correspondante\n    const relevantClass = classes\n      .reverse()\n      .find(c => {\n        const match = c.match(/col-(xs|sm|md|lg|xl|xxl)-(\\d+)/);\n        if (!match) return false;\n        const bp = match[1];\n        return this.breakpoints[bp] <= screenWidth;\n      });\n    \n    if (relevantClass) {\n      const cols = relevantClass.match(/-(\\d+)$/)[1];\n      return parseInt(cols);\n    }\n    return 12; // Par défaut\n  }\n};\n\n// Tests\nconsole.log('=== Système de Grille Bootstrap ===');\nconsole.log('Mobile (400px):', Grid.getCurrentBreakpoint(400));\nconsole.log('Tablette (800px):', Grid.getCurrentBreakpoint(800));\nconsole.log('Desktop (1300px):', Grid.getCurrentBreakpoint(1300));\n\nconst colClass = 'col-12 col-md-6 col-lg-4';\nconsole.log('\\nColonnes utilisées:');\nconsole.log('  Mobile:', Grid.calculateColumns(colClass, 400), '/12');\nconsole.log('  Tablette:', Grid.calculateColumns(colClass, 800), '/12');\nconsole.log('  Desktop:', Grid.calculateColumns(colClass, 1300), '/12');",
+                    "editable": true,
+                    "showOutput": true
                 },
                 {
-                    "type": "text",
-                    "value": "Bootstrap permet aussi de gérer facilement le responsive design sans écrire de media queries."
+                    "type": "quiz",
+                    "question": "Dans Bootstrap, que signifie 'col-md-6' ?",
+                    "options": [
+                        "6 colonnes sur tous les écrans",
+                        "6 colonnes sur les écrans medium et plus grands",
+                        "6 pixels de largeur",
+                        "6 colonnes uniquement sur mobile"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "col-md-6 signifie que l'élément occupera 6 colonnes (sur 12) sur les écrans medium (≥768px) et plus grands."
                 },
                 {
-                    "type": "list",
-                    "title": "📱 Responsive Design avec Bootstrap",
-                    "items": [
-                        "Classes responsive",
-                        "Affichage conditionnel",
-                        "Mobile-first"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🎨 Personnalisation Bootstrap",
-                    "content": "Bootstrap peut être personnalisé via variables CSS, overrides ou compilation SCSS."
+                    "type": "heading",
+                    "value": "4. Composants Bootstrap essentiels"
                 },
                 {
                     "type": "list",
-                    "title": "Techniques de personnalisation",
+                    "title": "Composants les plus utilisés",
                     "items": [
-                        "Override de classes",
-                        "Variables CSS",
-                        "Thèmes personnalisés",
-                        "SCSS Bootstrap"
-                    ]
-                },
-                {
-                    "type": "activity",
-                    "title": "🧪 Pratique – Interface responsive",
-                    "instructions": "Créer une page responsive complète (navbar, cards, formulaire) avec Bootstrap.",
-                    "expectedOutput": [
-                        "Layout responsive",
-                        "Composants Bootstrap",
-                        "Bonne lisibilité",
-                        "Structure propre"
+                        "Navbar - Navigation responsive",
+                        "Cards - Conteneurs de contenu flexibles",
+                        "Modals - Fenêtres modales",
+                        "Forms - Formulaires stylisés",
+                        "Buttons - Boutons avec états",
+                        "Alerts - Messages de notification",
+                        "Badges - Indicateurs et compteurs",
+                        "Dropdown - Menus déroulants"
                     ]
                 },
                 {
                     "type": "exercise",
-                    "title": "🛠️ Pratique – Refonte UI",
-                    "instructions": "Refactoriser une page HTML/CSS existante en utilisant Bootstrap.",
+                    "title": "🛠️ Exercice - Card personnalisée",
+                    "instructions": "Créez un système de cards responsive avec image, titre, description et boutons d'action.",
+                    "starterCode": "// Générateur de cards Bootstrap\nfunction createCard(data) {\n  // TODO: Retourner le HTML d'une card Bootstrap\n  // Structure: image, card-body (title, text, buttons)\n  \n  return `\n    <div class=\"card\">\n      <!-- TODO: Compléter -->\n    </div>\n  `;\n}\n\n// Test\nconst cardData = {\n  image: 'https://via.placeholder.com/300x200',\n  title: 'Ma Card',\n  text: 'Description de la card',\n  buttons: ['Lire plus', 'Partager']\n};\n\nconsole.log(createCard(cardData));",
+                    "solution": "function createCard(data) {\n  const buttonsHTML = data.buttons\n    .map(btn => `<button class=\"btn btn-primary\">${btn}</button>`)\n    .join(' ');\n  \n  return `\n    <div class=\"card\" style=\"width: 18rem;\">\n      <img src=\"${data.image}\" class=\"card-img-top\" alt=\"${data.title}\">\n      <div class=\"card-body\">\n        <h5 class=\"card-title\">${data.title}</h5>\n        <p class=\"card-text\">${data.text}</p>\n        <div class=\"d-flex gap-2\">\n          ${buttonsHTML}\n        </div>\n      </div>\n    </div>\n  `;\n}\n\nconst cardData = {\n  image: 'https://via.placeholder.com/300x200',\n  title: 'Ma Card',\n  text: 'Description de la card',\n  buttons: ['Lire plus', 'Partager']\n};\n\nconsole.log('✅ Card générée:');\nconsole.log(createCard(cardData).substring(0, 100) + '...');",
+                    "hints": [
+                        "Utilisez les classes Bootstrap: card, card-img-top, card-body",
+                        "Les boutons doivent avoir la classe btn btn-primary",
+                        "Utilisez d-flex gap-2 pour espacer les boutons"
+                    ],
                     "criteria": [
-                        "Code plus court",
-                        "Meilleure structure",
-                        "Responsive"
+                        "Structure HTML correcte",
+                        "Classes Bootstrap appropriées",
+                        "Boutons générés dynamiquement"
+                    ]
+                },
+                {
+                    "type": "heading",
+                    "value": "5. Tailwind CSS - Alternative utility-first"
+                },
+                {
+                    "type": "text",
+                    "value": "Tailwind CSS adopte une approche radicalement différente : au lieu de composants pré-stylisés, il fournit des classes utilitaires atomiques que vous combinez pour créer vos designs."
+                },
+                {
+                    "type": "code",
+                    "language": "html",
+                    "title": "Comparaison Bootstrap vs Tailwind",
+                    "code": "<!-- BOOTSTRAP -->\n<button class=\"btn btn-primary btn-lg\">\n  Cliquez-moi\n</button>\n\n<div class=\"card\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Titre</h5>\n    <p class=\"card-text\">Contenu</p>\n  </div>\n</div>\n\n<!-- TAILWIND CSS -->\n<button class=\"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded\">\n  Cliquez-moi\n</button>\n\n<div class=\"bg-white rounded-lg shadow-md p-6\">\n  <h5 class=\"text-xl font-bold mb-2\">Titre</h5>\n  <p class=\"text-gray-700\">Contenu</p>\n</div>",
+                    "editable": false,
+                    "showOutput": false
+                },
+                {
+                    "type": "table",
+                    "headers": [
+                        "Critère",
+                        "Bootstrap",
+                        "Tailwind CSS"
+                    ],
+                    "rows": [
+                        [
+                            "Approche",
+                            "Composants",
+                            "Utilitaires"
+                        ],
+                        [
+                            "Courbe d'apprentissage",
+                            "Facile",
+                            "Moyenne"
+                        ],
+                        [
+                            "Personnalisation",
+                            "Limitée (variables)",
+                            "Totale"
+                        ],
+                        [
+                            "Taille finale",
+                            "Plus lourde",
+                            "Optimisée (PurgeCSS)"
+                        ],
+                        [
+                            "Design",
+                            "Look Bootstrap",
+                            "100% custom"
+                        ],
+                        [
+                            "Productivité",
+                            "Rapide (MVP)",
+                            "Rapide (après apprentissage)"
+                        ]
                     ]
                 },
                 {
                     "type": "callout",
-                    "variant": "info",
-                    "title": "🌱 Alternatives modernes",
-                    "content": "Bootstrap n’est pas la seule solution aujourd’hui."
+                    "variant": "tip",
+                    "title": "💡 Choisir entre Bootstrap et Tailwind",
+                    "content": "Bootstrap : MVP rapides, prototypes, équipes juniors, design générique acceptable. Tailwind : Design custom, apps modernes, équipes expérimentées, contrôle total du style."
                 },
                 {
-                    "type": "list",
-                    "title": "Alternatives populaires",
-                    "items": [
-                        "Tailwind CSS",
-                        "Material UI",
-                        "Bulma",
-                        "Ant Design"
+                    "type": "activity",
+                    "title": "🚀 TP - Dashboard Bootstrap",
+                    "duration": "2h30",
+                    "instructions": "Créer un dashboard d'administration avec Bootstrap : sidebar, navbar, cards de statistiques, tableau de données et graphiques (Chart.js).",
+                    "expectedOutput": [
+                        "Layout responsive (sidebar + main content)",
+                        "Navbar avec user dropdown",
+                        "4 cards de stats (utilisateurs, revenus, tâches, messages)",
+                        "Tableau de données avec pagination",
+                        "Au moins 1 graphique (Chart.js ou bars CSS)",
+                        "Design cohérent et professionnel",
+                        "Code HTML/CSS organisé"
                     ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "warning",
-                    "title": "⚖️ Choisir le bon outil",
-                    "content": "Le choix du framework CSS dépend du projet, de l’équipe et du framework JS utilisé."
-                },
-                {
-                    "type": "quiz",
-                    "question": "Quel est le principal avantage d’un framework CSS ?",
-                    "options": [
-                        "Remplacer JavaScript",
-                        "Créer des API",
-                        "Accélérer le développement UI",
-                        "Améliorer le SEO"
-                    ],
-                    "correctAnswer": 2,
-                    "explanation": "Un framework CSS permet de créer des interfaces rapidement et proprement."
-                },
-                {
-                    "type": "quiz",
-                    "question": "Dans quel cas Tailwind CSS est souvent préféré ?",
-                    "options": [
-                        "Projets legacy",
-                        "Quand on veut éviter toute classe CSS",
-                        "Projets modernes avec forte personnalisation",
-                        "Applications backend"
-                    ],
-                    "correctAnswer": 2,
-                    "explanation": "Tailwind est très utilisé dans les projets modernes nécessitant un design sur mesure."
                 },
                 {
                     "type": "callout",
                     "variant": "success",
-                    "title": "✅ Fin du module 3",
-                    "content": "Vous savez maintenant utiliser un framework CSS professionnel et choisir la bonne solution."
+                    "title": "✅ Fin du module 4",
+                    "content": "Vous maîtrisez maintenant Bootstrap et comprenez les différentes approches des frameworks CSS. Le prochain module abordera l'architecture Front-End professionnelle."
                 }
             ]
         },
         {
             "id": 4,
             "title": "Architecture Front-End & Bonnes Pratiques",
-            "duration": "2h30",
-            "content": [
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🎯 Objectifs du module",
-                    "content": "Structurer un projet Front-End professionnel, maintenable et performant."
-                },
-                {
-                    "type": "text",
-                    "value": "Un projet Front-End mal structuré devient rapidement difficile à maintenir, à tester et à faire évoluer."
-                },
-                {
-                    "type": "callout",
-                    "variant": "warning",
-                    "title": "⚠️ Problème fréquent",
-                    "content": "Des fichiers partout, du code dupliqué, des noms incohérents et aucune règle claire."
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "📁 Organisation d’un projet Front-End",
-                    "content": "Une bonne architecture permet de comprendre un projet sans lire tout le code."
-                },
-                {
-                    "type": "list",
-                    "title": "Structure classique d’un projet Front-End",
-                    "items": [
-                        "assets/ (images, fonts)",
-                        "css/ ou styles/",
-                        "js/",
-                        "components/",
-                        "pages/",
-                        "services/",
-                        "utils/"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "success",
-                    "title": "💡 Règle d’or",
-                    "content": "Un fichier = une responsabilité"
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "✏️ Nommage & conventions",
-                    "content": "Un bon nom vaut mieux qu’un commentaire."
-                },
-                {
-                    "type": "list",
-                    "title": "Bonnes pratiques de nommage",
-                    "items": [
-                        "Noms explicites",
-                        "CamelCase pour JS",
-                        "kebab-case pour CSS",
-                        "Pas d’abréviations floues"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🧹 Clean Code côté client",
-                    "content": "Le Clean Code améliore la lisibilité et réduit les bugs."
-                },
-                {
-                    "type": "list",
-                    "title": "Principes de Clean Code",
-                    "items": [
-                        "Fonctions courtes",
-                        "Une responsabilité par fonction",
-                        "Pas de code mort",
-                        "Éviter la duplication",
-                        "Commentaires utiles uniquement"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "warning",
-                    "title": "🚫 À éviter absolument",
-                    "content": "Copier-coller massif, fonctions géantes, logique métier dans l’UI."
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "⚡ Performance Front-End",
-                    "content": "Une interface lente est une interface abandonnée."
-                },
-                {
-                    "type": "list",
-                    "title": "Optimisation des performances",
-                    "items": [
-                        "Minification CSS / JS",
-                        "Lazy loading",
-                        "Images optimisées",
-                        "Éviter le DOM inutile",
-                        "Réduction des requêtes"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "♿ Accessibilité (a11y)",
-                    "content": "Un site accessible est utilisable par tous."
-                },
-                {
-                    "type": "list",
-                    "title": "Bonnes pratiques d’accessibilité",
-                    "items": [
-                        "Balises sémantiques",
-                        "Contraste suffisant",
-                        "Navigation clavier",
-                        "Labels pour formulaires",
-                        "ARIA si nécessaire"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🔐 Sécurité côté client (bases)",
-                    "content": "Le Front-End n’est pas sécurisé par défaut."
-                },
-                {
-                    "type": "list",
-                    "title": "Règles de sécurité",
-                    "items": [
-                        "Validation côté client ≠ sécurité",
-                        "Ne jamais exposer des secrets",
-                        "Échapper les entrées utilisateur",
-                        "Attention au XSS"
-                    ]
-                },
-                {
-                    "type": "activity",
-                    "title": "🧪 Pratique – Audit Front-End",
-                    "instructions": "Analyser un projet existant et identifier les problèmes d’architecture, de performance et de lisibilité.",
-                    "expectedOutput": [
-                        "Liste des problèmes",
-                        "Propositions d’amélioration",
-                        "Structure corrigée"
-                    ]
-                },
-                {
-                    "type": "exercise",
-                    "title": "🛠️ Refactorisation",
-                    "instructions": "Refactoriser un projet Front-End mal structuré en appliquant les bonnes pratiques.",
-                    "criteria": [
-                        "Structure claire",
-                        "Code lisible",
-                        "Pas de duplication"
-                    ]
-                },
-                {
-                    "type": "quiz",
-                    "question": "Quel est le principal objectif d’une bonne architecture Front-End ?",
-                    "options": [
-                        "Écrire plus de code",
-                        "Améliorer la maintenabilité",
-                        "Ajouter plus de librairies",
-                        "Éviter le JavaScript"
-                    ],
-                    "correctAnswer": 1,
-                    "explanation": "Une bonne architecture rend le projet lisible, maintenable et évolutif."
-                },
-                {
-                    "type": "quiz",
-                    "question": "Quel principe fait partie du Clean Code ?",
-                    "options": [
-                        "Fonctions longues",
-                        "Nommage flou",
-                        "Une fonction = une responsabilité",
-                        "Beaucoup de commentaires"
-                    ],
-                    "correctAnswer": 2,
-                    "explanation": "Chaque fonction doit avoir une seule responsabilité claire."
-                },
-                {
-                    "type": "callout",
-                    "variant": "success",
-                    "title": "✅ Fin du module 4",
-                    "content": "Vous savez maintenant structurer un projet Front-End professionnel."
-                }
-            ]
-        },
-        {
-            "id": 5,
-            "title": "Consommation d’API côté Client",
-            "duration": "3h",
-            "content": [
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🎯 Objectifs du module",
-                    "content": "Apprendre à connecter une application Front-End à une API Back-End."
-                },
-                {
-                    "type": "text",
-                    "value": "Une application Front-End moderne repose sur des API pour récupérer et envoyer des données."
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🌐 Qu’est-ce qu’une API ?",
-                    "content": "Une API permet à deux applications de communiquer via HTTP."
-                },
-                {
-                    "type": "list",
-                    "title": "Méthodes HTTP courantes",
-                    "items": [
-                        "GET – récupérer des données",
-                        "POST – envoyer des données",
-                        "PUT / PATCH – modifier",
-                        "DELETE – supprimer"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "📡 Appels HTTP avec fetch",
-                    "content": "fetch est l’API native de JavaScript pour les requêtes HTTP."
-                },
-                {
-                    "type": "code",
-                    "language": "javascript",
-                    "value": "fetch('https://api.example.com/products')\n  .then(res => res.json())\n  .then(data => console.log(data))\n  .catch(error => console.error(error));"
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "⏳ Async / Await",
-                    "content": "Async/Await rend le code asynchrone plus lisible."
-                },
-                {
-                    "type": "code",
-                    "language": "javascript",
-                    "value": "async function getProducts() {\n  try {\n    const response = await fetch('https://api.example.com/products');\n    const data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error(error);\n  }\n}"
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "📦 Axios",
-                    "content": "Axios est une librairie populaire pour les requêtes HTTP."
-                },
-                {
-                    "type": "list",
-                    "title": "Avantages d’Axios",
-                    "items": [
-                        "Syntaxe simple",
-                        "Gestion automatique du JSON",
-                        "Intercepteurs",
-                        "Gestion globale des erreurs"
-                    ]
-                },
-                {
-                    "type": "code",
-                    "language": "javascript",
-                    "value": "axios.get('/products')\n  .then(res => console.log(res.data))\n  .catch(err => console.error(err));"
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🗂️ Organisation des appels API",
-                    "content": "Les appels API ne doivent jamais être dans les composants UI."
-                },
-                {
-                    "type": "list",
-                    "title": "Bonne structure",
-                    "items": [
-                        "services/api.js",
-                        "services/product.service.js",
-                        "services/auth.service.js"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "warning",
-                    "title": "🚫 Mauvaise pratique",
-                    "content": "Écrire fetch directement dans les événements UI."
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🔄 Gestion des états",
-                    "content": "Toute requête API a 3 états : loading, success, error."
-                },
-                {
-                    "type": "list",
-                    "title": "États d’une requête",
-                    "items": [
-                        "Loading – requête en cours",
-                        "Success – données reçues",
-                        "Error – problème serveur ou réseau"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🧯 Gestion des erreurs",
-                    "content": "Un bon Front-End anticipe les erreurs."
-                },
-                {
-                    "type": "list",
-                    "title": "Types d’erreurs",
-                    "items": [
-                        "404 – ressource introuvable",
-                        "401 – non autorisé",
-                        "500 – erreur serveur",
-                        "Erreur réseau"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🔐 Sécurité & bonnes pratiques",
-                    "content": "Le Front-End doit respecter certaines règles de sécurité."
-                },
-                {
-                    "type": "list",
-                    "title": "Bonnes pratiques sécurité",
-                    "items": [
-                        "Ne jamais exposer des clés API",
-                        "Utiliser HTTPS",
-                        "Envoyer les tokens dans les headers",
-                        "Gérer l’expiration des tokens"
-                    ]
-                },
-                {
-                    "type": "activity",
-                    "title": "🧪 TP – Consommer une API réelle",
-                    "instructions": "Créer une page Front-End qui affiche des produits depuis une API publique.",
-                    "expectedOutput": [
-                        "Liste des produits",
-                        "Loader visible",
-                        "Gestion des erreurs"
-                    ]
-                },
-                {
-                    "type": "exercise",
-                    "title": "🛠️ Mini-projet",
-                    "instructions": "Créer un service API et l’utiliser dans une interface utilisateur proprement structurée.",
-                    "criteria": [
-                        "Service séparé",
-                        "Gestion loading / error",
-                        "Code lisible"
-                    ]
-                },
-                {
-                    "type": "quiz",
-                    "question": "Pourquoi séparer les appels API de l’UI ?",
-                    "options": [
-                        "Pour écrire plus de fichiers",
-                        "Pour améliorer la maintenabilité",
-                        "Pour éviter JavaScript",
-                        "Pour rendre le projet plus lent"
-                    ],
-                    "correctAnswer": 1,
-                    "explanation": "La séparation rend le code plus clair, testable et maintenable."
-                },
-                {
-                    "type": "quiz",
-                    "question": "Quel est le bon endroit pour envoyer un token JWT ?",
-                    "options": [
-                        "Dans l’URL",
-                        "Dans le body",
-                        "Dans le header Authorization",
-                        "Dans le localStorage uniquement"
-                    ],
-                    "correctAnswer": 2,
-                    "explanation": "Les tokens doivent être envoyés dans le header Authorization."
-                },
-                {
-                    "type": "callout",
-                    "variant": "success",
-                    "title": "✅ Fin du module 5",
-                    "content": "Vous savez maintenant consommer une API comme un Front-End developer professionnel."
-                }
-            ]
-        },
-        {
-            "id": 6,
-            "title": "Authentification & Sécurité côté Client",
-            "duration": "3h30",
-            "content": [
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🎯 Objectifs du module",
-                    "content": "Comprendre et implémenter une authentification sécurisée côté client."
-                },
-                {
-                    "type": "text",
-                    "value": "L’authentification est indispensable pour sécuriser une application moderne."
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🔐 Authentification vs Autorisation",
-                    "content": "Authentification : Qui êtes-vous ? | Autorisation : Que pouvez-vous faire ?"
-                },
-                {
-                    "type": "list",
-                    "title": "Types d’authentification",
-                    "items": [
-                        "Session / Cookies",
-                        "Token-based authentication",
-                        "JWT (JSON Web Token)",
-                        "OAuth (aperçu)"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🧾 Qu’est-ce qu’un JWT ?",
-                    "content": "Un JWT est un token sécurisé contenant des informations sur l’utilisateur."
-                },
-                {
-                    "type": "list",
-                    "title": "Structure d’un JWT",
-                    "items": [
-                        "Header – type & algorithme",
-                        "Payload – données utilisateur",
-                        "Signature – sécurité"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "warning",
-                    "title": "⚠️ Attention",
-                    "content": "Le Front-End ne vérifie jamais la signature d’un JWT."
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🔑 Flux d’authentification JWT",
-                    "content": "Login → Token → Stockage → Requêtes protégées"
-                },
-                {
-                    "type": "code",
-                    "language": "javascript",
-                    "value": "async function login(credentials) {\n  const response = await fetch('/auth/login', {\n    method: 'POST',\n    headers: { 'Content-Type': 'application/json' },\n    body: JSON.stringify(credentials)\n  });\n  const data = await response.json();\n  localStorage.setItem('token', data.token);\n}"
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "📦 Stockage du token",
-                    "content": "Le stockage du token est un choix critique."
-                },
-                {
-                    "type": "list",
-                    "title": "Options de stockage",
-                    "items": [
-                        "LocalStorage (simple, XSS sensible)",
-                        "SessionStorage",
-                        "Cookies HttpOnly (recommandé côté sécurité)"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "danger",
-                    "title": "🚨 Risques Front-End",
-                    "content": "XSS, CSRF, Token theft"
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "📡 Ajouter le token aux requêtes",
-                    "content": "Le token doit être envoyé dans le header Authorization."
-                },
-                {
-                    "type": "code",
-                    "language": "javascript",
-                    "value": "fetch('/products', {\n  headers: {\n    Authorization: `Bearer ${localStorage.getItem('token')}`\n  }\n});"
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🧠 Rôles & Permissions",
-                    "content": "Les rôles contrôlent l’accès aux fonctionnalités."
-                },
-                {
-                    "type": "list",
-                    "title": "Exemples de rôles",
-                    "items": [
-                        "USER",
-                        "ADMIN",
-                        "MANAGER"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🛡️ Guards / Route protection",
-                    "content": "Les guards empêchent l’accès aux routes non autorisées."
-                },
-                {
-                    "type": "list",
-                    "title": "Exemples de protections",
-                    "items": [
-                        "Route privée",
-                        "Route admin",
-                        "Redirection si non connecté"
-                    ]
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🔄 Gestion de la déconnexion",
-                    "content": "Logout = supprimer le token + nettoyer l’état."
-                },
-                {
-                    "type": "code",
-                    "language": "javascript",
-                    "value": "function logout() {\n  localStorage.removeItem('token');\n}"
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🔐 Bonnes pratiques de sécurité",
-                    "content": "Le Front-End n’est jamais totalement sécurisé."
-                },
-                {
-                    "type": "list",
-                    "title": "Bonnes pratiques",
-                    "items": [
-                        "Ne jamais faire confiance au Front-End",
-                        "Limiter les données dans le JWT",
-                        "Expiration courte des tokens",
-                        "Refresh tokens (aperçu)",
-                        "HTTPS obligatoire"
-                    ]
-                },
-                {
-                    "type": "activity",
-                    "title": "🧪 TP – Authentification complète",
-                    "instructions": "Créer un système de login/logout avec protection des routes.",
-                    "expectedOutput": [
-                        "Page Login",
-                        "Token stocké",
-                        "Routes protégées",
-                        "Gestion des rôles"
-                    ]
-                },
-                {
-                    "type": "quiz",
-                    "question": "Quel est le rôle principal d’un JWT ?",
-                    "options": [
-                        "Stocker des mots de passe",
-                        "Identifier un utilisateur",
-                        "Crypter l’application",
-                        "Protéger le serveur"
-                    ],
-                    "correctAnswer": 1,
-                    "explanation": "Le JWT sert à identifier l’utilisateur auprès du serveur."
-                },
-                {
-                    "type": "quiz",
-                    "question": "Pourquoi le Front-End ne doit pas vérifier un JWT ?",
-                    "options": [
-                        "Parce que c’est lent",
-                        "Parce que ce n’est pas sécurisé",
-                        "Parce que seule l’API doit le faire",
-                        "Parce que JWT est public"
-                    ],
-                    "correctAnswer": 2,
-                    "explanation": "La validation d’un token est une responsabilité serveur."
-                },
-                {
-                    "type": "callout",
-                    "variant": "success",
-                    "title": "✅ Fin du module 6",
-                    "content": "Vous savez maintenant sécuriser une application Front-End moderne."
-                }
-            ]
-        },
-        {
-            "id": 7,
-            "title": "SPA & Framework Moderne – Angular",
             "duration": "6h",
             "content": [
                 {
                     "type": "callout",
                     "variant": "info",
                     "title": "🎯 Objectifs du module",
-                    "content": "Construire une application Angular moderne et professionnelle."
+                    "content": "Maîtriser les patterns d'architecture Front-End, structurer des projets maintenables et appliquer les principes SOLID au JavaScript."
+                },
+                {
+                    "type": "heading",
+                    "value": "1. Patterns d'architecture Front-End"
                 },
                 {
                     "type": "text",
-                    "value": "Angular est un framework complet permettant de créer des applications SPA scalables."
+                    "value": "Une bonne architecture est essentielle pour la maintenabilité d'une application. Les patterns éprouvés guident la structuration du code et la séparation des responsabilités."
                 },
                 {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🧠 Qu’est-ce qu’une SPA ?",
-                    "content": "Une Single Page Application charge une seule page HTML et met à jour le contenu dynamiquement."
+                    "type": "timeline",
+                    "items": [
+                        {
+                            "title": "MVC (Model-View-Controller)",
+                            "description": "Sépare données (Model), affichage (View) et logique de contrôle (Controller). Utilisé dans Backbone.js, Angular 1.x."
+                        },
+                        {
+                            "title": "MVVM (Model-View-ViewModel)",
+                            "description": "Ajoute le ViewModel qui fait le lien entre Model et View via data-binding. Utilisé dans Angular, Vue.js, Knockout."
+                        },
+                        {
+                            "title": "Component-Based Architecture",
+                            "description": "L'application est composée de composants réutilisables et isolés. Utilisé dans React, Vue, Angular moderne, Web Components."
+                        },
+                        {
+                            "title": "Flux / Redux",
+                            "description": "Architecture unidirectionnelle avec un store centralisé. Actions → Dispatcher → Store → View. Utilisé avec React."
+                        }
+                    ]
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Pattern MVC - Implémentation simple",
+                    "code": "// ========== MODEL ==========\nconst UserModel = {\n  users: [],\n  \n  add(user) {\n    user.id = Date.now();\n    this.users.push(user);\n    return user;\n  },\n  \n  getAll() {\n    return [...this.users];\n  },\n  \n  remove(id) {\n    this.users = this.users.filter(u => u.id !== id);\n  }\n};\n\n// ========== VIEW ==========\nconst UserView = {\n  render(users) {\n    console.log('=== LISTE DES UTILISATEURS ===');\n    if (users.length === 0) {\n      console.log('Aucun utilisateur');\n    } else {\n      users.forEach((u, i) => {\n        console.log(`${i + 1}. ${u.name} (${u.email})`);\n      });\n    }\n    console.log('==============================');\n  },\n  \n  renderSuccess(message) {\n    console.log(`✅ ${message}`);\n  },\n  \n  renderError(message) {\n    console.log(`❌ ${message}`);\n  }\n};\n\n// ========== CONTROLLER ==========\nconst UserController = {\n  init() {\n    this.refreshView();\n  },\n  \n  addUser(name, email) {\n    if (!name || !email) {\n      UserView.renderError('Nom et email requis');\n      return;\n    }\n    \n    const user = UserModel.add({ name, email });\n    UserView.renderSuccess(`Utilisateur ${name} ajouté`);\n    this.refreshView();\n  },\n  \n  removeUser(id) {\n    UserModel.remove(id);\n    UserView.renderSuccess('Utilisateur supprimé');\n    this.refreshView();\n  },\n  \n  refreshView() {\n    const users = UserModel.getAll();\n    UserView.render(users);\n  }\n};\n\n// ========== UTILISATION ==========\nUserController.init();\nUserController.addUser('Alice', 'alice@example.com');\nUserController.addUser('Bob', 'bob@example.com');\nUserController.addUser('Charlie', 'charlie@example.com');",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quel est l'avantage principal du pattern MVC ?",
+                    "options": [
+                        "Améliorer les performances de l'application",
+                        "Séparer les responsabilités et faciliter la maintenance",
+                        "Réduire la taille du code JavaScript",
+                        "Éviter d'utiliser des frameworks"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "MVC sépare clairement la logique métier (Model), l'affichage (View) et le contrôle (Controller), ce qui rend le code plus maintenable et testable."
+                },
+                {
+                    "type": "heading",
+                    "value": "2. Principes SOLID appliqués au JavaScript"
+                },
+                {
+                    "type": "text",
+                    "value": "Les principes SOLID, initialement pour la POO, s'appliquent aussi au JavaScript pour créer du code robuste et évolutif."
+                },
+                {
+                    "type": "table",
+                    "headers": [
+                        "Principe",
+                        "Signification",
+                        "Application JavaScript"
+                    ],
+                    "rows": [
+                        [
+                            "S - Single Responsibility",
+                            "Une classe/fonction = une responsabilité",
+                            "Fonctions courtes et focalisées"
+                        ],
+                        [
+                            "O - Open/Closed",
+                            "Ouvert à l'extension, fermé à la modification",
+                            "Utiliser la composition, plugins"
+                        ],
+                        [
+                            "L - Liskov Substitution",
+                            "Les sous-types doivent être substituables",
+                            "Héritage cohérent, polymorphisme"
+                        ],
+                        [
+                            "I - Interface Segregation",
+                            "Interfaces spécifiques > génériques",
+                            "Petits modules ciblés"
+                        ],
+                        [
+                            "D - Dependency Inversion",
+                            "Dépendre d'abstractions",
+                            "Injection de dépendances, DI"
+                        ]
+                    ]
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "SOLID - Single Responsibility Principle",
+                    "code": "// ❌ MAUVAIS - Fonction qui fait trop de choses\nfunction processUser(userData) {\n  // Validation\n  if (!userData.email.includes('@')) throw new Error('Email invalide');\n  \n  // Transformation\n  userData.email = userData.email.toLowerCase();\n  \n  // Sauvegarde\n  localStorage.setItem('user', JSON.stringify(userData));\n  \n  // Notification\n  console.log('Utilisateur sauvegardé');\n}\n\n// ✅ BON - Responsabilités séparées\nconst UserValidator = {\n  validateEmail(email) {\n    if (!email.includes('@')) {\n      throw new Error('Email invalide');\n    }\n    return true;\n  }\n};\n\nconst UserTransformer = {\n  normalizeEmail(email) {\n    return email.toLowerCase().trim();\n  },\n  \n  transform(userData) {\n    return {\n      ...userData,\n      email: this.normalizeEmail(userData.email)\n    };\n  }\n};\n\nconst UserRepository = {\n  save(userData) {\n    const key = `user_${userData.id || Date.now()}`;\n    const data = JSON.stringify(userData);\n    // Simulation localStorage\n    console.log(`💾 Sauvegarde: ${key}`);\n    return { success: true, key };\n  }\n};\n\nconst UserNotifier = {\n  notifySuccess(message) {\n    console.log(`✅ ${message}`);\n  }\n};\n\n// Orchestration\nfunction processUserCorrectly(userData) {\n  UserValidator.validateEmail(userData.email);\n  const transformed = UserTransformer.transform(userData);\n  const result = UserRepository.save(transformed);\n  UserNotifier.notifySuccess('Utilisateur enregistré!');\n  return result;\n}\n\n// Test\nprocessUserCorrectly({\n  id: 1,\n  name: 'Alice',\n  email: 'ALICE@EXAMPLE.COM'\n});",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "heading",
+                    "value": "3. Organisation de projet Front-End"
+                },
+                {
+                    "type": "text",
+                    "value": "La structure des fichiers et dossiers est cruciale pour la maintenabilité à long terme. Voici les approches modernes."
+                },
+                {
+                    "type": "code",
+                    "language": "text",
+                    "title": "Structure de projet recommandée",
+                    "code": "my-app/\n├── public/\n│   ├── index.html\n│   ├── favicon.ico\n│   └── assets/\n│       ├── images/\n│       └── fonts/\n├── src/\n│   ├── components/      # Composants réutilisables\n│   │   ├── Button/\n│   │   │   ├── Button.js\n│   │   │   ├── Button.css\n│   │   │   └── Button.test.js\n│   │   └── Card/\n│   ├── pages/           # Pages/Vues de l'application\n│   │   ├── Home/\n│   │   ├── Dashboard/\n│   │   └── Profile/\n│   ├── services/        # API calls, business logic\n│   │   ├── api.js\n│   │   ├── auth.js\n│   │   └── storage.js\n│   ├── utils/           # Fonctions utilitaires\n│   │   ├── validators.js\n│   │   ├── formatters.js\n│   │   └── helpers.js\n│   ├── hooks/           # Custom hooks (React)\n│   │   └── useAuth.js\n│   ├── store/           # State management\n│   │   ├── index.js\n│   │   └── slices/\n│   ├── styles/          # Styles globaux\n│   │   ├── global.css\n│   │   └── variables.css\n│   ├── config/          # Configuration\n│   │   └── constants.js\n│   ├── App.js\n│   └── index.js\n├── tests/               # Tests E2E\n├── .env                 # Variables d'environnement\n├── .gitignore\n├── package.json\n└── README.md",
+                    "editable": false,
+                    "showOutput": false
                 },
                 {
                     "type": "list",
-                    "title": "Problèmes des applications classiques (MPA)",
+                    "title": "Conventions de nommage",
                     "items": [
-                        "Rechargement complet des pages",
-                        "Performance limitée",
-                        "Expérience utilisateur pauvre"
+                        "Composants : PascalCase (Button.js, UserCard.js)",
+                        "Fichiers utilitaires : camelCase (validators.js, formatHelpers.js)",
+                        "Constantes : UPPER_SNAKE_CASE (API_URL, MAX_RETRIES)",
+                        "CSS/SCSS : kebab-case (user-card.css, btn-primary.scss)",
+                        "Dossiers : kebab-case ou camelCase cohérent",
+                        "Tests : même nom + .test.js ou .spec.js"
+                    ]
+                },
+                {
+                    "type": "heading",
+                    "value": "4. State Management - Patterns modernes"
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Pattern Observer pour le state management",
+                    "code": "// Store avec pattern Observer\nclass Store {\n  constructor(initialState = {}) {\n    this.state = initialState;\n    this.listeners = [];\n  }\n  \n  // Récupérer l'état\n  getState() {\n    return { ...this.state };\n  }\n  \n  // Mettre à jour l'état\n  setState(updates) {\n    this.state = { ...this.state, ...updates };\n    this.notify();\n  }\n  \n  // S'abonner aux changements\n  subscribe(listener) {\n    this.listeners.push(listener);\n    console.log(`📡 Listener ajouté (total: ${this.listeners.length})`);\n    \n    // Retourner fonction de désabonnement\n    return () => {\n      this.listeners = this.listeners.filter(l => l !== listener);\n      console.log(`🔇 Listener retiré (total: ${this.listeners.length})`);\n    };\n  }\n  \n  // Notifier tous les listeners\n  notify() {\n    console.log(`🔔 État mis à jour, notification de ${this.listeners.length} listeners`);\n    this.listeners.forEach(listener => listener(this.state));\n  }\n}\n\n// Actions\nconst actions = {\n  increment: (store) => {\n    const { count } = store.getState();\n    store.setState({ count: count + 1 });\n  },\n  \n  decrement: (store) => {\n    const { count } = store.getState();\n    store.setState({ count: count - 1 });\n  },\n  \n  reset: (store) => {\n    store.setState({ count: 0 });\n  }\n};\n\n// Utilisation\nconst store = new Store({ count: 0, user: null });\n\n// S'abonner aux changements\nconst unsubscribe = store.subscribe((state) => {\n  console.log(`  → Nouveau state: count = ${state.count}`);\n});\n\nstore.subscribe((state) => {\n  console.log(`  → Log analytics: ${JSON.stringify(state)}`);\n});\n\n// Dispatch actions\nconsole.log('\\n=== Actions ===');\nactions.increment(store);\nactions.increment(store);\nactions.decrement(store);\nactions.reset(store);\n\n// Désabonnement\nunsubscribe();",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "exercise",
+                    "title": "🛠️ Exercice - TodoStore avec actions",
+                    "instructions": "Créez un store pour gérer une liste de tâches avec les actions : addTodo, toggleTodo, removeTodo.",
+                    "starterCode": "class TodoStore {\n  constructor() {\n    this.state = { todos: [] };\n    this.listeners = [];\n  }\n  \n  getState() {\n    return { ...this.state };\n  }\n  \n  setState(updates) {\n    this.state = { ...this.state, ...updates };\n    this.notify();\n  }\n  \n  subscribe(listener) {\n    this.listeners.push(listener);\n    return () => {\n      this.listeners = this.listeners.filter(l => l !== listener);\n    };\n  }\n  \n  notify() {\n    this.listeners.forEach(l => l(this.state));\n  }\n}\n\n// TODO: Implémenter les actions\nconst todoActions = {\n  addTodo(store, text) {\n    // Ajouter une tâche\n  },\n  \n  toggleTodo(store, id) {\n    // Basculer le statut done\n  },\n  \n  removeTodo(store, id) {\n    // Supprimer une tâche\n  }\n};\n\n// Test\nconst store = new TodoStore();\nstore.subscribe(state => console.log('Todos:', state.todos.length));\ntodoActions.addTodo(store, 'Apprendre le state management');",
+                    "solution": "class TodoStore {\n  constructor() {\n    this.state = { todos: [] };\n    this.listeners = [];\n  }\n  \n  getState() {\n    return { ...this.state };\n  }\n  \n  setState(updates) {\n    this.state = { ...this.state, ...updates };\n    this.notify();\n  }\n  \n  subscribe(listener) {\n    this.listeners.push(listener);\n    return () => {\n      this.listeners = this.listeners.filter(l => l !== listener);\n    };\n  }\n  \n  notify() {\n    this.listeners.forEach(l => l(this.state));\n  }\n}\n\nconst todoActions = {\n  addTodo(store, text) {\n    const { todos } = store.getState();\n    const newTodo = {\n      id: Date.now(),\n      text,\n      done: false\n    };\n    store.setState({ todos: [...todos, newTodo] });\n  },\n  \n  toggleTodo(store, id) {\n    const { todos } = store.getState();\n    const updated = todos.map(t => \n      t.id === id ? { ...t, done: !t.done } : t\n    );\n    store.setState({ todos: updated });\n  },\n  \n  removeTodo(store, id) {\n    const { todos } = store.getState();\n    store.setState({ todos: todos.filter(t => t.id !== id) });\n  }\n};\n\nconst store = new TodoStore();\nstore.subscribe(state => {\n  console.log(`📋 Todos: ${state.todos.length}`);\n  state.todos.forEach(t => {\n    console.log(`  ${t.done ? '✓' : '○'} ${t.text}`);\n  });\n});\n\ntodoActions.addTodo(store, 'Apprendre');\ntodoActions.addTodo(store, 'Pratiquer');\ntodoActions.toggleTodo(store, store.getState().todos[0].id);",
+                    "hints": [
+                        "Utilisez spread operator pour l'immutabilité",
+                        "map() pour toggleTodo, filter() pour removeTodo",
+                        "Générez un ID unique avec Date.now()"
+                    ],
+                    "criteria": [
+                        "Toutes les actions fonctionnent",
+                        "État immutable (pas de mutation directe)",
+                        "Les listeners sont notifiés"
+                    ]
+                },
+                {
+                    "type": "heading",
+                    "value": "5. Performance et optimisation"
+                },
+                {
+                    "type": "list",
+                    "title": "Techniques d'optimisation Front-End",
+                    "items": [
+                        "Lazy Loading - Charger les ressources à la demande",
+                        "Code Splitting - Diviser le bundle JavaScript",
+                        "Debouncing/Throttling - Limiter les appels fréquents",
+                        "Memoization - Cache des résultats de fonctions",
+                        "Virtual Scrolling - Rendu efficace de longues listes",
+                        "Web Workers - Calculs lourds hors thread principal",
+                        "Service Workers - Cache et offline-first",
+                        "Tree Shaking - Éliminer le code mort"
+                    ]
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Debounce et Throttle",
+                    "code": "// DEBOUNCE - Attend la fin des appels rapides\nfunction debounce(func, delay) {\n  let timeoutId;\n  return function(...args) {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => func.apply(this, args), delay);\n  };\n}\n\n// THROTTLE - Limite le taux d'exécution\nfunction throttle(func, limit) {\n  let inThrottle;\n  return function(...args) {\n    if (!inThrottle) {\n      func.apply(this, args);\n      inThrottle = true;\n      setTimeout(() => inThrottle = false, limit);\n    }\n  };\n}\n\n// Démonstration\nlet searchCount = 0;\nlet scrollCount = 0;\n\nconst search = (query) => {\n  searchCount++;\n  console.log(`🔍 Recherche #${searchCount}: \"${query}\"`);\n};\n\nconst logScroll = () => {\n  scrollCount++;\n  console.log(`📜 Scroll event #${scrollCount}`);\n};\n\nconst debouncedSearch = debounce(search, 500);\nconst throttledScroll = throttle(logScroll, 1000);\n\nconsole.log('=== Simulation Debounce (recherche) ===');\n// Simule la saisie rapide\ndebouncedSearch('a');\ndebouncedSearch('ab');\ndebouncedSearch('abc');\nsetTimeout(() => debouncedSearch('abcd'), 100);\nsetTimeout(() => {\n  console.log(`✅ Seulement ${searchCount} recherche(s) effectuée(s) au lieu de 4`);\n}, 700);\n\nconsole.log('\\n=== Simulation Throttle (scroll) ===');\nfor (let i = 0; i < 5; i++) {\n  throttledScroll();\n}\nsetTimeout(() => {\n  console.log(`✅ Seulement ${scrollCount} event(s) traité(s) au lieu de 5`);\n}, 100);",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quelle est la différence entre debounce et throttle ?",
+                    "options": [
+                        "Aucune différence, ce sont des synonymes",
+                        "Debounce attend la fin des appels, throttle limite le taux d'exécution",
+                        "Throttle est plus rapide que debounce",
+                        "Debounce fonctionne seulement avec les événements scroll"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "Debounce attend que les appels cessent avant d'exécuter (ex: recherche), tandis que throttle garantit un taux d'exécution maximum (ex: scroll, resize)."
+                },
+                {
+                    "type": "heading",
+                    "value": "6. Tests et qualité du code"
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Tests unitaires simples",
+                    "code": "// Fonction de test simple\nfunction test(description, callback) {\n  try {\n    callback();\n    console.log(`✅ ${description}`);\n  } catch (error) {\n    console.error(`❌ ${description}`);\n    console.error(`   ${error.message}`);\n  }\n}\n\nfunction expect(actual) {\n  return {\n    toBe(expected) {\n      if (actual !== expected) {\n        throw new Error(`Expected ${expected} but got ${actual}`);\n      }\n    },\n    toEqual(expected) {\n      if (JSON.stringify(actual) !== JSON.stringify(expected)) {\n        throw new Error(`Expected ${JSON.stringify(expected)} but got ${JSON.stringify(actual)}`);\n      }\n    },\n    toBeTruthy() {\n      if (!actual) {\n        throw new Error(`Expected truthy value but got ${actual}`);\n      }\n    }\n  };\n}\n\n// Fonctions à tester\nfunction add(a, b) {\n  return a + b;\n}\n\nfunction multiply(a, b) {\n  return a * b;\n}\n\nfunction getUserName(user) {\n  return user?.name || 'Anonymous';\n}\n\n// Tests\nconsole.log('=== Exécution des tests ===\\n');\n\ntest('add() devrait additionner deux nombres', () => {\n  expect(add(2, 3)).toBe(5);\n  expect(add(-1, 1)).toBe(0);\n});\n\ntest('multiply() devrait multiplier deux nombres', () => {\n  expect(multiply(3, 4)).toBe(12);\n  expect(multiply(0, 5)).toBe(0);\n});\n\ntest('getUserName() devrait retourner le nom ou Anonymous', () => {\n  expect(getUserName({ name: 'Alice' })).toBe('Alice');\n  expect(getUserName({})).toBe('Anonymous');\n  expect(getUserName(null)).toBe('Anonymous');\n});\n\nconsole.log('\\n✨ Tous les tests sont passés!');",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "activity",
+                    "title": "🚀 TP - Application Notes avec architecture MVC",
+                    "duration": "3h",
+                    "instructions": "Créer une application de prise de notes complète avec architecture MVC, state management, localStorage et tests basiques.",
+                    "expectedOutput": [
+                        "Architecture MVC claire (Model, View, Controller séparés)",
+                        "CRUD complet (Create, Read, Update, Delete)",
+                        "Persistance avec localStorage",
+                        "Store avec pattern Observer",
+                        "Filtrage et recherche de notes",
+                        "Interface responsive (Bootstrap ou CSS custom)",
+                        "Au moins 5 tests unitaires",
+                        "Code documenté et organisé",
+                        "Gestion d'erreurs appropriée"
                     ]
                 },
                 {
                     "type": "callout",
                     "variant": "success",
-                    "title": "✅ Solution SPA",
-                    "content": "Navigation fluide, meilleures performances et UX améliorée."
-                },
+                    "title": "✅ Fin du module 5",
+                    "content": "Vous maîtrisez maintenant les architectures Front-End professionnelles. Le prochain module abordera la consommation d'APIs côté client."
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Consommation d'API côté Client",
+            "duration": "5h",
+            "content": [
                 {
                     "type": "callout",
                     "variant": "info",
-                    "title": "🧱 Architecture Angular",
-                    "content": "Angular repose sur des modules, components, services et un système de routing."
+                    "title": "🎯 Objectifs du module",
+                    "content": "Maîtriser les requêtes HTTP, gérer les APIs REST, comprendre les formats de données et gérer les erreurs de manière professionnelle."
                 },
                 {
-                    "type": "list",
-                    "title": "Éléments clés Angular",
-                    "items": [
-                        "Modules",
-                        "Components",
-                        "Templates",
-                        "Services",
-                        "Dependency Injection"
+                    "type": "heading",
+                    "value": "1. Les fondamentaux des APIs REST"
+                },
+                {
+                    "type": "text",
+                    "value": "Une API REST (Representational State Transfer) permet la communication entre le client et le serveur via HTTP. Elle suit des conventions standardisées pour manipuler les ressources."
+                },
+                {
+                    "type": "table",
+                    "headers": [
+                        "Méthode HTTP",
+                        "Action CRUD",
+                        "Usage",
+                        "Exemple"
+                    ],
+                    "rows": [
+                        [
+                            "GET",
+                            "Read",
+                            "Récupérer des données",
+                            "GET /api/users"
+                        ],
+                        [
+                            "POST",
+                            "Create",
+                            "Créer une ressource",
+                            "POST /api/users"
+                        ],
+                        [
+                            "PUT",
+                            "Update",
+                            "Remplacer une ressource",
+                            "PUT /api/users/123"
+                        ],
+                        [
+                            "PATCH",
+                            "Update",
+                            "Modifier partiellement",
+                            "PATCH /api/users/123"
+                        ],
+                        [
+                            "DELETE",
+                            "Delete",
+                            "Supprimer une ressource",
+                            "DELETE /api/users/123"
+                        ]
                     ]
                 },
                 {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "⚙️ Installation & Setup",
-                    "content": "Angular CLI facilite la création et la gestion des projets."
-                },
-                {
-                    "type": "code",
-                    "language": "bash",
-                    "value": "npm install -g @angular/cli\nng new my-angular-app\ncd my-angular-app\nng serve"
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🧩 Components Angular",
-                    "content": "Les components sont les briques de base de l’interface."
-                },
-                {
-                    "type": "code",
-                    "language": "typescript",
-                    "value": "@Component({\n  selector: 'app-home',\n  templateUrl: './home.component.html'\n})\nexport class HomeComponent {}"
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🔁 Data Binding",
-                    "content": "Angular propose plusieurs types de liaison de données."
-                },
-                {
                     "type": "list",
-                    "title": "Types de Data Binding",
+                    "title": "Codes de statut HTTP importants",
                     "items": [
-                        "Interpolation {{ }}",
-                        "Property Binding",
-                        "Event Binding",
-                        "Two-way Binding"
+                        "200 OK - Succès",
+                        "201 Created - Ressource créée",
+                        "204 No Content - Succès sans contenu",
+                        "400 Bad Request - Requête invalide",
+                        "401 Unauthorized - Non authentifié",
+                        "403 Forbidden - Non autorisé",
+                        "404 Not Found - Ressource introuvable",
+                        "500 Internal Server Error - Erreur serveur"
                     ]
                 },
                 {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🧭 Routing Angular",
-                    "content": "Le routing permet de naviguer entre les vues sans rechargement."
+                    "type": "heading",
+                    "value": "2. Fetch API - Requêtes HTTP modernes"
                 },
                 {
                     "type": "code",
-                    "language": "typescript",
-                    "value": "const routes: Routes = [\n  { path: '', component: HomeComponent },\n  { path: 'login', component: LoginComponent }\n];"
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🛡️ Guards Angular",
-                    "content": "Les guards protègent les routes selon l’état de l’utilisateur."
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "📡 Services & API",
-                    "content": "Les services permettent de centraliser la logique métier."
-                },
-                {
-                    "type": "code",
-                    "language": "typescript",
-                    "value": "@Injectable({ providedIn: 'root' })\nexport class ProductService {\n  constructor(private http: HttpClient) {}\n\n  getProducts() {\n    return this.http.get('/api/products');\n  }\n}"
-                },
-                {
-                    "type": "callout",
-                    "variant": "info",
-                    "title": "🔐 Interceptors HTTP",
-                    "content": "Les interceptors ajoutent automatiquement le token JWT aux requêtes."
+                    "language": "javascript",
+                    "title": "Fetch API - Bases et gestion d'erreurs",
+                    "code": "// Service API professionnel\nconst ApiService = {\n  baseURL: 'https://jsonplaceholder.typicode.com',\n  \n  async request(endpoint, options = {}) {\n    const url = `${this.baseURL}${endpoint}`;\n    \n    const config = {\n      headers: {\n        'Content-Type': 'application/json',\n        ...options.headers\n      },\n      ...options\n    };\n    \n    try {\n      console.log(`🌐 ${options.method || 'GET'} ${url}`);\n      const response = await fetch(url, config);\n      \n      // Vérifier le statut HTTP\n      if (!response.ok) {\n        throw new Error(`HTTP ${response.status}: ${response.statusText}`);\n      }\n      \n      const data = await response.json();\n      console.log(`✅ Réponse reçue:`, data);\n      return data;\n      \n    } catch (error) {\n      console.error(`❌ Erreur API:`, error.message);\n      throw error;\n    }\n  },\n  \n  // Méthodes CRUD\n  async get(endpoint) {\n    return this.request(endpoint, { method: 'GET' });\n  },\n  \n  async post(endpoint, data) {\n    return this.request(endpoint, {\n      method: 'POST',\n      body: JSON.stringify(data)\n    });\n  },\n  \n  async put(endpoint, data) {\n    return this.request(endpoint, {\n      method: 'PUT',\n      body: JSON.stringify(data)\n    });\n  },\n  \n  async delete(endpoint) {\n    return this.request(endpoint, { method: 'DELETE' });\n  }\n};\n\n// Utilisation\n(async () => {\n  try {\n    // GET - Récupérer des utilisateurs\n    const users = await ApiService.get('/users?_limit=3');\n    console.log(`\\n📋 ${users.length} utilisateurs récupérés`);\n    \n    // POST - Créer un utilisateur\n    const newUser = await ApiService.post('/users', {\n      name: 'John Doe',\n      email: 'john@example.com'\n    });\n    console.log(`\\n✨ Utilisateur créé avec ID: ${newUser.id}`);\n    \n  } catch (error) {\n    console.error('Erreur:', error);\n  }\n})();",
+                    "editable": true,
+                    "showOutput": true
                 },
                 {
                     "type": "callout",
                     "variant": "warning",
-                    "title": "⚠️ Bonnes pratiques Angular",
-                    "content": "Une mauvaise structure rend le projet difficile à maintenir."
+                    "title": "⚠️ Gestion d'erreurs critique",
+                    "content": "Toujours envelopper les appels API dans try/catch. Vérifier response.ok avant de parser le JSON. Gérer les timeouts et les erreurs réseau."
                 },
                 {
-                    "type": "list",
-                    "title": "Bonnes pratiques",
-                    "items": [
-                        "Un component = une responsabilité",
-                        "Utiliser des services",
-                        "Lazy Loading",
-                        "Modules partagés",
-                        "Nommage clair"
+                    "type": "heading",
+                    "value": "3. Gestion avancée des requêtes"
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Intercepteurs et retry logic",
+                    "code": "// API Client avec fonctionnalités avancées\nclass ApiClient {\n  constructor(baseURL, options = {}) {\n    this.baseURL = baseURL;\n    this.defaultHeaders = options.headers || {};\n    this.timeout = options.timeout || 10000;\n    this.retries = options.retries || 3;\n    this.interceptors = {\n      request: [],\n      response: []\n    };\n  }\n  \n  // Ajouter un intercepteur de requête\n  addRequestInterceptor(callback) {\n    this.interceptors.request.push(callback);\n  }\n  \n  // Ajouter un intercepteur de réponse\n  addResponseInterceptor(callback) {\n    this.interceptors.response.push(callback);\n  }\n  \n  // Timeout pour les requêtes\n  async fetchWithTimeout(url, options) {\n    const controller = new AbortController();\n    const timeoutId = setTimeout(() => controller.abort(), this.timeout);\n    \n    try {\n      const response = await fetch(url, {\n        ...options,\n        signal: controller.signal\n      });\n      clearTimeout(timeoutId);\n      return response;\n    } catch (error) {\n      clearTimeout(timeoutId);\n      if (error.name === 'AbortError') {\n        throw new Error('Request timeout');\n      }\n      throw error;\n    }\n  }\n  \n  // Retry logic\n  async requestWithRetry(url, options, attempt = 1) {\n    try {\n      console.log(`🔄 Tentative ${attempt}/${this.retries}`);\n      return await this.fetchWithTimeout(url, options);\n    } catch (error) {\n      if (attempt < this.retries) {\n        console.log(`⏳ Retry dans 1s...`);\n        await new Promise(r => setTimeout(r, 1000));\n        return this.requestWithRetry(url, options, attempt + 1);\n      }\n      throw error;\n    }\n  }\n  \n  async request(endpoint, options = {}) {\n    let config = {\n      headers: { ...this.defaultHeaders, ...options.headers },\n      ...options\n    };\n    \n    // Appliquer les intercepteurs de requête\n    for (const interceptor of this.interceptors.request) {\n      config = await interceptor(config);\n    }\n    \n    const url = `${this.baseURL}${endpoint}`;\n    let response = await this.requestWithRetry(url, config);\n    \n    // Appliquer les intercepteurs de réponse\n    for (const interceptor of this.interceptors.response) {\n      response = await interceptor(response);\n    }\n    \n    if (!response.ok) {\n      throw new Error(`HTTP ${response.status}`);\n    }\n    \n    return response.json();\n  }\n}\n\n// Utilisation\nconst api = new ApiClient('https://jsonplaceholder.typicode.com', {\n  timeout: 5000,\n  retries: 2\n});\n\n// Intercepteur: ajouter un token\napi.addRequestInterceptor(async (config) => {\n  console.log('🔐 Ajout du token d\\'authentification');\n  config.headers['Authorization'] = 'Bearer fake-token-123';\n  return config;\n});\n\n// Intercepteur: logger les réponses\napi.addResponseInterceptor(async (response) => {\n  console.log(`📊 Statut: ${response.status}`);\n  return response;\n});\n\n// Test\n(async () => {\n  try {\n    const data = await api.request('/users/1');\n    console.log('✅ Données:', data);\n  } catch (error) {\n    console.error('❌ Erreur finale:', error.message);\n  }\n})();",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "quiz",
+                    "question": "Pourquoi est-il important d'implémenter une logique de retry pour les requêtes API ?",
+                    "options": [
+                        "Pour améliorer les performances du serveur",
+                        "Pour gérer les erreurs réseau temporaires et améliorer la fiabilité",
+                        "Pour réduire la taille du code JavaScript",
+                        "Pour éviter d'utiliser async/await"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "La logique de retry permet de gérer les erreurs temporaires (timeout, perte réseau) et améliore la robustesse de l'application face aux problèmes réseau."
+                },
+                {
+                    "type": "heading",
+                    "value": "4. Gestion du cache et optimisation"
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Cache simple pour requêtes API",
+                    "code": "// Système de cache pour API\nclass CachedApiService {\n  constructor() {\n    this.cache = new Map();\n    this.cacheTimeout = 5 * 60 * 1000; // 5 minutes\n  }\n  \n  generateCacheKey(url, options) {\n    return `${options.method || 'GET'}:${url}`;\n  }\n  \n  isCacheValid(cacheEntry) {\n    return Date.now() - cacheEntry.timestamp < this.cacheTimeout;\n  }\n  \n  async fetch(url, options = {}) {\n    const cacheKey = this.generateCacheKey(url, options);\n    \n    // Vérifier le cache\n    if (this.cache.has(cacheKey)) {\n      const cached = this.cache.get(cacheKey);\n      if (this.isCacheValid(cached)) {\n        console.log(`💾 Cache HIT pour: ${cacheKey}`);\n        return cached.data;\n      } else {\n        console.log(`⏰ Cache expiré pour: ${cacheKey}`);\n        this.cache.delete(cacheKey);\n      }\n    }\n    \n    console.log(`🌐 Cache MISS - Requête réseau: ${cacheKey}`);\n    \n    // Simulation de fetch\n    const response = await this.simulateFetch(url, options);\n    \n    // Mettre en cache (seulement GET)\n    if (!options.method || options.method === 'GET') {\n      this.cache.set(cacheKey, {\n        data: response,\n        timestamp: Date.now()\n      });\n      console.log(`✅ Données mises en cache`);\n    }\n    \n    return response;\n  }\n  \n  async simulateFetch(url, options) {\n    // Simulation d'une requête réseau\n    await new Promise(r => setTimeout(r, 500));\n    return {\n      id: 1,\n      name: 'User Data',\n      url: url\n    };\n  }\n  \n  clearCache() {\n    this.cache.clear();\n    console.log('🗑️ Cache vidé');\n  }\n  \n  getCacheStats() {\n    return {\n      size: this.cache.size,\n      keys: Array.from(this.cache.keys())\n    };\n  }\n}\n\n// Utilisation\nconst cachedApi = new CachedApiService();\n\n(async () => {\n  console.log('=== Test du cache API ===\\n');\n  \n  // Première requête - Cache MISS\n  await cachedApi.fetch('/api/users/1');\n  \n  // Deuxième requête - Cache HIT\n  await cachedApi.fetch('/api/users/1');\n  \n  // Requête différente - Cache MISS\n  await cachedApi.fetch('/api/users/2');\n  \n  console.log('\\n📊 Stats:', cachedApi.getCacheStats());\n  \n  cachedApi.clearCache();\n})();",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "heading",
+                    "value": "5. Pagination et infinite scroll"
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Pagination API",
+                    "code": "// Gestionnaire de pagination\nclass PaginationManager {\n  constructor(apiEndpoint, pageSize = 10) {\n    this.apiEndpoint = apiEndpoint;\n    this.pageSize = pageSize;\n    this.currentPage = 1;\n    this.totalPages = null;\n    this.data = [];\n  }\n  \n  async fetchPage(page = this.currentPage) {\n    console.log(`📄 Chargement page ${page}...`);\n    \n    // Simulation d'API avec pagination\n    const response = await this.simulateApiCall(page);\n    \n    this.currentPage = page;\n    this.totalPages = response.totalPages;\n    this.data = response.items;\n    \n    console.log(`✅ ${response.items.length} items chargés`);\n    console.log(`   Page ${this.currentPage}/${this.totalPages}`);\n    \n    return response;\n  }\n  \n  async nextPage() {\n    if (this.hasNext()) {\n      return this.fetchPage(this.currentPage + 1);\n    }\n    console.log('⚠️ Pas de page suivante');\n    return null;\n  }\n  \n  async prevPage() {\n    if (this.hasPrev()) {\n      return this.fetchPage(this.currentPage - 1);\n    }\n    console.log('⚠️ Pas de page précédente');\n    return null;\n  }\n  \n  hasNext() {\n    return this.totalPages === null || this.currentPage < this.totalPages;\n  }\n  \n  hasPrev() {\n    return this.currentPage > 1;\n  }\n  \n  async simulateApiCall(page) {\n    await new Promise(r => setTimeout(r, 300));\n    \n    const totalItems = 47;\n    const totalPages = Math.ceil(totalItems / this.pageSize);\n    const start = (page - 1) * this.pageSize;\n    const end = Math.min(start + this.pageSize, totalItems);\n    \n    const items = [];\n    for (let i = start; i < end; i++) {\n      items.push({\n        id: i + 1,\n        name: `Item ${i + 1}`,\n        value: Math.random() * 100\n      });\n    }\n    \n    return {\n      items,\n      page,\n      pageSize: this.pageSize,\n      totalItems,\n      totalPages\n    };\n  }\n}\n\n// Utilisation\n(async () => {\n  const paginator = new PaginationManager('/api/items', 10);\n  \n  console.log('=== Pagination Demo ===\\n');\n  \n  await paginator.fetchPage(1);\n  await paginator.nextPage();\n  await paginator.nextPage();\n  await paginator.prevPage();\n  \n  console.log('\\n📊 État final:');\n  console.log(`   Page courante: ${paginator.currentPage}`);\n  console.log(`   Données: ${paginator.data.length} items`);\n})();",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "exercise",
+                    "title": "🛠️ Exercice - Infinite Scroll",
+                    "instructions": "Créez un système d'infinite scroll qui charge automatiquement la page suivante quand on atteint le bas de la liste.",
+                    "starterCode": "class InfiniteScroll {\n  constructor(apiEndpoint) {\n    this.apiEndpoint = apiEndpoint;\n    this.currentPage = 0;\n    this.allItems = [];\n    this.isLoading = false;\n    this.hasMore = true;\n  }\n  \n  async loadMore() {\n    // TODO: Implémenter le chargement de la page suivante\n    // - Vérifier si pas déjà en chargement\n    // - Vérifier s'il reste des données\n    // - Incrémenter currentPage\n    // - Charger les données\n    // - Ajouter à allItems\n  }\n  \n  async simulateFetch(page) {\n    await new Promise(r => setTimeout(r, 300));\n    const items = Array.from({ length: 10 }, (_, i) => ({\n      id: page * 10 + i,\n      name: `Item ${page * 10 + i}`\n    }));\n    return {\n      items,\n      hasMore: page < 5 // 5 pages max\n    };\n  }\n}\n\n// Test\nconst scroller = new InfiniteScroll('/api/items');\nscroller.loadMore().then(() => {\n  console.log('Items:', scroller.allItems.length);\n});",
+                    "solution": "class InfiniteScroll {\n  constructor(apiEndpoint) {\n    this.apiEndpoint = apiEndpoint;\n    this.currentPage = 0;\n    this.allItems = [];\n    this.isLoading = false;\n    this.hasMore = true;\n  }\n  \n  async loadMore() {\n    if (this.isLoading || !this.hasMore) {\n      console.log('⚠️ Chargement en cours ou plus de données');\n      return;\n    }\n    \n    this.isLoading = true;\n    this.currentPage++;\n    \n    console.log(`📥 Chargement page ${this.currentPage}...`);\n    \n    try {\n      const response = await this.simulateFetch(this.currentPage);\n      this.allItems.push(...response.items);\n      this.hasMore = response.hasMore;\n      \n      console.log(`✅ ${response.items.length} items ajoutés (total: ${this.allItems.length})`);\n      \n    } finally {\n      this.isLoading = false;\n    }\n  }\n  \n  async simulateFetch(page) {\n    await new Promise(r => setTimeout(r, 300));\n    const items = Array.from({ length: 10 }, (_, i) => ({\n      id: page * 10 + i,\n      name: `Item ${page * 10 + i}`\n    }));\n    return {\n      items,\n      hasMore: page < 5\n    };\n  }\n}\n\nconst scroller = new InfiniteScroll('/api/items');\n(async () => {\n  await scroller.loadMore();\n  await scroller.loadMore();\n  await scroller.loadMore();\n  console.log(`\\n📊 Total items: ${scroller.allItems.length}`);\n})();",
+                    "hints": [
+                        "Utilisez un flag isLoading pour éviter les doubles requêtes",
+                        "Vérifiez hasMore avant de charger",
+                        "Utilisez push(...items) pour ajouter au tableau"
+                    ],
+                    "criteria": [
+                        "Pas de double chargement",
+                        "Gestion correcte de hasMore",
+                        "Items accumulés correctement"
                     ]
+                },
+                {
+                    "type": "heading",
+                    "value": "6. WebSockets et real-time"
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "WebSocket - Communication temps réel",
+                    "code": "// Gestionnaire WebSocket avec reconnexion\nclass WebSocketManager {\n  constructor(url, options = {}) {\n    this.url = url;\n    this.reconnectDelay = options.reconnectDelay || 3000;\n    this.maxReconnectAttempts = options.maxReconnectAttempts || 5;\n    this.reconnectAttempts = 0;\n    this.listeners = {};\n    this.ws = null;\n    this.shouldReconnect = true;\n  }\n  \n  connect() {\n    console.log(`🔌 Connexion à ${this.url}...`);\n    \n    // Simulation WebSocket\n    this.ws = {\n      readyState: 1, // OPEN\n      send: (data) => console.log('📤 Envoi:', data),\n      close: () => console.log('🔌 Connexion fermée')\n    };\n    \n    this.onOpen();\n    \n    // Simulation de réception de messages\n    setTimeout(() => {\n      this.onMessage({ data: JSON.stringify({ type: 'welcome', message: 'Connecté!' }) });\n    }, 500);\n  }\n  \n  onOpen() {\n    console.log('✅ WebSocket connecté');\n    this.reconnectAttempts = 0;\n    this.emit('connected');\n  }\n  \n  onMessage(event) {\n    try {\n      const data = JSON.parse(event.data);\n      console.log('📨 Message reçu:', data);\n      this.emit('message', data);\n      \n      // Émettre un événement spécifique selon le type\n      if (data.type) {\n        this.emit(data.type, data);\n      }\n    } catch (error) {\n      console.error('❌ Erreur parsing message:', error);\n    }\n  }\n  \n  onClose() {\n    console.log('🔌 WebSocket fermé');\n    this.emit('disconnected');\n    \n    if (this.shouldReconnect && this.reconnectAttempts < this.maxReconnectAttempts) {\n      this.reconnectAttempts++;\n      console.log(`🔄 Reconnexion (${this.reconnectAttempts}/${this.maxReconnectAttempts}) dans ${this.reconnectDelay}ms...`);\n      setTimeout(() => this.connect(), this.reconnectDelay);\n    }\n  }\n  \n  send(data) {\n    if (this.ws && this.ws.readyState === 1) {\n      this.ws.send(JSON.stringify(data));\n    } else {\n      console.error('❌ WebSocket non connecté');\n    }\n  }\n  \n  on(event, callback) {\n    if (!this.listeners[event]) {\n      this.listeners[event] = [];\n    }\n    this.listeners[event].push(callback);\n  }\n  \n  emit(event, data) {\n    if (this.listeners[event]) {\n      this.listeners[event].forEach(callback => callback(data));\n    }\n  }\n  \n  disconnect() {\n    this.shouldReconnect = false;\n    if (this.ws) {\n      this.ws.close();\n    }\n  }\n}\n\n// Utilisation\nconst wsManager = new WebSocketManager('wss://example.com/socket');\n\nwsManager.on('connected', () => {\n  console.log('🎉 App connectée au serveur');\n});\n\nwsManager.on('message', (data) => {\n  console.log('💬 Nouveau message:', data);\n});\n\nwsManager.on('welcome', (data) => {\n  console.log('👋', data.message);\n});\n\nwsManager.connect();\n\nsetTimeout(() => {\n  wsManager.send({ type: 'ping', timestamp: Date.now() });\n}, 1000);",
+                    "editable": true,
+                    "showOutput": true
                 },
                 {
                     "type": "activity",
-                    "title": "🧪 TP – Mini SPA Angular",
-                    "instructions": "Créer une application Angular avec login, routes protégées et consommation d’API.",
+                    "title": "🚀 TP - Dashboard temps réel avec API",
+                    "duration": "3h",
+                    "instructions": "Créer un dashboard qui consomme plusieurs APIs (utilisateurs, statistiques, notifications) avec refresh automatique et gestion d'erreurs complète.",
                     "expectedOutput": [
-                        "Login",
-                        "Dashboard",
-                        "Service API",
-                        "Guard JWT"
+                        "Consommation de 3+ endpoints REST",
+                        "Service API centralisé avec intercepteurs",
+                        "Gestion du cache pour optimisation",
+                        "Refresh automatique toutes les 30s",
+                        "Gestion complète des erreurs (retry, timeout)",
+                        "Indicateur de chargement",
+                        "Affichage des statistiques en temps réel",
+                        "Code modulaire et testé"
                     ]
                 },
                 {
-                    "type": "quiz",
-                    "question": "Quel élément Angular gère la navigation ?",
-                    "options": [
-                        "Service",
-                        "Component",
-                        "Router",
-                        "Module"
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✅ Fin du module 6",
+                    "content": "Vous maîtrisez maintenant la consommation d'APIs professionnelle. Le prochain module abordera l'authentification et la sécurité côté client."
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "title": "Authentification & Sécurité côté Client",
+            "duration": "5h",
+            "content": [
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎯 Objectifs du module",
+                    "content": "Comprendre les mécanismes d'authentification, implémenter JWT, sécuriser les applications Front-End et gérer les sessions utilisateur."
+                },
+                {
+                    "type": "heading",
+                    "value": "1. Fondamentaux de l'authentification web"
+                },
+                {
+                    "type": "text",
+                    "value": "L'authentification permet de vérifier l'identité d'un utilisateur. Côté client, nous devons gérer les tokens, protéger les routes et sécuriser les données sensibles."
+                },
+                {
+                    "type": "timeline",
+                    "items": [
+                        {
+                            "title": "Session-based (Cookies)",
+                            "description": "Le serveur stocke la session, envoie un cookie au client. Stateful, nécessite stockage serveur."
+                        },
+                        {
+                            "title": "Token-based (JWT)",
+                            "description": "Le serveur génère un token signé, le client le stocke et l'envoie à chaque requête. Stateless, scalable."
+                        },
+                        {
+                            "title": "OAuth 2.0 / OpenID Connect",
+                            "description": "Délégation d'authentification à un provider tiers (Google, GitHub, etc.)."
+                        },
+                        {
+                            "title": "Passwordless / Biometric",
+                            "description": "Authentification par lien email, SMS ou biométrie. Tendance moderne."
+                        }
+                    ]
+                },
+                {
+                    "type": "table",
+                    "headers": [
+                        "Méthode",
+                        "Avantages",
+                        "Inconvénients",
+                        "Usage"
                     ],
-                    "correctAnswer": 2,
-                    "explanation": "Le Router permet la navigation SPA."
+                    "rows": [
+                        [
+                            "Session + Cookie",
+                            "Sécurisé, facile",
+                            "Stateful, scaling difficile",
+                            "Apps traditionnelles"
+                        ],
+                        [
+                            "JWT",
+                            "Stateless, scalable",
+                            "Taille token, révocation difficile",
+                            "APIs, SPAs, mobile"
+                        ],
+                        [
+                            "OAuth 2.0",
+                            "Pas de mot de passe stocké",
+                            "Complexe, dépendance tiers",
+                            "Login social"
+                        ],
+                        [
+                            "API Keys",
+                            "Simple",
+                            "Pas d'expiration, peu sécurisé",
+                            "APIs publiques limitées"
+                        ]
+                    ]
+                },
+                {
+                    "type": "heading",
+                    "value": "2. JWT (JSON Web Token) - Implémentation"
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Système d'authentification JWT",
+                    "code": "// AuthService - Gestion complète de l'authentification\nclass AuthService {\n  constructor() {\n    this.token = null;\n    this.user = null;\n    this.tokenKey = 'auth_token';\n    this.userKey = 'auth_user';\n  }\n  \n  // Connexion\n  async login(email, password) {\n    console.log(`🔐 Tentative de connexion: ${email}`);\n    \n    try {\n      // Simulation d'appel API\n      const response = await this.mockLoginAPI(email, password);\n      \n      // Stocker le token et les données utilisateur\n      this.setToken(response.token);\n      this.setUser(response.user);\n      \n      console.log('✅ Connexion réussie!');\n      console.log('   User:', response.user.name);\n      console.log('   Token:', response.token.substring(0, 20) + '...');\n      \n      return response;\n      \n    } catch (error) {\n      console.error('❌ Échec de connexion:', error.message);\n      throw error;\n    }\n  }\n  \n  // Déconnexion\n  logout() {\n    console.log('👋 Déconnexion...');\n    this.token = null;\n    this.user = null;\n    // En production: localStorage.removeItem(this.tokenKey)\n    console.log('✅ Déconnexion réussie');\n  }\n  \n  // Vérifier si authentifié\n  isAuthenticated() {\n    if (!this.token) return false;\n    \n    // Vérifier l'expiration du token\n    const payload = this.decodeToken(this.token);\n    if (!payload) return false;\n    \n    const now = Date.now() / 1000;\n    const isValid = payload.exp > now;\n    \n    if (!isValid) {\n      console.log('⚠️ Token expiré');\n      this.logout();\n    }\n    \n    return isValid;\n  }\n  \n  // Décoder le JWT (sans vérification de signature)\n  decodeToken(token) {\n    try {\n      const parts = token.split('.');\n      if (parts.length !== 3) return null;\n      \n      const payload = JSON.parse(atob(parts[1]));\n      return payload;\n    } catch (error) {\n      return null;\n    }\n  }\n  \n  // Obtenir le header Authorization\n  getAuthHeader() {\n    if (this.token) {\n      return { 'Authorization': `Bearer ${this.token}` };\n    }\n    return {};\n  }\n  \n  // Stocker le token\n  setToken(token) {\n    this.token = token;\n    // En production: localStorage.setItem(this.tokenKey, token)\n  }\n  \n  // Stocker l'utilisateur\n  setUser(user) {\n    this.user = user;\n    // En production: localStorage.setItem(this.userKey, JSON.stringify(user))\n  }\n  \n  // Obtenir l'utilisateur courant\n  getCurrentUser() {\n    return this.user;\n  }\n  \n  // Simulation API de connexion\n  async mockLoginAPI(email, password) {\n    await new Promise(r => setTimeout(r, 500));\n    \n    if (email === 'admin@example.com' && password === 'password123') {\n      // Créer un faux JWT\n      const header = btoa(JSON.stringify({ alg: 'HS256', typ: 'JWT' }));\n      const payload = btoa(JSON.stringify({\n        sub: '12345',\n        name: 'Admin User',\n        email: email,\n        role: 'admin',\n        iat: Math.floor(Date.now() / 1000),\n        exp: Math.floor(Date.now() / 1000) + 3600 // 1h\n      }));\n      const signature = 'fake_signature_xyz';\n      \n      return {\n        token: `${header}.${payload}.${signature}`,\n        user: {\n          id: '12345',\n          name: 'Admin User',\n          email: email,\n          role: 'admin'\n        }\n      };\n    }\n    \n    throw new Error('Email ou mot de passe incorrect');\n  }\n}\n\n// Utilisation\nconst auth = new AuthService();\n\n(async () => {\n  // Tentative de connexion\n  await auth.login('admin@example.com', 'password123');\n  \n  // Vérifier l'authentification\n  console.log('\\n🔍 Authentifié?', auth.isAuthenticated());\n  \n  // Récupérer l'utilisateur\n  const user = auth.getCurrentUser();\n  console.log('👤 Utilisateur:', user.name, `(${user.role})`);\n  \n  // Header pour requêtes API\n  console.log('\\n📋 Auth Header:', auth.getAuthHeader());\n  \n  // Déconnexion\n  console.log('');\n  auth.logout();\n})();",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "callout",
+                    "variant": "danger",
+                    "title": "🔒 CRITIQUE - Sécurité des tokens",
+                    "content": "JAMAIS stocker de données sensibles dans le JWT (mots de passe, données bancaires). Le JWT est décodable par n'importe qui. Utilisez HTTPS en production. Définissez une expiration courte (15-60min) et implémentez un refresh token."
                 },
                 {
                     "type": "quiz",
-                    "question": "Pourquoi utiliser un service Angular ?",
+                    "question": "Où doit-on stocker le JWT côté client pour une SPA ?",
                     "options": [
-                        "Pour le design",
-                        "Pour la logique métier",
-                        "Pour le routing",
-                        "Pour le CSS"
+                        "Dans une variable globale JavaScript uniquement",
+                        "Dans localStorage ou sessionStorage avec précautions",
+                        "Dans un cookie avec flag httpOnly (géré serveur)",
+                        "Les deux options 2 et 3 sont valides selon le contexte"
                     ],
-                    "correctAnswer": 1,
-                    "explanation": "Les services centralisent la logique métier."
+                    "correctAnswer": 3,
+                    "explanation": "localStorage/sessionStorage est pratique pour les SPAs mais vulnérable au XSS. Les cookies httpOnly sont plus sécurisés mais nécessitent une gestion serveur. Le choix dépend de l'architecture et des contraintes de sécurité."
+                },
+                {
+                    "type": "heading",
+                    "value": "3. Protection des routes et guards"
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Route Guards - Protection des pages",
+                    "code": "// Système de routing avec protection\nclass Router {\n  constructor(authService) {\n    this.authService = authService;\n    this.routes = {};\n    this.currentRoute = null;\n  }\n  \n  // Définir une route\n  addRoute(path, config) {\n    this.routes[path] = {\n      component: config.component,\n      requiresAuth: config.requiresAuth || false,\n      roles: config.roles || [],\n      ...config\n    };\n  }\n  \n  // Naviguer vers une route\n  navigate(path) {\n    console.log(`\\n🧭 Navigation vers: ${path}`);\n    \n    const route = this.routes[path];\n    \n    if (!route) {\n      console.error('❌ Route introuvable:', path);\n      return this.navigate('/404');\n    }\n    \n    // Vérifier l'authentification\n    if (route.requiresAuth && !this.authService.isAuthenticated()) {\n      console.log('🚫 Accès refusé - Authentification requise');\n      return this.navigate('/login');\n    }\n    \n    // Vérifier les rôles\n    if (route.roles.length > 0) {\n      const user = this.authService.getCurrentUser();\n      if (!user || !route.roles.includes(user.role)) {\n        console.log('🚫 Accès refusé - Rôle insuffisant');\n        return this.navigate('/forbidden');\n      }\n    }\n    \n    // Accès autorisé\n    console.log('✅ Accès autorisé');\n    this.currentRoute = path;\n    route.component();\n  }\n}\n\n// Composants de page (simples)\nconst HomePage = () => console.log('  📄 Affichage: Page d\\'accueil');\nconst LoginPage = () => console.log('  🔐 Affichage: Page de connexion');\nconst DashboardPage = () => console.log('  📊 Affichage: Dashboard');\nconst AdminPage = () => console.log('  ⚙️ Affichage: Administration');\nconst ForbiddenPage = () => console.log('  🚫 Affichage: Accès interdit');\nconst NotFoundPage = () => console.log('  ❓ Affichage: Page non trouvée');\n\n// Configuration du router\nconst auth = new AuthService();\nconst router = new Router(auth);\n\nrouter.addRoute('/', {\n  component: HomePage,\n  requiresAuth: false\n});\n\nrouter.addRoute('/login', {\n  component: LoginPage,\n  requiresAuth: false\n});\n\nrouter.addRoute('/dashboard', {\n  component: DashboardPage,\n  requiresAuth: true\n});\n\nrouter.addRoute('/admin', {\n  component: AdminPage,\n  requiresAuth: true,\n  roles: ['admin']\n});\n\nrouter.addRoute('/forbidden', {\n  component: ForbiddenPage\n});\n\nrouter.addRoute('/404', {\n  component: NotFoundPage\n});\n\n// Tests\nconsole.log('=== Test Route Guards ===');\n\n// Sans authentification\nrouter.navigate('/dashboard'); // Redirige vers /login\n\n// Avec authentification\nawait auth.login('admin@example.com', 'password123');\nrouter.navigate('/dashboard'); // OK\nrouter.navigate('/admin'); // OK (role admin)\n\n// Déconnexion\nauth.logout();\nrouter.navigate('/admin'); // Redirige vers /login",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "heading",
+                    "value": "4. Sécurité Front-End - Bonnes pratiques"
+                },
+                {
+                    "type": "list",
+                    "title": "🔒 Checklist sécurité Front-End",
+                    "items": [
+                        "XSS Prevention - Échapper toutes les entrées utilisateur, utiliser textContent au lieu de innerHTML",
+                        "CSRF Protection - Utiliser des tokens CSRF pour les formulaires",
+                        "Validation côté client ET serveur - Ne jamais faire confiance au client",
+                        "HTTPS obligatoire - Toujours utiliser HTTPS en production",
+                        "Content Security Policy (CSP) - Limiter les sources de scripts",
+                        "Secure Storage - Chiffrer les données sensibles, éviter localStorage pour secrets",
+                        "Input Sanitization - Nettoyer et valider toutes les entrées",
+                        "Dependencies Updates - Maintenir les dépendances à jour (npm audit)"
+                    ]
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Protection XSS - Sanitization",
+                    "code": "// Utilitaires de sécurité\nconst Security = {\n  // Échapper les caractères HTML dangereux\n  escapeHTML(str) {\n    const div = document.createElement('div');\n    div.textContent = str;\n    return div.innerHTML;\n  },\n  \n  // Alternative manuelle\n  escapeHTMLManual(str) {\n    const map = {\n      '&': '&amp;',\n      '<': '&lt;',\n      '>': '&gt;',\n      '\"': '&quot;',\n      \"'\": '&#x27;',\n      '/': '&#x2F;'\n    };\n    return str.replace(/[&<>\"'\\/]/g, char => map[char]);\n  },\n  \n  // Valider email\n  validateEmail(email) {\n    const regex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    return regex.test(email);\n  },\n  \n  // Valider mot de passe fort\n  validatePassword(password) {\n    const checks = {\n      length: password.length >= 8,\n      uppercase: /[A-Z]/.test(password),\n      lowercase: /[a-z]/.test(password),\n      number: /[0-9]/.test(password),\n      special: /[!@#$%^&*]/.test(password)\n    };\n    \n    const passed = Object.values(checks).filter(Boolean).length;\n    return {\n      valid: passed >= 4,\n      strength: passed,\n      checks\n    };\n  },\n  \n  // Nettoyer input utilisateur\n  sanitizeInput(input) {\n    // Supprimer les scripts et balises dangereuses\n    return input\n      .replace(/<script[^>]*>.*?<\\/script>/gi, '')\n      .replace(/<iframe[^>]*>.*?<\\/iframe>/gi, '')\n      .replace(/on\\w+\\s*=\\s*[\"'][^\"']*[\"']/gi, '') // onclick, onerror, etc.\n      .trim();\n  }\n};\n\n// Tests\nconsole.log('=== Tests de sécurité ===\\n');\n\n// Test XSS\nconst maliciousInput = '<script>alert(\"XSS\")</script>Hello';\nconsole.log('Input malveillant:', maliciousInput);\nconsole.log('Échappé:', Security.escapeHTML(maliciousInput));\nconsole.log('Sanitizé:', Security.sanitizeInput(maliciousInput));\n\n// Test validation email\nconsole.log('\\nValidation email:');\nconsole.log('  alice@example.com:', Security.validateEmail('alice@example.com'));\nconsole.log('  invalid-email:', Security.validateEmail('invalid-email'));\n\n// Test validation password\nconsole.log('\\nValidation password:');\nconst pwd1 = Security.validatePassword('weak');\nconsole.log('  \"weak\":', pwd1.valid, `(force: ${pwd1.strength}/5)`);\n\nconst pwd2 = Security.validatePassword('Strong123!');\nconsole.log('  \"Strong123!\":', pwd2.valid, `(force: ${pwd2.strength}/5)`);\n\n// Affichage détails\nconsole.log('\\nDétails \"Strong123!\":');\nObject.entries(pwd2.checks).forEach(([key, value]) => {\n  console.log(`  ${value ? '✓' : '✗'} ${key}`);\n});",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "exercise",
+                    "title": "🛠️ Exercice - Formulaire de connexion sécurisé",
+                    "instructions": "Créez un système de connexion complet avec validation, protection XSS et gestion d'erreurs.",
+                    "starterCode": "class SecureLoginForm {\n  constructor(authService) {\n    this.authService = authService;\n    this.attempts = 0;\n    this.maxAttempts = 3;\n    this.lockoutTime = 5000; // 5 secondes\n    this.isLocked = false;\n  }\n  \n  // TODO: Valider les inputs\n  validateInputs(email, password) {\n    const errors = [];\n    // Vérifier email\n    // Vérifier password\n    return errors;\n  }\n  \n  // TODO: Tentative de connexion\n  async attemptLogin(email, password) {\n    // Vérifier si bloqué\n    // Valider inputs\n    // Sanitizer\n    // Appeler authService.login()\n    // Gérer les tentatives échouées\n  }\n  \n  // TODO: Bloquer après trop de tentatives\n  lockAccount() {\n    \n  }\n}\n\n// Test\nconst auth = new AuthService();\nconst form = new SecureLoginForm(auth);\nform.attemptLogin('admin@example.com', 'password123');",
+                    "solution": "class SecureLoginForm {\n  constructor(authService) {\n    this.authService = authService;\n    this.attempts = 0;\n    this.maxAttempts = 3;\n    this.lockoutTime = 5000;\n    this.isLocked = false;\n  }\n  \n  validateInputs(email, password) {\n    const errors = [];\n    \n    if (!email || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {\n      errors.push('Email invalide');\n    }\n    \n    if (!password || password.length < 8) {\n      errors.push('Mot de passe trop court (min 8 caractères)');\n    }\n    \n    return errors;\n  }\n  \n  sanitize(str) {\n    return str.replace(/[<>\"']/g, '');\n  }\n  \n  async attemptLogin(email, password) {\n    if (this.isLocked) {\n      console.log('🔒 Compte bloqué temporairement');\n      return;\n    }\n    \n    const errors = this.validateInputs(email, password);\n    if (errors.length > 0) {\n      console.log('❌ Erreurs:', errors.join(', '));\n      return;\n    }\n    \n    const cleanEmail = this.sanitize(email);\n    const cleanPassword = this.sanitize(password);\n    \n    try {\n      await this.authService.login(cleanEmail, cleanPassword);\n      this.attempts = 0;\n      console.log('✅ Connexion réussie!');\n    } catch (error) {\n      this.attempts++;\n      console.log(`❌ Échec ${this.attempts}/${this.maxAttempts}`);\n      \n      if (this.attempts >= this.maxAttempts) {\n        this.lockAccount();\n      }\n    }\n  }\n  \n  lockAccount() {\n    this.isLocked = true;\n    console.log(`🔒 Compte bloqué pour ${this.lockoutTime/1000}s`);\n    setTimeout(() => {\n      this.isLocked = false;\n      this.attempts = 0;\n      console.log('🔓 Compte débloqué');\n    }, this.lockoutTime);\n  }\n}\n\nconst auth = new AuthService();\nconst form = new SecureLoginForm(auth);\n\n(async () => {\n  await form.attemptLogin('invalid', '123');\n  await form.attemptLogin('admin@example.com', 'wrong');\n  await form.attemptLogin('admin@example.com', 'password123');\n})();",
+                    "hints": [
+                        "Utilisez regex pour valider l'email",
+                        "Incrémentez attempts à chaque échec",
+                        "Utilisez setTimeout pour le déblocage"
+                    ],
+                    "criteria": [
+                        "Validation complète des inputs",
+                        "Protection contre brute force",
+                        "Sanitization des entrées",
+                        "Gestion d'erreurs claire"
+                    ]
+                },
+                {
+                    "type": "heading",
+                    "value": "5. Refresh Token et gestion de session"
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "title": "Système de Refresh Token",
+                    "code": "// Service d'authentification avec refresh token\nclass AdvancedAuthService {\n  constructor() {\n    this.accessToken = null;\n    this.refreshToken = null;\n    this.tokenExpiry = null;\n    this.refreshPromise = null;\n  }\n  \n  async login(email, password) {\n    console.log('🔐 Connexion...');\n    const response = await this.mockLoginAPI(email, password);\n    \n    this.setTokens(response.accessToken, response.refreshToken);\n    console.log('✅ Tokens stockés');\n    \n    // Démarrer le refresh automatique\n    this.scheduleTokenRefresh();\n    \n    return response;\n  }\n  \n  setTokens(accessToken, refreshToken) {\n    this.accessToken = accessToken;\n    this.refreshToken = refreshToken;\n    \n    // Décoder et stocker l'expiration\n    const payload = this.decodeToken(accessToken);\n    this.tokenExpiry = payload.exp * 1000;\n  }\n  \n  async refreshAccessToken() {\n    // Éviter les refresh multiples simultanés\n    if (this.refreshPromise) {\n      return this.refreshPromise;\n    }\n    \n    console.log('🔄 Refresh du token...');\n    \n    this.refreshPromise = (async () => {\n      try {\n        const response = await this.mockRefreshAPI(this.refreshToken);\n        this.setTokens(response.accessToken, this.refreshToken);\n        console.log('✅ Token refreshed');\n        this.scheduleTokenRefresh();\n        return response.accessToken;\n      } finally {\n        this.refreshPromise = null;\n      }\n    })();\n    \n    return this.refreshPromise;\n  }\n  \n  scheduleTokenRefresh() {\n    // Refresh 5 minutes avant expiration\n    const refreshTime = this.tokenExpiry - Date.now() - (5 * 60 * 1000);\n    \n    if (refreshTime > 0) {\n      console.log(`⏰ Refresh programmé dans ${Math.round(refreshTime/1000)}s`);\n      setTimeout(() => this.refreshAccessToken(), refreshTime);\n    }\n  }\n  \n  async getValidToken() {\n    const now = Date.now();\n    const buffer = 60 * 1000; // 1 minute de buffer\n    \n    if (this.tokenExpiry - now < buffer) {\n      console.log('⚠️ Token expiré ou proche expiration');\n      return this.refreshAccessToken();\n    }\n    \n    return this.accessToken;\n  }\n  \n  decodeToken(token) {\n    const parts = token.split('.');\n    return JSON.parse(atob(parts[1]));\n  }\n  \n  async mockLoginAPI(email, password) {\n    await new Promise(r => setTimeout(r, 300));\n    \n    const now = Math.floor(Date.now() / 1000);\n    const accessPayload = btoa(JSON.stringify({\n      sub: '123',\n      email: email,\n      exp: now + 900 // 15 minutes\n    }));\n    \n    return {\n      accessToken: `header.${accessPayload}.signature`,\n      refreshToken: 'refresh_token_xyz_123',\n      expiresIn: 900\n    };\n  }\n  \n  async mockRefreshAPI(refreshToken) {\n    await new Promise(r => setTimeout(r, 300));\n    \n    const now = Math.floor(Date.now() / 1000);\n    const accessPayload = btoa(JSON.stringify({\n      sub: '123',\n      email: 'user@example.com',\n      exp: now + 900\n    }));\n    \n    return {\n      accessToken: `header.${accessPayload}.signature_new`,\n      expiresIn: 900\n    };\n  }\n}\n\n// Utilisation\n(async () => {\n  const auth = new AdvancedAuthService();\n  \n  await auth.login('user@example.com', 'password');\n  \n  // Obtenir un token valide\n  const token = await auth.getValidToken();\n  console.log('\\n🎫 Token actuel:', token.substring(0, 30) + '...');\n})();",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "activity",
+                    "title": "🚀 TP - Système d'authentification complet",
+                    "duration": "3h",
+                    "instructions": "Créer un système d'authentification complet avec login/logout, route guards, refresh token automatique et gestion de rôles.",
+                    "expectedOutput": [
+                        "Pages: Login, Dashboard (protected), Admin (role admin only)",
+                        "JWT avec access token et refresh token",
+                        "Route guards fonctionnels",
+                        "Refresh automatique avant expiration",
+                        "Gestion des erreurs (401, 403)",
+                        "Protection XSS sur les formulaires",
+                        "Limitation des tentatives de connexion",
+                        "UI/UX professionnelle",
+                        "Code modulaire et documenté"
+                    ]
                 },
                 {
                     "type": "callout",
                     "variant": "success",
                     "title": "✅ Fin du module 7",
-                    "content": "Vous savez maintenant développer une SPA Angular professionnelle."
+                    "content": "Vous maîtrisez maintenant l'authentification et la sécurité Front-End. Le prochain module explore Angular et les SPAs modernes."
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "title": "SPA & Framework Moderne – Angular",
+            "duration": "8h",
+            "content": [
+                {
+                    "type": "callout",
+                    "variant": "info",
+                    "title": "🎯 Objectifs du module",
+                    "content": "Maîtriser Angular, comprendre l'architecture SPA, créer des composants, gérer le state, implémenter le routing et consommer des APIs avec RxJS."
+                },
+                {
+                    "type": "heading",
+                    "value": "1. Introduction aux Single Page Applications (SPA)"
+                },
+                {
+                    "type": "text",
+                    "value": "Une SPA (Single Page Application) charge une seule page HTML et met à jour dynamiquement le contenu sans rechargement complet. Cela offre une expérience utilisateur fluide proche des applications natives."
+                },
+                {
+                    "type": "table",
+                    "headers": [
+                        "Aspect",
+                        "Application traditionnelle",
+                        "SPA"
+                    ],
+                    "rows": [
+                        [
+                            "Chargement",
+                            "Nouvelle page à chaque action",
+                            "Une seule page, contenu dynamique"
+                        ],
+                        [
+                            "Performance",
+                            "Lente (rechargements)",
+                            "Rapide (mises à jour partielles)"
+                        ],
+                        [
+                            "UX",
+                            "Coupures, flash blanc",
+                            "Fluide, transitions"
+                        ],
+                        [
+                            "SEO",
+                            "Excellent",
+                            "Nécessite SSR/SSG"
+                        ],
+                        [
+                            "Complexité",
+                            "Simple",
+                            "Plus complexe (state, routing)"
+                        ],
+                        [
+                            "Backend",
+                            "Rendu serveur",
+                            "API REST/GraphQL"
+                        ]
+                    ]
+                },
+                {
+                    "type": "list",
+                    "title": "Frameworks SPA populaires",
+                    "items": [
+                        "React - Bibliothèque UI flexible, écosystème riche (Meta)",
+                        "Angular - Framework complet, TypeScript natif (Google)",
+                        "Vue.js - Framework progressif, courbe d'apprentissage douce",
+                        "Svelte - Compilateur, pas de virtual DOM",
+                        "Next.js - React avec SSR/SSG intégré",
+                        "Nuxt.js - Vue avec SSR/SSG intégré"
+                    ]
+                },
+                {
+                    "type": "heading",
+                    "value": "2. Angular - Architecture et concepts clés"
+                },
+                {
+                    "type": "text",
+                    "value": "Angular est un framework complet développé par Google. Il impose une structure et des conventions strictes, idéal pour les grandes équipes et les applications d'entreprise."
+                },
+                {
+                    "type": "timeline",
+                    "items": [
+                        {
+                            "title": "Modules",
+                            "description": "Organisent l'application en blocs fonctionnels cohérents (AppModule, FeatureModules)."
+                        },
+                        {
+                            "title": "Components",
+                            "description": "Briques de base de l'UI. Composés d'un template HTML, un fichier TS et des styles."
+                        },
+                        {
+                            "title": "Services",
+                            "description": "Classes singleton pour la logique métier, partage de données, appels API."
+                        },
+                        {
+                            "title": "Dependency Injection",
+                            "description": "Système DI puissant pour injecter des dépendances dans les composants/services."
+                        },
+                        {
+                            "title": "RxJS / Observables",
+                            "description": "Programmation réactive pour gérer les flux de données asynchrones."
+                        },
+                        {
+                            "title": "Routing",
+                            "description": "Navigation entre vues avec lazy loading et guards."
+                        }
+                    ]
+                },
+                {
+                    "type": "code",
+                    "language": "typescript",
+                    "title": "Structure d'un composant Angular",
+                    "code": "// user-card.component.ts\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\n\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n  role: string;\n}\n\n@Component({\n  selector: 'app-user-card',\n  template: `\n    <div class=\"user-card\">\n      <h3>{{ user.name }}</h3>\n      <p>{{ user.email }}</p>\n      <span class=\"badge\">{{ user.role }}</span>\n      <button (click)=\"onDelete()\">Supprimer</button>\n    </div>\n  `,\n  styles: [`\n    .user-card {\n      border: 1px solid #ddd;\n      padding: 16px;\n      border-radius: 8px;\n      margin: 8px 0;\n    }\n    .badge {\n      background: #007bff;\n      color: white;\n      padding: 4px 8px;\n      border-radius: 4px;\n      font-size: 12px;\n    }\n  `]\n})\nexport class UserCardComponent {\n  @Input() user!: User;\n  @Output() delete = new EventEmitter<number>();\n  \n  onDelete() {\n    this.delete.emit(this.user.id);\n  }\n}\n\n// Utilisation dans un parent:\n// <app-user-card \n//   [user]=\"currentUser\" \n//   (delete)=\"handleDelete($event)\">\n// </app-user-card>\n\n// Simulation pour exécution\nconst mockUser: User = {\n  id: 1,\n  name: 'Alice Johnson',\n  email: 'alice@example.com',\n  role: 'Admin'\n};\n\nconsole.log('👤 Composant Angular - UserCard');\nconsole.log('Props:', mockUser);\nconsole.log('✅ Composant configuré avec @Input et @Output');",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "callout",
+                    "variant": "tip",
+                    "title": "💡 Décorateurs Angular",
+                    "content": "@Component - Définit un composant. @Input - Propriété en entrée du parent. @Output - Événement émis vers le parent. @Injectable - Service injectable. @NgModule - Module Angular."
+                },
+                {
+                    "type": "heading",
+                    "value": "3. Services et Dependency Injection"
+                },
+                {
+                    "type": "code",
+                    "language": "typescript",
+                    "title": "Service Angular avec DI",
+                    "code": "// user.service.ts\nimport { Injectable } from '@angular/core';\nimport { Observable, of, delay } from 'rxjs';\n\ninterface User {\n  id: number;\n  name: string;\n  email: string;\n}\n\n@Injectable({\n  providedIn: 'root' // Service singleton disponible partout\n})\nexport class UserService {\n  private users: User[] = [\n    { id: 1, name: 'Alice', email: 'alice@example.com' },\n    { id: 2, name: 'Bob', email: 'bob@example.com' },\n    { id: 3, name: 'Charlie', email: 'charlie@example.com' }\n  ];\n  \n  // Retourne un Observable (pattern RxJS)\n  getUsers(): Observable<User[]> {\n    console.log('🔍 UserService.getUsers() appelé');\n    return of(this.users).pipe(delay(500));\n  }\n  \n  getUserById(id: number): Observable<User | undefined> {\n    console.log(`🔍 UserService.getUserById(${id}) appelé`);\n    const user = this.users.find(u => u.id === id);\n    return of(user).pipe(delay(300));\n  }\n  \n  createUser(user: Omit<User, 'id'>): Observable<User> {\n    const newUser = {\n      id: Math.max(...this.users.map(u => u.id)) + 1,\n      ...user\n    };\n    this.users.push(newUser);\n    console.log('✅ Utilisateur créé:', newUser);\n    return of(newUser).pipe(delay(300));\n  }\n  \n  deleteUser(id: number): Observable<boolean> {\n    const index = this.users.findIndex(u => u.id === id);\n    if (index > -1) {\n      this.users.splice(index, 1);\n      console.log(`🗑️ Utilisateur ${id} supprimé`);\n      return of(true).pipe(delay(200));\n    }\n    return of(false).pipe(delay(200));\n  }\n}\n\n// Simulation d'utilisation dans un composant\nclass UserListComponent {\n  users: User[] = [];\n  \n  constructor(private userService: UserService) {\n    console.log('\\n📦 Injection du UserService dans le composant');\n  }\n  \n  ngOnInit() {\n    console.log('\\n🚀 ngOnInit - Chargement des utilisateurs...');\n    this.loadUsers();\n  }\n  \n  loadUsers() {\n    this.userService.getUsers().subscribe({\n      next: (users) => {\n        this.users = users;\n        console.log(`✅ ${users.length} utilisateurs chargés`);\n        users.forEach(u => console.log(`   - ${u.name}`));\n      },\n      error: (err) => console.error('❌ Erreur:', err)\n    });\n  }\n  \n  addUser() {\n    this.userService.createUser({\n      name: 'David',\n      email: 'david@example.com'\n    }).subscribe({\n      next: (user) => {\n        console.log('\\n➕ Utilisateur ajouté, rechargement...');\n        this.loadUsers();\n      }\n    });\n  }\n}\n\n// Test\nconst service = new UserService();\nconst component = new UserListComponent(service);\ncomponent.ngOnInit();\n\nsetTimeout(() => {\n  component.addUser();\n}, 1000);",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "quiz",
+                    "question": "Quel est l'avantage principal de la Dependency Injection en Angular ?",
+                    "options": [
+                        "Améliorer les performances de l'application",
+                        "Faciliter les tests et découpler le code",
+                        "Réduire la taille du bundle JavaScript",
+                        "Éviter d'utiliser TypeScript"
+                    ],
+                    "correctAnswer": 1,
+                    "explanation": "La DI permet de découpler les dépendances, facilite les tests unitaires (mock des services) et rend le code plus maintenable."
+                },
+                {
+                    "type": "heading",
+                    "value": "4. RxJS et programmation réactive"
+                },
+                {
+                    "type": "text",
+                    "value": "RxJS (Reactive Extensions for JavaScript) est une bibliothèque de programmation réactive utilisant des Observables pour gérer les flux de données asynchrones."
+                },
+                {
+                    "type": "code",
+                    "language": "typescript",
+                    "title": "RxJS - Observables et Opérateurs",
+                    "code": "// Simulation RxJS basique\nclass Observable {\n  constructor(private subscribe) {}\n  \n  pipe(...operators) {\n    return operators.reduce((obs, op) => op(obs), this);\n  }\n  \n  subscribe(observer) {\n    return this.subscribe(observer);\n  }\n}\n\n// Opérateurs RxJS simulés\nconst map = (transformFn) => (observable) => {\n  return new Observable((observer) => {\n    return observable.subscribe({\n      next: (value) => observer.next(transformFn(value)),\n      error: (err) => observer.error(err),\n      complete: () => observer.complete()\n    });\n  });\n};\n\nconst filter = (predicateFn) => (observable) => {\n  return new Observable((observer) => {\n    return observable.subscribe({\n      next: (value) => {\n        if (predicateFn(value)) {\n          observer.next(value);\n        }\n      },\n      error: (err) => observer.error(err),\n      complete: () => observer.complete()\n    });\n  });\n};\n\nconst tap = (sideEffectFn) => (observable) => {\n  return new Observable((observer) => {\n    return observable.subscribe({\n      next: (value) => {\n        sideEffectFn(value);\n        observer.next(value);\n      },\n      error: (err) => observer.error(err),\n      complete: () => observer.complete()\n    });\n  });\n};\n\n// Création d'un Observable\nconst numbers$ = new Observable((observer) => {\n  console.log('📡 Observable démarré');\n  [1, 2, 3, 4, 5].forEach(n => observer.next(n));\n  observer.complete();\n});\n\n// Utilisation avec pipe\nconsole.log('=== RxJS Pipeline ===\\n');\n\nnumbers$\n  .pipe(\n    tap(x => console.log(`  📥 Reçu: ${x}`)),\n    filter(x => x % 2 === 0),\n    tap(x => console.log(`  ✓ Filtré (pair): ${x}`)),\n    map(x => x * 10),\n    tap(x => console.log(`  ✓ Transformé (x10): ${x}`))\n  )\n  .subscribe({\n    next: (value) => console.log(`\\n✅ Résultat final: ${value}\\n`),\n    complete: () => console.log('🏁 Flux terminé')\n  });\n\n// Opérateurs RxJS courants:\nconsole.log('\\n📚 Opérateurs RxJS importants:');\nconsole.log('  - map: transformer les valeurs');\nconsole.log('  - filter: filtrer les valeurs');\nconsole.log('  - tap: effets de bord (logs, etc.)');\nconsole.log('  - mergeMap/switchMap: gérer les observables imbriqués');\nconsole.log('  - debounceTime: retarder les émissions');\nconsole.log('  - catchError: gérer les erreurs');",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "callout",
+                    "variant": "warning",
+                    "title": "⚠️ Gestion des souscriptions",
+                    "content": "TOUJOURS se désabonner des Observables pour éviter les fuites mémoire. Utilisez takeUntil, async pipe ou ngOnDestroy pour nettoyer les souscriptions."
+                },
+                {
+                    "type": "heading",
+                    "value": "5. Routing et Navigation"
+                },
+                {
+                    "type": "code",
+                    "language": "typescript",
+                    "title": "Configuration du Router Angular",
+                    "code": "// app-routing.module.ts\nimport { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\n\n// Guards (protections de routes)\nclass AuthGuard {\n  canActivate(): boolean {\n    const isAuthenticated = true; // Logique d'auth\n    console.log('🔐 AuthGuard:', isAuthenticated ? 'Accès autorisé' : 'Redirection /login');\n    return isAuthenticated;\n  }\n}\n\nclass AdminGuard {\n  canActivate(): boolean {\n    const isAdmin = true; // Vérifier le rôle\n    console.log('👮 AdminGuard:', isAdmin ? 'Accès autorisé' : 'Accès refusé');\n    return isAdmin;\n  }\n}\n\n// Configuration des routes\nconst routes: Routes = [\n  {\n    path: '',\n    redirectTo: '/home',\n    pathMatch: 'full'\n  },\n  {\n    path: 'home',\n    component: null, // HomeComponent\n    data: { title: 'Accueil' }\n  },\n  {\n    path: 'dashboard',\n    component: null, // DashboardComponent\n    canActivate: [AuthGuard],\n    data: { title: 'Dashboard' }\n  },\n  {\n    path: 'admin',\n    component: null, // AdminComponent\n    canActivate: [AuthGuard, AdminGuard],\n    data: { title: 'Administration' }\n  },\n  {\n    path: 'users',\n    children: [\n      {\n        path: '',\n        component: null // UserListComponent\n      },\n      {\n        path: ':id',\n        component: null // UserDetailComponent\n      }\n    ]\n  },\n  {\n    // Lazy loading d'un module\n    path: 'products',\n    loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)\n  },\n  {\n    path: '**',\n    component: null // NotFoundComponent\n  }\n];\n\n// Simulation de navigation\nclass Router {\n  navigate(path: string) {\n    console.log(`\\n🧭 Navigation vers: ${path}`);\n    \n    const route = routes.find(r => r.path === path.replace('/', ''));\n    \n    if (!route) {\n      console.log('❌ Route introuvable -> 404');\n      return;\n    }\n    \n    // Vérifier les guards\n    if (route.canActivate) {\n      const authGuard = new AuthGuard();\n      if (!authGuard.canActivate()) {\n        console.log('🚫 Accès refusé par AuthGuard');\n        return;\n      }\n      \n      if (route.canActivate.length > 1) {\n        const adminGuard = new AdminGuard();\n        if (!adminGuard.canActivate()) {\n          console.log('🚫 Accès refusé par AdminGuard');\n          return;\n        }\n      }\n    }\n    \n    console.log(`✅ Chargement: ${route.data?.title || path}`);\n  }\n}\n\n// Tests de navigation\nconsole.log('=== Angular Router Demo ===');\n\nconst router = new Router();\nrouter.navigate('/home');\nrouter.navigate('/dashboard');\nrouter.navigate('/admin');\nrouter.navigate('/unknown');",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "exercise",
+                    "title": "🛠️ Exercice - CRUD avec Service Angular",
+                    "instructions": "Créez un service de gestion de tâches (TodoService) avec CRUD complet utilisant RxJS Observables.",
+                    "starterCode": "// todo.service.ts\ninterface Todo {\n  id: number;\n  title: string;\n  completed: boolean;\n}\n\nclass TodoService {\n  private todos: Todo[] = [];\n  private nextId = 1;\n  \n  // TODO: Implémenter getAll() retournant Observable<Todo[]>\n  getAll() {\n    \n  }\n  \n  // TODO: Implémenter create(title: string)\n  create(title: string) {\n    \n  }\n  \n  // TODO: Implémenter toggle(id: number)\n  toggle(id: number) {\n    \n  }\n  \n  // TODO: Implémenter delete(id: number)\n  delete(id: number) {\n    \n  }\n}\n\n// Test\nconst service = new TodoService();\nservice.create('Apprendre Angular');\nservice.getAll(); // Devrait afficher les tâches",
+                    "solution": "// Simulation Observable simple\nclass Observable {\n  constructor(private subscribeFn) {}\n  subscribe(observer) {\n    return this.subscribeFn(observer);\n  }\n}\n\nconst of = (...values) => new Observable((observer) => {\n  values.forEach(v => observer.next(v));\n  observer.complete();\n});\n\ninterface Todo {\n  id: number;\n  title: string;\n  completed: boolean;\n}\n\nclass TodoService {\n  private todos: Todo[] = [];\n  private nextId = 1;\n  \n  getAll() {\n    console.log('📋 Récupération de toutes les tâches');\n    return of(this.todos);\n  }\n  \n  create(title: string) {\n    const todo: Todo = {\n      id: this.nextId++,\n      title,\n      completed: false\n    };\n    this.todos.push(todo);\n    console.log(`✅ Tâche créée: ${title}`);\n    return of(todo);\n  }\n  \n  toggle(id: number) {\n    const todo = this.todos.find(t => t.id === id);\n    if (todo) {\n      todo.completed = !todo.completed;\n      console.log(`🔄 Tâche ${id} ${todo.completed ? 'complétée' : 'réouverte'}`);\n      return of(todo);\n    }\n    return of(null);\n  }\n  \n  delete(id: number) {\n    const index = this.todos.findIndex(t => t.id === id);\n    if (index > -1) {\n      this.todos.splice(index, 1);\n      console.log(`🗑️ Tâche ${id} supprimée`);\n      return of(true);\n    }\n    return of(false);\n  }\n}\n\nconst service = new TodoService();\nservice.create('Apprendre Angular').subscribe();\nservice.create('Faire le TP').subscribe();\nservice.toggle(1).subscribe();\nservice.getAll().subscribe({\n  next: (todos) => {\n    console.log('\\n📊 Liste des tâches:');\n    todos.forEach(t => console.log(`  ${t.completed ? '✓' : '○'} ${t.title}`));\n  }\n});",
+                    "hints": [
+                        "Utilisez of() pour créer des Observables",
+                        "Retournez toujours un Observable",
+                        "N'oubliez pas d'incrémenter nextId"
+                    ],
+                    "criteria": [
+                        "Toutes les méthodes retournent des Observables",
+                        "CRUD complet fonctionnel",
+                        "Gestion correcte des IDs"
+                    ]
+                },
+                {
+                    "type": "heading",
+                    "value": "6. Forms et Validation"
+                },
+                {
+                    "type": "code",
+                    "language": "typescript",
+                    "title": "Reactive Forms avec validation",
+                    "code": "// Simulation des FormControl et Validators\nclass FormControl {\n  constructor(private initialValue: any, private validators = []) {\n    this.value = initialValue;\n    this.errors = this.validate();\n  }\n  \n  value: any;\n  errors: any = null;\n  \n  setValue(value: any) {\n    this.value = value;\n    this.errors = this.validate();\n  }\n  \n  validate() {\n    const errors: any = {};\n    \n    for (const validator of this.validators) {\n      const error = validator(this.value);\n      if (error) {\n        Object.assign(errors, error);\n      }\n    }\n    \n    return Object.keys(errors).length > 0 ? errors : null;\n  }\n  \n  get valid() {\n    return this.errors === null;\n  }\n  \n  get invalid() {\n    return !this.valid;\n  }\n}\n\nclass FormGroup {\n  constructor(private controls: Record<string, FormControl>) {}\n  \n  get(name: string) {\n    return this.controls[name];\n  }\n  \n  get value() {\n    const result: any = {};\n    Object.keys(this.controls).forEach(key => {\n      result[key] = this.controls[key].value;\n    });\n    return result;\n  }\n  \n  get valid() {\n    return Object.values(this.controls).every(c => c.valid);\n  }\n}\n\n// Validators\nconst Validators = {\n  required: (value: any) => {\n    return !value || value.trim() === '' ? { required: true } : null;\n  },\n  \n  minLength: (min: number) => (value: string) => {\n    return value && value.length < min ? { minLength: { min, actual: value.length } } : null;\n  },\n  \n  email: (value: string) => {\n    const regex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n    return value && !regex.test(value) ? { email: true } : null;\n  }\n};\n\n// Création d'un formulaire\nconst userForm = new FormGroup({\n  name: new FormControl('', [Validators.required, Validators.minLength(3)]),\n  email: new FormControl('', [Validators.required, Validators.email]),\n  password: new FormControl('', [Validators.required, Validators.minLength(8)])\n});\n\nconsole.log('=== Reactive Forms Demo ===\\n');\n\n// Test validation\nconsole.log('État initial:', userForm.valid ? 'Valide' : 'Invalide');\n\n// Remplir le formulaire\nuserForm.get('name')?.setValue('Al');\nconsole.log('\\nNom = \"Al\"');\nconsole.log('  Valide?', userForm.get('name')?.valid);\nconsole.log('  Erreurs:', userForm.get('name')?.errors);\n\nuserForm.get('name')?.setValue('Alice');\nconsole.log('\\nNom = \"Alice\"');\nconsole.log('  Valide?', userForm.get('name')?.valid);\n\nuserForm.get('email')?.setValue('invalid-email');\nconsole.log('\\nEmail = \"invalid-email\"');\nconsole.log('  Erreurs:', userForm.get('email')?.errors);\n\nuserForm.get('email')?.setValue('alice@example.com');\nuserForm.get('password')?.setValue('SecurePass123');\n\nconsole.log('\\n✅ Formulaire complet:');\nconsole.log('  Valide?', userForm.valid);\nconsole.log('  Valeurs:', userForm.value);",
+                    "editable": true,
+                    "showOutput": true
+                },
+                {
+                    "type": "heading",
+                    "value": "7. HTTP Client et Intercepteurs"
+                },
+                {
+                    "type": "code",
+                    "language": "typescript",
+                    "title": "HTTP Interceptors pour authentification",
+                    "code": "// Simulation HttpClient et Interceptors\nclass HttpRequest {\n  constructor(public method: string, public url: string, public body?: any) {\n    this.headers = {};\n  }\n  headers: Record<string, string>;\n  \n  clone(options: any) {\n    const cloned = new HttpRequest(this.method, this.url, this.body);\n    cloned.headers = { ...this.headers, ...options.headers };\n    return cloned;\n  }\n}\n\nclass HttpResponse {\n  constructor(public body: any, public status = 200) {}\n}\n\n// Interceptor pour ajouter le token\nclass AuthInterceptor {\n  intercept(req: HttpRequest, next: any) {\n    console.log(`🔐 Interceptor: Ajout du token à ${req.method} ${req.url}`);\n    \n    const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...';\n    const authReq = req.clone({\n      headers: { 'Authorization': token }\n    });\n    \n    return next.handle(authReq);\n  }\n}\n\n// Interceptor pour logger\nclass LoggingInterceptor {\n  intercept(req: HttpRequest, next: any) {\n    const started = Date.now();\n    console.log(`📊 Request: ${req.method} ${req.url}`);\n    \n    return {\n      subscribe: (observer: any) => {\n        const result = next.handle(req);\n        result.subscribe({\n          next: (response: any) => {\n            const elapsed = Date.now() - started;\n            console.log(`✅ Response: ${response.status} (${elapsed}ms)`);\n            observer.next(response);\n          },\n          error: (err: any) => observer.error(err)\n        });\n      }\n    };\n  }\n}\n\n// HttpClient simplifié\nclass HttpClient {\n  constructor(private interceptors: any[] = []) {}\n  \n  get(url: string) {\n    return this.request('GET', url);\n  }\n  \n  post(url: string, body: any) {\n    return this.request('POST', url, body);\n  }\n  \n  request(method: string, url: string, body?: any) {\n    let req = new HttpRequest(method, url, body);\n    \n    // Chaîne des interceptors\n    const chain = this.interceptors.reduceRight(\n      (next, interceptor) => {\n        return {\n          handle: (request: HttpRequest) => interceptor.intercept(request, next)\n        };\n      },\n      {\n        handle: (request: HttpRequest) => {\n          return {\n            subscribe: (observer: any) => {\n              setTimeout(() => {\n                const response = new HttpResponse({ data: 'Mock data' });\n                observer.next(response);\n              }, 300);\n            }\n          };\n        }\n      }\n    );\n    \n    return chain.handle(req);\n  }"
+                },
+                {
+                    "type": "activity",
+                    "title": "🚀 TP - Application Angular complète",
+                    "duration": "4h",
+                    "instructions": "Créer une application de gestion de produits avec Angular : CRUD complet, routing, guards, services, RxJS et formulaires réactifs.",
+                    "expectedOutput": [
+                        "Module ProductsModule avec routing",
+                        "Service ProductService avec CRUD (HttpClient simulé)",
+                        "Composants: ProductList, ProductDetail, ProductForm",
+                        "Routing avec guards (AuthGuard)",
+                        "Formulaire réactif avec validation",
+                        "Utilisation de RxJS (map, filter, switchMap)",
+                        "Gestion des erreurs",
+                        "UI/UX soignée",
+                        "Code TypeScript typé et structuré"
+                    ]
+                },
+                {
+                    "type": "callout",
+                    "variant": "success",
+                    "title": "✅ Fin du module 8",
+                    "content": "Vous maîtrisez maintenant les fondamentaux d'Angular et des SPAs modernes. Le dernier module abordera l'UI/UX et le projet final."
                 }
             ]
         },
@@ -1867,7 +2102,7 @@
                 {
                     "type": "callout",
                     "variant": "success",
-                    "title": "✅ Fin du module 8",
+                    "title": "✅ Fin du module 9",
                     "content": "Votre application est maintenant belle, rapide et accessible."
                 }
             ]
