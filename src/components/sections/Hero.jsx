@@ -54,7 +54,7 @@ const Hero = () => {
             <div className="text-left">
               <p className="font-semibold">Ahmed Ghodhbeni</p>
               <p className="text-sm text-gray-500">
-                Ingénieur logiciel • Enseignant en informatique
+                Ingénieur informatique • Enseignant
               </p>
             </div>
           </div>

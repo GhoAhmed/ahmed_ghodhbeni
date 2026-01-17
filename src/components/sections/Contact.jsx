@@ -11,7 +11,7 @@ const Contact = () => {
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Intéressé par mon profil ? N'hésitez pas à me contacter pour
-            discuter d'opportunités ou de collaborations
+            discuter d'opportunités
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">

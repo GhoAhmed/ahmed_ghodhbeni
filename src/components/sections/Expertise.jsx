@@ -7,7 +7,7 @@ const Expertise = () => {
         <h2 className="section-title">Domaines d'expertise</h2>
         <p className="section-subtitle mx-auto">
           Des cours couvrant les technologies et concepts essentiels du
-          développement moderne
+          développement
         </p>
       </div>
 

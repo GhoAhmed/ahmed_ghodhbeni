@@ -18,6 +18,13 @@
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+    /* Largeurs fixes responsive */
+    --container-mobile: 100%;
+    --container-tablet: 720px;
+    --container-desktop: 960px;
+    --container-wide: 1200px;
+    --container-max: 1400px;
 }
 
 /* =====================================================
@@ -31,27 +38,29 @@
 
     body {
         @apply bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/20 text-gray-800 font-sans antialiased;
+        /* Empêche le débordement horizontal */
+        overflow-x: hidden;
     }
 
-    /* Typography améliorée */
+    /* Typography améliorée et responsive */
     h1 {
-        @apply text-4xl md:text-5xl font-bold text-gray-900 tracking-tight;
+        @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight;
     }
 
     h2 {
-        @apply text-3xl md:text-4xl font-bold text-gray-900 tracking-tight;
+        @apply text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight;
     }
 
     h3 {
-        @apply text-2xl md:text-3xl font-semibold text-gray-800;
+        @apply text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-800;
     }
 
     h4 {
-        @apply text-xl font-semibold text-gray-800;
+        @apply text-lg sm:text-xl font-semibold text-gray-800;
     }
 
     p {
-        @apply text-gray-600 leading-relaxed;
+        @apply text-sm sm:text-base text-gray-600 leading-relaxed;
     }
 
     a {
@@ -70,14 +79,49 @@
 
 @layer components {
 
-    /* Container */
+    /* Container avec largeur fixe responsive */
     .container-app {
-        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+        @apply w-full mx-auto px-4;
+        /* Mobile */
+        max-width: var(--container-mobile);
     }
 
-    /* Card avec design moderne */
+    /* Tablette */
+    @media (min-width: 640px) {
+        .container-app {
+            @apply px-6;
+            max-width: var(--container-tablet);
+        }
+    }
+
+    /* Desktop */
+    @media (min-width: 1024px) {
+        .container-app {
+            @apply px-8;
+            max-width: var(--container-desktop);
+        }
+    }
+
+    /* Large Desktop */
+    @media (min-width: 1280px) {
+        .container-app {
+            max-width: var(--container-wide);
+        }
+    }
+
+    /* Extra Large */
+    @media (min-width: 1536px) {
+        .container-app {
+            max-width: var(--container-max);
+        }
+    }
+
+    /* Card avec design moderne et responsive */
     .card {
-        @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-gray-100/50 p-6 transition-all duration-300;
+        @apply bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-sm border border-gray-100/50 p-4 sm:p-6 transition-all duration-300;
+        /* Empêche le débordement */
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .card-hover {
@@ -88,9 +132,11 @@
         @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-lg;
     }
 
-    /* Buttons avec variantes */
+    /* Buttons avec variantes responsive */
     .btn {
-        @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+        @apply inline-flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base;
+        /* Empêche le rétrécissement */
+        flex-shrink: 0;
     }
 
     .btn-primary {
@@ -110,16 +156,17 @@
     }
 
     .btn-sm {
-        @apply px-4 py-2 text-sm;
+        @apply px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm;
     }
 
     .btn-lg {
-        @apply px-8 py-4 text-lg;
+        @apply px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg;
     }
 
-    /* Badge avec styles variés */
+    /* Badge avec styles variés responsive */
     .badge {
-        @apply inline-flex items-center gap-1 px-3 py-1 text-xs font-medium rounded-full;
+        @apply inline-flex items-center gap-1 px-2 py-1 sm:px-3 text-xs font-medium rounded-full;
+        flex-shrink: 0;
     }
 
     .badge-primary {
@@ -138,32 +185,33 @@
         @apply bg-indigo-100 text-indigo-700;
     }
 
-    /* Section titles */
+    /* Section titles responsive */
     .section-title {
-        @apply text-3xl md:text-4xl font-bold text-gray-900 mb-3;
+        @apply text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3;
     }
 
     .section-subtitle {
-        @apply text-lg text-gray-600 mb-8 max-w-2xl;
+        @apply text-base sm:text-lg text-gray-600 mb-8 max-w-2xl;
     }
 
-    /* Input amélioré */
+    /* Input amélioré responsive */
     .input {
-        @apply w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white;
+        @apply w-full rounded-xl border border-gray-300 px-3 py-2 sm:px-4 sm:py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white text-sm sm:text-base;
+        box-sizing: border-box;
     }
 
     .input-group {
-        @apply flex gap-2;
+        @apply flex flex-col sm:flex-row gap-2;
     }
 
     /* Divider */
     .divider {
-        @apply border-t border-gray-200 my-8;
+        @apply border-t border-gray-200 my-6 sm:my-8;
     }
 
-    /* Alert boxes */
+    /* Alert boxes responsive */
     .alert {
-        @apply rounded-xl p-4 border;
+        @apply rounded-xl p-3 sm:p-4 border text-sm sm:text-base;
     }
 
     .alert-info {
@@ -182,7 +230,7 @@
         @apply bg-red-50 border-red-200 text-red-800;
     }
 
-    /* Progress bar */
+    /* Progress bar responsive */
     .progress {
         @apply w-full h-2 bg-gray-200 rounded-full overflow-hidden;
     }
@@ -262,6 +310,12 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
+
+    /* Empêche le débordement */
+    .no-overflow {
+        overflow: hidden;
+        max-width: 100%;
+    }
 }
 
 /* =====================================================
@@ -301,16 +355,112 @@
 }
 
 /* =====================================================
-   RESPONSIVE UTILITIES
+   RESPONSIVE UTILITIES AMÉLIORÉES
    ===================================================== */
 
-@media (max-width: 768px) {
+/* Mobile First - Petit écran */
+@media (max-width: 639px) {
     .container-app {
         @apply px-4;
     }
 
-    .section-title {
-        @apply text-2xl md:text-3xl;
+    .card {
+        @apply p-4 rounded-xl;
+    }
+
+    /* Réduire les gaps sur mobile */
+    .space-y-6>*+* {
+        margin-top: 1rem;
+    }
+
+    .gap-6 {
+        gap: 1rem;
+    }
+
+    /* Icônes plus petites sur mobile */
+    .w-12.h-12 {
+        @apply w-10 h-10;
+    }
+
+    .w-16.h-16 {
+        @apply w-12 h-12;
+    }
+}
+
+/* Tablette */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .container-app {
+        @apply px-6;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .container-app {
+        @apply px-8;
+    }
+}
+
+/* Grilles responsive améliorées */
+@media (max-width: 767px) {
+
+    .grid.md\:grid-cols-2,
+    .grid.md\:grid-cols-3 {
+        @apply grid-cols-1;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .grid.md\:grid-cols-3 {
+        @apply grid-cols-2;
+    }
+}
+
+/* Flex responsive */
+@media (max-width: 767px) {
+    .flex.md\:flex-row {
+        @apply flex-col;
+    }
+
+    .flex-wrap {
+        flex-wrap: wrap;
+    }
+}
+
+/* Textes responsive */
+@media (max-width: 639px) {
+    .text-3xl {
+        @apply text-2xl;
+    }
+
+    .text-2xl {
+        @apply text-xl;
+    }
+
+    .text-xl {
+        @apply text-lg;
+    }
+}
+
+/* Images et photos de profil responsive */
+@media (max-width: 639px) {
+    .w-32.h-32 {
+        @apply w-24 h-24;
+    }
+
+    .text-5xl {
+        @apply text-4xl;
+    }
+}
+
+/* Boutons dans les cartes de projet */
+@media (max-width: 639px) {
+    .flex.gap-3>a {
+        @apply flex-1 min-w-0;
+    }
+
+    .btn span {
+        @apply hidden sm:inline;
     }
 }
 
@@ -321,5 +471,14 @@
 @media print {
     .no-print {
         display: none !important;
+    }
+
+    .container-app {
+        max-width: 100%;
+    }
+
+    .card {
+        @apply shadow-none border-gray-300;
+        page-break-inside: avoid;
     }
 }

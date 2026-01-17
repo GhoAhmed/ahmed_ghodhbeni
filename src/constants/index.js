@@ -135,7 +135,7 @@ export const expertiseAreas = [
   },
   {
     title: "DevOps & Cloud",
-    description: "Docker, CI/CD, AWS, Azure",
+    description: "Git, Docker, CI/CD",
     icon: FaCloud,
     iconColor: "orange-700",
     color: "from-orange-500 to-red-500",
