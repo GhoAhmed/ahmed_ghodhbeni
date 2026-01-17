@@ -1,26 +1,45 @@
 {
     "name": "Ahmed Ghodhbeni",
     "title": "Ingénieur Informatique",
-    "specialty": "Développement Web & Pédagogie Numérique",
-    "bio": "Ingénieur passionné par l’enseignement et les technologies web modernes. Je conçois des cours interactifs orientés pratique et apprentissage actif.",
+    "specialty": "Génie Logiciel",
+    "bio": "Ingénieur en informatique et enseignant vacataire, spécialisé en génie logiciel technologies web modernes. Expérience confirmée en conception, développement et intégration d’applications web et mobiles, enseignement supérieur et encadrement de stages et PFE. Engagé dans l’innovation pédagogique et la formation des étudiants à l’employabilité.",
     "pedagogicalApproach": [
-        "Pédagogie active",
+        "Approche par compétences",
         "Apprentissage par la pratique",
-        "Utilisation des outils numériques",
+        "Utilisation des outils de collaboration",
         "Auto-évaluation par quiz interactifs"
     ],
     "skills": [
-        "HTML",
-        "CSS",
+        "Angular",
+        "Node.js",
+        "Express.js",
         "JavaScript",
+        "TypeScript",
+        "PHP",
+        "Laravel",
         "React",
-        "Tailwind CSS"
+        "Next.js",
+        "Tailwind CSS",
+        "ASP .NET",
+        "C#",
+        "Android",
+        "React Native",
+        "Sql/NoSql",
+        "PostgreSql"
     ],
     "tools": [
-        "React",
-        "Vite",
+        "Figma",
+        "Jira",
         "Git",
-        "Google NoteLM"
+        "Google NoteLM",
+        "VS Code",
+        "Postman",
+        "Canvas",
+        "Unity",
+        "Unreal Engine",
+        "Linux",
+        "Three Js",
+        "GSAP"
     ],
     "objective": "Mettre en place des supports pédagogiques numériques pour améliorer l’engagement et l’autonomie des étudiants."
 }

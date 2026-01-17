@@ -3,6 +3,7 @@ import {
   FaBriefcase,
   FaBullseye,
   FaChalkboardTeacher,
+  FaChessKnight,
   FaCloud,
   FaCode,
   FaCommentDots,
@@ -12,6 +13,7 @@ import {
   FaGithub,
   FaLaptopCode,
   FaLinkedin,
+  FaNetworkWired,
   FaPalette,
   FaReact,
   FaRobot,
@@ -19,14 +21,10 @@ import {
   FaStar,
   FaUser,
   FaUserGraduate,
+  FaUsers,
 } from "react-icons/fa";
 import { FaMedal } from "react-icons/fa";
-import { FcIdea } from "react-icons/fc";
-import {
-  IoLogoAndroid,
-  IoLogoGameControllerB,
-  IoMdAnalytics,
-} from "react-icons/io";
+import { IoLogoAndroid, IoMdAnalytics } from "react-icons/io";
 import { RiBookShelfFill } from "react-icons/ri";
 import { TiShoppingCart } from "react-icons/ti";
 import { FaFilePen, FaGraduationCap } from "react-icons/fa6";
@@ -269,43 +267,43 @@ export const highlights = [
 export const experiences = [
   {
     title: "Enseignant en Informatique",
-    company: "Institut Supérieur",
-    period: "2020 - Présent",
+    company: "ISET Kasserine",
+    period: "Oct 2024 - Présent",
     type: "CDI",
     description:
-      "Formation de futurs ingénieurs et techniciens en développement web, bases de données et algorithmique",
+      "Depuis octobre 2024, j’assure l’enseignement à l’Institut Supérieur des Études Technologiques de Kasserine en tant qu’enseignant vacataire. Mes interventions couvrent plusieurs modules liés au développement web et mobile, permettant aux étudiants de renforcer leurs compétences pratiques et techniques.",
     achievements: [
-      "Conception de 15+ cours interactifs",
-      "Formation de 500+ étudiants",
-      "Taux de réussite de 95%",
-      "Développement d'une plateforme e-learning",
+      "Développement web et mobile",
+      "Animation de TP",
+      " CO-Encadrement de projets",
+      "Suivi de stages académiques",
     ],
     icon: FaChalkboardTeacher,
     color: "from-blue-500 to-indigo-500",
   },
   {
-    title: "Ingénieur Développement",
-    company: "Entreprise Tech",
-    period: "2018 - 2020",
+    title: "Développeur Full Stack",
+    company: "CDF CENTER",
+    period: "Sep 2021 - Présent",
     type: "CDI",
     description:
-      "Développement d'applications web et mobiles pour divers clients",
+      "Développement d'applications web et mobiles pour divers clients. Gestion de projet Agile/SCRUM, gestion de version (Git) et collaboration avec l’équipe produit",
     achievements: [
       "Développement de 10+ projets web",
-      "Architecture microservices",
+      "Architecture CLEAN",
       "Intégration CI/CD",
-      "Formation d'équipes juniors",
+      "Formation des stagiaires",
     ],
     icon: FaLaptopCode,
     color: "from-green-500 to-emerald-500",
   },
   {
-    title: "Développeur Full Stack",
-    company: "Startup Innovante",
-    period: "2016 - 2018",
+    title: "Développeur Backend",
+    company: "INNOVATION PLUS",
+    period: "Mars 2025 - Présent",
     type: "CDI",
     description:
-      "Création d'applications SaaS et participation à l'architecture technique",
+      "Conception et mise en place de l’architecture backend, les fonctionnalités cœur et l'intégration avec le frontend, ainsi que l'optimisation des API pour la stabilité.",
     achievements: [
       "Stack MERN complète",
       "API REST performantes",
@@ -326,7 +324,7 @@ export const skillCategories = [
       { name: "React.js", level: 95 },
       { name: "Node.js", level: 90 },
       { name: "JavaScript/TypeScript", level: 95 },
-      { name: "HTML/CSS", level: 100 },
+      { name: "Angular", level: 100 },
     ],
   },
   {
@@ -337,7 +335,7 @@ export const skillCategories = [
       { name: "SQL (PostgreSQL, MySQL)", level: 90 },
       { name: "MongoDB", level: 85 },
       { name: "Express.js", level: 90 },
-      { name: "API REST", level: 95 },
+      { name: "ASP .NET", level: 95 },
     ],
   },
   {
@@ -370,54 +368,57 @@ export const tools = [
   { name: "Postman", icon: SiPostman, category: "API" },
   { name: "Jira", icon: SiJira, category: "Gestion" },
   { name: "Slack", icon: FaCommentDots, category: "Communication" },
-  { name: "Notion", icon: FaFilePen, category: "Documentation" },
+  { name: "NoteLM", icon: FaFilePen, category: "Documentation" },
 ];
 
 export const achievements = [
   {
     title: "Meilleur enseignant de l'année",
-    year: "2023",
-    organization: "Institut Supérieur",
+    year: "2025",
+    organization: "ISET Kasserine",
     icon: GrAchievement,
     color: "from-yellow-400 to-orange-500",
   },
   {
-    title: "Prix d'excellence pédagogique",
-    year: "2022",
-    organization: "Ministère de l'Enseignement Supérieur",
+    title: "Microsoft HTML5 & CSS3",
+    year: "2021",
+    organization: "Certification attestant la maîtrise des technologies web",
     icon: FaMedal,
     color: "from-blue-500 to-indigo-500",
   },
   {
-    title: "Innovation en e-learning",
-    year: "2021",
-    organization: "Conférence EdTech Tunisie",
-    icon: FcIdea,
+    title: "Meilleur Membre",
+    year: "2025",
+    organization: "Couronne Royale des Sports de Réflexion à Kasserine",
+    icon: FaChessKnight,
     color: "from-green-500 to-emerald-500",
   },
 ];
 
 export const publications = [
   {
-    title: "L'apprentissage actif dans l'enseignement de la programmation",
-    type: "Article de recherche",
-    journal: "Revue Tunisienne de Pédagogie",
-    year: "2023",
+    title: "Contribution à l’amélioration des pratiques pédagogiques",
+    type: "Pédagogiques",
+    journal:
+      "Intégration des méthodes de pédagogie active : ateliers pratiques, projets collaboratifs et travaux en équipe.",
+    year: "2024",
     icon: FaFile,
   },
   {
-    title: "Gamification et motivation des étudiants en informatique",
-    type: "Communication",
-    journal: "Colloque International de Pédagogie",
-    year: "2022",
-    icon: IoLogoGameControllerB,
+    title: "Participation aux comités institutionnels",
+    type: "Institutionnelles",
+    journal:
+      "Harmonisation des fiches modules en développement côté client et côté serveur",
+    year: "2024",
+    icon: FaUsers,
   },
 ];
 
 export const languages = [
-  { name: "Arabe", level: "Langue maternelle", flag: "🇹🇳", proficiency: 100 },
-  { name: "Français", level: "Courant (C1)", flag: "🇫🇷", proficiency: 95 },
-  { name: "Anglais", level: "Avancé (B2)", flag: "🇬🇧", proficiency: 85 },
+  { name: "Arabe", level: "Langue maternelle", flag: "Ar", proficiency: 100 },
+  { name: "Anglais", level: "Courant (C1)", flag: "En", proficiency: 90 },
+  { name: "Français", level: "Avancé (B2)", flag: "Fr", proficiency: 80 },
+  { name: "Allemand", level: "Débutant (A1)", flag: "Gr", proficiency: 50 },
 ];
 
 export const projects = [
@@ -528,71 +529,54 @@ export const projects = [
 export const education = [
   {
     degree: "Diplôme d'Ingénieur en Informatique",
-    school: "École Nationale d'Ingénieurs",
-    location: "Tunis, Tunisie",
-    period: "2013 - 2016",
+    school: "ISSATSO",
+    location: "Tunis, Sousse",
+    period: "2021 - 2024",
     type: "Diplôme d'ingénieur",
     icon: FaGraduationCap,
     color: "from-blue-500 to-indigo-500",
-    description:
-      "Spécialisation en développement logiciel et systèmes d'information",
+    description: "Spécialisation en génie logiciel et architecture logiciel",
     highlights: [
       "Major de promotion",
-      "Projet de fin d'études : Application e-learning",
+      "Projet de fin d'études : Application de location immobilière",
       "Mention Très Bien",
-      "Stage chez Microsoft Tunisie",
+      "Stage chez Com&Dev",
     ],
   },
   {
-    degree: "Licence en Informatique",
-    school: "Faculté des Sciences",
-    location: "Tunis, Tunisie",
-    period: "2010 - 2013",
+    degree: "Licence en Développement des Systèmes d’Information",
+    school: "ISET KASSERINE",
+    location: "Tunis, Kasserine",
+    period: "2018 - 2021",
     type: "Licence",
     icon: RiBookShelfFill,
     color: "from-green-500 to-emerald-500",
-    description: "Formation fondamentale en informatique et mathématiques",
+    description: "Formation appliqué en informatique et développement logiciel",
     highlights: [
-      "Algorithmique avancée",
-      "Programmation orientée objet",
-      "Bases de données relationnelles",
-      "Architecture des ordinateurs",
+      "Major de promotion",
+      "Projet de fin d'études : Application de marketing digital",
+      "Mention Très Bien",
+      "Stage chez CDF CENTER",
     ],
   },
 ];
 
 export const certifications = [
   {
-    name: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
-    date: "2023",
-    icon: FaCloud,
+    name: "HTML5 & CSS3",
+    issuer: "Microsoft",
+    date: "2021",
+    icon: FaCode,
     color: "bg-orange-500",
     credentialId: "AWS-SAA-123456",
   },
   {
-    name: "Professional Scrum Master I",
-    issuer: "Scrum.org",
-    date: "2022",
-    icon: FaFile,
+    name: "CCNA1",
+    issuer: "CISCO",
+    date: "2025",
+    icon: FaNetworkWired,
     color: "bg-blue-500",
     credentialId: "PSM-789012",
-  },
-  {
-    name: "MongoDB Certified Developer",
-    issuer: "MongoDB University",
-    date: "2022",
-    icon: FaDatabase,
-    color: "bg-green-500",
-    credentialId: "MDB-345678",
-  },
-  {
-    name: "React - The Complete Guide",
-    issuer: "Udemy",
-    date: "2021",
-    icon: FaReact,
-    color: "bg-cyan-500",
-    credentialId: "UC-901234",
   },
 ];
 

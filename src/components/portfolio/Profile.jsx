@@ -1,14 +1,9 @@
-import {
-  FaGithub,
-  FaGraduationCap,
-  FaLaptopCode,
-  FaLinkedin,
-  FaRocket,
-} from "react-icons/fa";
+import { FaGithub, FaLaptopCode, FaLinkedin, FaRocket } from "react-icons/fa";
 import profile from "../../data/profile.json";
 import Grille from "../sections/Grille";
 import { SiQuizlet } from "react-icons/si";
 import { HiMail } from "react-icons/hi";
+import { IoLogoAndroid } from "react-icons/io";
 
 const Profile = () => {
   return (
@@ -28,7 +23,7 @@ const Profile = () => {
               {profile.name}
             </h2>
             <p className="text-xl text-blue-600 font-medium mb-3">
-              {profile.title}
+              {profile.title} - {profile.specialty}
             </p>
             <p className="text-gray-700 leading-relaxed">{profile.bio}</p>
           </div>
@@ -39,7 +34,7 @@ const Profile = () => {
               <FaLaptopCode className="h-5 w-5" /> Développement Web
             </span>
             <span className="badge badge-info">
-              <FaGraduationCap className="h-5 w-5" /> Pédagogie
+              <IoLogoAndroid className="h-5 w-5" /> Mobile Native
             </span>
             <span className="badge badge-success">
               <FaRocket className="h-5 w-5" /> Innovation
@@ -53,7 +48,7 @@ const Profile = () => {
           <div className="flex gap-3 pt-2">
             <a
               href="mailto:ahmed.godhbeni@gmail.com"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium"
             >
               <HiMail />
               <span>Email</span>
