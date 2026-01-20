@@ -9,6 +9,7 @@ import Loading from "../components/layout/Loading";
 import { RiBookShelfFill } from "react-icons/ri";
 import CourseContent from "../components/courses/CourseContent";
 import { HiUsers } from "react-icons/hi";
+import AIStudyAssistant from "../components/courses/AIStudyAssistant";
 
 const coursesData = {
   "client-side": clientCourse,
@@ -21,6 +22,7 @@ const CoursePage = () => {
   const [activeChapter, setActiveChapter] = useState(0);
   const [completedChapters, setCompletedChapters] = useState([]);
   const [showSidebar, setShowSidebar] = useState(false);
+  const [showAIAssistant, setShowAIAssistant] = useState(true); // NEW STATE
 
   useEffect(() => {
     const selectedCourse = coursesData[id];
@@ -302,6 +304,23 @@ const CoursePage = () => {
               </div>
 
               <CourseContent content={currentChapter.content} />
+
+              {/* NEW: AI STUDY ASSISTANT */}
+              <div className="space-y-4">
+                <button
+                  onClick={() => setShowAIAssistant(!showAIAssistant)}
+                  className="w-full lg:hidden btn btn-primary justify-center"
+                >
+                  {showAIAssistant ? "Hide" : "Show"} AI Assistant
+                </button>
+
+                {showAIAssistant && (
+                  <AIStudyAssistant
+                    course={course}
+                    currentChapter={currentChapter}
+                  />
+                )}
+              </div>
 
               {/* Navigation - MOBILE */}
               <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200 sm:hidden">
